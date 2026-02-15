@@ -1,0 +1,91 @@
+package jp.nagu.continuousplayer
+
+import android.content.Context
+import android.net.Uri
+import android.util.Log
+import androidx.media3.common.MediaItem
+import androidx.media3.common.PlaybackException
+import androidx.media3.common.Player
+import androidx.media3.exoplayer.ExoPlayer
+
+/**
+ * ExoPlayerをラップし、プレイリスト再生・シーク・前後スキップを提供するコントローラ。
+ *
+ * 再生エラー発生時は自動的に次のトラックへスキップする。
+ * 使用後は [release] を呼んでリソースを解放すること。
+ */
+class PlayerController(context: Context) {
+
+    companion object {
+        private const val TAG = "PlayerController"
+    }
+
+    val player: ExoPlayer = ExoPlayer.Builder(context).build().apply {
+        repeatMode = Player.REPEAT_MODE_OFF
+    }
+
+    private val errorListener = object : Player.Listener {
+        override fun onPlayerError(error: PlaybackException) {
+            Log.e(TAG, "Playback error, skipping: ${error.message}")
+            val current = player.currentMediaItemIndex
+            if (current < player.mediaItemCount - 1) {
+                player.seekToDefaultPosition(current + 1)
+            }
+            player.prepare()
+        }
+    }
+
+    init {
+        player.addListener(errorListener)
+    }
+
+    /**
+     * プレイリストをセットし、指定インデックスから再生を開始する。
+     *
+     * @param videos 再生する動画のリスト
+     * @param startIndex 再生開始位置（デフォルト: 0）
+     */
+    fun setPlaylist(videos: List<VideoItem>, startIndex: Int = 0) {
+        val items = videos.map { MediaItem.fromUri(Uri.parse(it.uri)) }
+        player.setMediaItems(items, startIndex, 0L)
+        player.prepare()
+        player.play()
+    }
+
+    /** 再生中ならポーズ、ポーズ中なら再生を再開する。 */
+    fun togglePlayPause() {
+        if (player.isPlaying) player.pause() else player.play()
+    }
+
+    /** 指定ミリ秒だけ前方にシークする。 */
+    fun seekForward(ms: Long = 10_000L) {
+        player.seekTo(player.currentPosition + ms)
+    }
+
+    /** 指定ミリ秒だけ後方にシークする（0未満にはならない）。 */
+    fun seekBackward(ms: Long = 10_000L) {
+        player.seekTo((player.currentPosition - ms).coerceAtLeast(0))
+    }
+
+    /** プレイリストの次の動画へスキップする。次が無い場合は何もしない。 */
+    fun nextVideo() {
+        Log.d(TAG, "nextVideo: current=${player.currentMediaItemIndex}, count=${player.mediaItemCount}, hasNext=${player.hasNextMediaItem()}")
+        if (player.hasNextMediaItem()) {
+            player.seekToNextMediaItem()
+        }
+    }
+
+    /** プレイリストの前の動画へスキップする。前が無い場合は何もしない。 */
+    fun previousVideo() {
+        Log.d(TAG, "previousVideo: current=${player.currentMediaItemIndex}, count=${player.mediaItemCount}, hasPrev=${player.hasPreviousMediaItem()}")
+        if (player.hasPreviousMediaItem()) {
+            player.seekToPreviousMediaItem()
+        }
+    }
+
+    /** プレーヤーのリソースを解放する。 */
+    fun release() {
+        player.removeListener(errorListener)
+        player.release()
+    }
+}

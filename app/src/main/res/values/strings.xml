@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ContinuousPlayer</string>
+    <string name="select_folder">Select Video Folder</string>
+    <string name="select_file">Select Video File</string>
+    <string name="exit_app">Exit</string>
+    <string name="info">情報</string>
+    <string name="no_mp4_found">No mp4 files found in this folder</string>
+</resources>
