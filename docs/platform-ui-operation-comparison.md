@@ -1,22 +1,26 @@
-# ContinuousPlayer：UI・操作比較（Apple 4版の現行仕様を反映）
+# ContinuousPlayer：UI・操作比較（Android・Android TV・Apple 4版の現行仕様を反映）
 
 初版調査日：2026年10月27日（日本時間）
 
 Apple版更新日：2026年11月1日（日本時間）
 
-iOS・iPadOS・tvOS・Mac Catalystを、2026年10月31日夜のローカルHEADと11月1日のUIスナップショットに合わせて更新した。Android・Android TV・Windowsは初版の参照コミットを維持し、最新版へ再調査したとは扱わない。共通操作仕様の提案、コード上の実装、画面で確認した表示、実機受入を区別する。
+Android・Android TV更新日：2026年11月1日（日本時間）
 
-[2026年10月24日の比較資料](platform-ui-operation-comparison-2026-10-24.md)は当時の記録として残す。本書は10月27日のAndroidの変更を反映した比較資料に、今回のApple 4版の更新を加えたものである。ファイル名の日付は初版を示す。
+Android・Android TVを11月1日0時台のローカルHEADと同日のUIスナップショットに合わせて更新した。iOS・iPadOS・tvOS・Mac Catalystは10月31日夜の参照コミットと11月1日のUIスナップショット、Windowsは初版の参照コミットを維持する。共通操作仕様の提案、コード上の実装、画面で確認した表示、実機受入を区別する。
+
+本書は10月27日の比較を基に、Android・Android TVとApple 4版の現行仕様を反映する更新用の比較資料である。
 
 ## 1. 調査対象と確認方法
 
 | 版 | 参照コミット | コミット日時（日本時間） | 前回比較からの変更 |
 |---|---|---|---|
-| Android・Android TV | [268d99c](https://github.com/mnagata/ContinuousPlayer_for_Android/commit/268d99cbc2a3de2662210229dc7c4c267dcde375) | 2026-10-27 18:17 | 更新あり |
+| Android・Android TV | [85ff211](https://github.com/mnagata/ContinuousPlayer_for_Android/commit/85ff21122442aa6ca6ed200d11c177f6e806ef60) | 2026-11-01 00:04 | 11月1日に更新。旧参照は268d99c。ホーム文言・高精度音声出力・出力情報を更新 |
 | iOS・iPadOS・tvOS・Mac Catalyst | [a4c4040](https://github.com/mnagata/ContinuousPlayer_for_iOS/commit/a4c40408350ca1d2e0b9bee33c09f6d8bc14d5a5) | 2026-10-31 23:52 | 11月1日に更新。旧参照は8ec1593 |
 | Windows | [6280695](https://github.com/mnagata/ContinuousPlayer_for_Win/commit/62806952a521cada0e6b018734041c3768ceba81) | 2026-10-18 16:22 | 同じ参照コミット |
 
 画面定義、入力処理、ファイル選択、再生状態の処理を静的に照合した。文書とコードが食い違う場合はコードを優先した。特にAndroid READMEには単一SAF登録時の一覧省略など旧手順が残っているため、その記載を現行動作の根拠にはしていない。
+
+今回のAndroid版は製品ソース・Debug Manifest・アプリのビルド設定が参照コミットと一致することを確認し、旧参照からの差分を照合した。[スマートフォン15枚][a-snapshots]と[Android TV 17枚][a-tv-snapshots]の既存記録を参照し、ホームと音声情報の画像も確認した。スマホはAndroid 16 / API 36.1、TVはAndroid 16 / API 36のエミュレーターで、同じAPK・サンプルデータを使う。TVのD-pad入力は注入され、一部フォーカスは撮影用コードで指定されている。保存済み行のUSB表記は撮影用モデルであり、実USB接続を示さない。
 
 今回のApple版は製品ソースが参照コミットと一致することを確認し、選択・状態復元・入力・ライフサイクル・表示をコードで照合した。[11月1日の実UIスナップショット](../ui-snapshots/apple-2026-11-01.md)には、iPhone 16枚・iPad 16枚・Apple TV 12枚・Mac Catalyst 16枚を収録している。Simulator／Macのサンプル表示であり、キャンセル・復旧・物理入力の全条件を画像だけで検証したものではない。tvOSの音声情報画面は撮影ハーネスが到達できず未収録だが、表示実装は存在する。
 
@@ -24,7 +28,7 @@ iOS・iPadOS・tvOS・Mac Catalystを、2026年10月31日夜のローカルHEAD�
 
 ## 2. 比較結果の要点
 
-Androidは、再選択時のセッション保持、登録後の保存済み一覧への復帰、共通キー割当、手入力のDLNA接続、失敗時の停止に対応した。一時停止メニューは上端・下端の各1行に整理され、アプリ内終了と重複する補助メニューも廃止された。
+Android・Android TVは同じAPKで、再選択時のセッション保持、登録後の保存済み一覧への復帰、共通キー割当、手入力のDLNA接続、失敗時の停止に対応する。一時停止メニューは上端・下端の各1行で、アプリ内終了と重複する補助メニューは設けない。今回の更新でホームを「ANIME OPENINGS / ENDINGS」「動画フォルダーを選ぶ」に揃え、PCM形式に応じた高精度出力、対応USBのミキサー選択、出力経路・実ミキサー／HAL情報と注記を反映した。
 
 Apple 4版も、一覧・情報の表示中にセッションを保持し、閉じると元の再生意図を復元する構成へ更新された。割り込み後は手動再開を待ち、同じファイルを含む明示選択は0秒から再生する。通常エラーの自動スキップと縦画面の常設35%情報領域は廃止され、iPhone／iPad／tvOSは上下の操作部、Macはタイトルバーと下端5操作を使う。
 
@@ -32,11 +36,11 @@ Apple 4版も、一覧・情報の表示中にセッションを保持し、閉�
 
 ## 3. ホームとアプリ終了
 
-| 項目 | Android | iPhone／iPad | Windows |
+| 項目 | Android／Android TV | iPhone／iPad | Windows |
 |---|---|---|---|
-| ホーム | ロゴ、「ホーム」、アプリ名、「OP / EDを選ぶ」。TVのみ操作案内 | ロゴ、英字ラベル、アプリ名、「動画フォルダーを選ぶ」、補足説明 | ロゴ、英字ラベル、アプリ名、選択、Exit、キー案内 |
+| ホーム | ロゴ、「ANIME OPENINGS / ENDINGS」、アプリ名、「動画フォルダーを選ぶ」。TVのみ操作案内 | ロゴ、英字ラベル、アプリ名、「動画フォルダーを選ぶ」、補足説明 | ロゴ、英字ラベル、アプリ名、選択、Exit、キー案内 |
 | ロゴの表示領域 | 通常180dp、横画面100dp | 通常200pt、高さ450pt未満では120pt | 180DIP |
-| 選択ボタン | 通常幅280dp・最小高さ56dp | 最大幅320pt、上下18ptの余白 | 280×56DIP |
+| 選択ボタン | 通常最小幅280dp・最小高さ56dp | 最大幅320pt、上下18ptの余白 | 280×56DIP |
 | アプリ内終了 | ホーム・再生画面とも設けない。ホームの戻るはOSへ渡す | 設けない | ホームと再生ツールバーに終了ボタンあり |
 | 共通する意匠 | 濃紺、シアン・紫、重なるフレームと再生マーク | 同じモチーフ。配色値・字体・角丸は別指定 | Android由来の配色・図形をXAMLで実装 |
 
@@ -46,7 +50,7 @@ Androidの「その他」→「アプリを終了」は廃止済み。Windowsに
 
 ## 4. 保存済みフォルダーとファイル選択
 
-| 項目 | Android | iPhone／iPad | Windows |
+| 項目 | Android／Android TV | iPhone／iPad | Windows |
 |---|---|---|---|
 | ホームからの入口 | 保存済みが0件・1件・複数件でも必ず一覧を表示 | 保存済み一覧を表示 | 保存済み一覧を表示 |
 | 登録直後 | SAF・USB・DLNAとも保存済み一覧の登録行へ戻る。登録だけでは再生しない | 端末はOSフォルダーピッカー、DLNAは階層を選んで登録。登録行を選択した保存済み一覧へ戻り、登録だけでは再生しない | 登録操作では保存済み一覧へ戻る。追加用ブラウザーから登録前に再生する経路もある |
@@ -69,7 +73,7 @@ Androidでは次の補助操作を廃止している。
 
 ## 5. 一時停止中の画面・メディア情報
 
-| 項目 | Android | iPhone／iPad | Windows |
+| 項目 | Android／Android TV | iPhone／iPad | Windows |
 |---|---|---|---|
 | 上部 | 1行。拡張子を除いたタイトルが左、ホーム・ファイル一覧・メディア情報の3アイコンが右 | 1行。拡張子を省いたタイトルが左、ホーム・ファイル一覧・情報の3アイコンが右 | 高さ56DIPの1行。ホーム・名前・再開・情報・フォルダー・終了 |
 | 再生コントロール | 下端中央に前・−10秒・再生／一時停止・＋10秒・次の5ボタン | 下端中央に前・−10秒・再生／一時停止・＋10秒・次の5操作。各44pt以上 | 専用の前後・シーク画面ボタンはない |
@@ -78,7 +82,7 @@ Androidでは次の補助操作を廃止している。
 | 縦画面 | 操作部の表示中は重複する補助情報を隠す。操作部のために映像領域を変えない | 常設35%情報領域を廃止。縦横とも映像全体を使い、操作部の表示で映像領域を変えない | 縦長ウィンドウでは映像上に下部情報を重ねる |
 | 音声のみ | タイトル・操作部を常時表示 | 取得トラックで音声のみと判定。中央の波形とタイトル・操作部を常時表示 | 中央に音声アイコンとファイル名 |
 | 終了・エラー | 操作部を表示し、上端の同じ行内に状態文を表示 | 終了は「このフォルダーの再生が終了しました。」をタイトル下に表示。エラーは停止して復旧パネルを表示 | 状態文を表示。エラーはダイアログで案内 |
-| 詳細情報 | ファイル→映像・音声形式→音声出力の順。元の名前を保持 | ファイル→映像・音声形式→音声出力の情報シート。開く間は一時停止し、閉じると元の意図を復元 | スクロール可能な再生情報ダイアログ |
+| 詳細情報 | ファイル→映像・音声形式→音声出力の順。元の名前、出力経路、AudioTrack設定、診断可能な場合の実ミキサー／HAL、出力の注記を表示 | ファイル→映像・音声形式→音声出力の情報シート。開く間は一時停止し、閉じると元の意図を復元 | スクロール可能な再生情報ダイアログ |
 
 Androidでは、表示中のシステムバーや切り欠きを避ける余白をメニューの内側に加える。背景は上端・下端に接したまま、下段の高さを必要に応じて広げる。各ボタンは48dp。上下のフォーカス移動とTab順も、上部3アイコン・下部5ボタンに対応する。
 
@@ -88,7 +92,7 @@ iPhone／iPadも上下の操作部へ更新済みである。終了・中断等�
 
 ## 6. 選び直し・キャンセル・割り込み
 
-| 場面 | Android | iPhone／iPad | Windows |
+| 場面 | Android／Android TV | iPhone／iPad | Windows |
 |---|---|---|---|
 | 再生中に一覧を開く | 同じプレイヤー・キュー・位置・再生意図を保持して一時停止 | 同じプレイヤー・キュー・位置・意図を保持して一時停止し、映像上に独立した一覧を重ねる | プレイヤーを解放し、再生元の一覧へ移る |
 | 一覧をキャンセル | 元の位置と再生／一時停止状態へ戻る。割り込み後やアクセス失効時は自動再開しない | 元のファイル・位置・キュー・再生／一時停止状態へ戻る。表示中の割り込み・アクセス失効・失敗があれば自動再開しない | 元の位置へ戻るセッション保持経路はない |
@@ -107,9 +111,9 @@ Apple 4版でも「一覧キャンセルによる意図の復元」と「割り�
 
 ## 7. 入力機器別の比較
 
-再生領域が操作対象の場合の割当を示す。AndroidとApple版は、フォーカス中のボタン・一覧・文字入力を優先する。Mac CatalystのOS全画面キーは9節の例外を参照。
+再生領域が操作対象の場合の割当を示す。AndroidとApple版は、フォーカス中のボタン・一覧・文字入力を優先する。Android欄はAndroid TVにも共通である。Mac CatalystのOS全画面キーは10節の例外を参照。
 
-| 操作 | Android | iPhone／iPad | Windows |
+| 操作 | Android／Android TV | iPhone／iPad | Windows |
 |---|---|---|---|
 | タッチの左／中央／右1/3 | −10秒／再生切替／＋10秒 | 同じ。映像領域が対象 | 同じ |
 | マウスの背景クリック | 場所によらず再生切替。近い位置のダブルクリックは1回分 | 対応ポインターの主ボタンは位置によらず再生切替。追加入力・ドラッグ・ホイールを再生操作にしない | 左／右でシーク、中央で再生切替。解放ごとに処理 |
@@ -124,7 +128,7 @@ Apple 4版でも「一覧キャンセルによる意図の復元」と「割り�
 
 ### タップ・スワイプの判定
 
-| 項目 | Android | iPhone／iPad | Windows |
+| 項目 | Android／Android TV | iPhone／iPad | Windows |
 |---|---|---|---|
 | 右／左スワイプ | 前／次 | 前／次 | 前／次 |
 | 横スワイプの成立条件 | 横70dp以上かつ横が縦の1.5倍以上。境界を含み、速度条件なし | 横70pt以上かつ横が縦の1.5倍以上。境界を含み、速度条件なし | 横100DIP超、横が縦より大きく、横速度100DIP/秒超 |
@@ -137,14 +141,14 @@ Androidのリモコン案内は「左右＝前後ファイル、上下＝±10秒
 
 ## 8. DLNA・エラー・音声出力
 
-| 項目 | Android | iPhone／iPad | Windows |
+| 項目 | Android／Android TV | iPhone／iPad | Windows |
 |---|---|---|---|
 | DLNA接続 | SSDP探索と、IP・ホスト名・機器情報のhttp(s) URLによる手入力 | 通常実機ビルドはアドレス指定。自動探索は権限・ビルド条件に依存 | SSDP探索。手入力画面なし |
 | 保存先への再接続 | 確認済み接続先URLをサーバーID別に保存し、存在すれば探索なしで再接続 | 登録先の機器記述URLを直接取得しサーバーIDを照合。失敗時は探索が利用可能な環境だけ再探索 | URLは保存せず、登録先を開く際に再探索 |
 | DLNAメディア | 動画・音声リソース | MP4／M4V系リソースが対象。音声のみのMP4も再生できる | 動画・音声リソース |
-| 再生エラー | スマホ・TV、ローカル・ネットワークとも同じ項目を一時停止。自動スキップしない | 失敗した同じ項目・キュー・確認済み位置を保持して停止。自動スキップしない。権限失効は再登録を案内 | 自動スキップせず、再試行／別ファイル／キャンセルを表示 |
+| 再生エラー | スマホ・TV、ローカル・ネットワークとも同じ項目を一時停止。自動スキップせず、再試行／次へ（次がある場合）／ファイル一覧／閉じるを表示 | 失敗した同じ項目・キュー・確認済み位置を保持して停止。自動スキップしない。権限失効は再登録を案内 | 自動スキップせず、再試行／別ファイル／キャンセルを表示 |
 | 再試行 | 確認済み位置を保持し、ユーザーの明示操作で同じファイルを再試行 | 明示的な再試行で同じファイルの確認済み位置へ。次がある場合だけ「次のファイル」も表示 | ダイアログの再試行から再読込 |
-| 音声出力情報 | ソース形式と実際のAudioTrack・出力先を区別。対応USBの優先ミキサー設定を試行 | AVAudioSessionの出力情報。ビットパーフェクト指定機能なし | Windows標準ミキサー経由。WASAPI排他・ビットパーフェクト設定UIなし |
+| 音声出力情報 | ソース形式・AudioTrack設定・確認済み出力先・優先ミキサーを区別。Debug診断時は実ミキサー／HALも表示 | AVAudioSessionの出力情報。ビットパーフェクト指定機能なし | Windows標準ミキサー経由。WASAPI排他・ビットパーフェクト設定UIなし |
 
 Apple 4版も「エラーで勝手に次へ進まない」に対応済みである。失敗パネルは再試行・次のファイル（次がある場合のみ）・ファイル一覧・閉じるを持ち、閉じるだけでは復旧・再開しない。再生が2秒進まないとバッファリング、30秒進まないと同じ項目で失敗扱いにする。
 
@@ -152,7 +156,50 @@ Apple 4版も「エラーで勝手に次へ進まない」に対応済みであ�
 
 根拠：[Android DLNA接続][a-dlna]・[エラーと情報][a-main]・[現行仕様][a-spec]、[Apple DLNA接続][i-dlna]・[DLNAリソース判定][i-dlna-client]・[探索条件][i-discovery]・[再生状態][i-state]・[失敗・復旧制御][i-controller]・[失敗パネル][i-failure]・[出力情報][i-info]、[WindowsDLNA・保存仕様][w-spec]・[再生処理][w-player]。
 
-## 9. iOS・iPadOS・tvOS・Mac Catalystの個別仕様
+### Android・Android TVの音声出力と情報表示
+
+出力形式とUSB設定は、再生開始ファイルの情報だけで固定せず、各AudioTrackへ渡すPCM形式に合わせて更新する。追加の設定画面ではなく自動選択で、スマホ・TVとも同じ処理を使う。
+
+| 条件 | 現行動作 |
+|---|---|
+| PCM形式 | 24bit・32bit整数PCMとFloat PCMは32bit Float出力、16bit整数PCMは16bit出力。圧縮音源は対応デコーダーにFloatを要求し、返されたPCM形式に従う |
+| USBがFloat非対応 | 同じレート・チャンネルマスクの整数32bit PCMに対応する場合、Floatデータを整数32bitへ変換して出力する |
+| USB優先ミキサー | OSが選んだ単一USB出力に対し、実際のPCM形式・レート・チャンネルマスクが一致するBIT_PERFECT、次にDEFAULTを試す。候補なし・取得失敗ではOS標準出力を使う |
+| 高精度出力の初期化失敗 | 適用済み優先設定があれば解除して再試行し、それでも失敗すれば同じレート・チャンネル数のPCM16へ変換して再試行。PCM16も失敗すると同じファイルで停止する |
+| 曲・経路・機器の変更 | 新しいPCM形式や出力先へ設定を再評価し、古い設定を解除する。使用中の出力切断は一時停止し、再接続だけでは再開しない |
+| 情報画面 | 確認した出力経路・出力デバイス、AudioTrack形式・レート・チャンネル数、Bit-Perfect設定・優先ミキサーを表示。開く直前の経路情報を保持し、画面表示中は一時停止する |
+| 実ミキサー／HAL | ADBでDUMP権限を付与したDebug版だけ、再生中に診断する。自アプリのセッション・出力先を照合できた取得結果から、実ミキサー名・種類・I/O番号、ミキサー形式、HAL形式を表示する |
+
+通常の経路表記は「AudioTrack → Android → 出力先」、診断に成功した場合は「AudioTrack → 実ミキサー名 → HAL → 出力先」となる。情報画面では直前に取得済みの結果を使い、停止中の追加診断はしない。Debug版で診断未取得・権限未付与の場合、実ミキサー／HAL欄は「取得できません」と表示し、通常版ではこれらの診断欄を表示しない。確認時刻・診断状態の行は設けない。
+
+音声出力欄には、AudioTrack形式・レートはアプリ設定値、ミキサー／HALは診断できた場合のみ表示、DAC実出力は未測定、という注記を表示する。音声トラックなしの場合は「音声出力：なし」とし、注記は隠す。11月1日のスマホ・TVの画像では内蔵スピーカー、PCM 16-bit / 48000 Hz / 1 ch、実ミキサー／HALの取得不可を確認できる。実USB DACやビット一致の測定結果としては扱わない。OSの出力先をUSBへ強制せず、最大レートへのアップサンプリングも行わない。
+
+32bit Floatは24bit整数PCMの精度を保持できるが、32bit整数PCMの全ビット一致を保証しない。「Bit-Perfect設定：設定済み」は、確認した出力先・AudioTrack形式と適用済みの優先属性が一致することを示し、元ファイルからDACまでの全ビット一致を示すものではない。
+
+根拠：[再生エンジン][a-controller]・[USB PCM出力][a-usb-audio]・[出力方針][a-output-policy]・[ミキサー設定と情報][a-audio]・[出力監視][a-audio-monitor]・[Debug診断][a-diagnostics]・[情報項目][a-info]・[現行仕様][a-spec]、[スマホの収録記録][a-snapshots]・[TVの収録記録][a-tv-snapshots]。
+
+## 9. Android・Android TVの個別仕様
+
+Android欄の一覧・状態保持・入力・音声出力は両版に共通する。違いは主にTVモードの入口とフォーカスであり、TV専用Activityや別APKは使わない。最低OSは両方ともAndroid 14 / API 34である。
+
+| 観点 | スマートフォン・タブレット | Android TV |
+|---|---|---|
+| ホーム | 英字見出し・ロゴ・アプリ名・選択ボタン。縦横の寸法に適応 | 同じ構成にリモコン案内を追加し、選択ボタンへ初期フォーカス |
+| フォルダー追加 | SAF・DLNA | SAF・USB・DLNA。SAFを起動できなければ案内し、USBを明示選択して進む |
+| USBアクセス | OSのSAF選択を使う | アプリ内USBブラウザーには「すべてのファイルへのアクセス」が必要。案内からOS設定を開き、復帰時に許可を再確認。ブラウザーは読み取り専用 |
+| USBブラウザー | TV専用の追加入口は表示しない | マウント済みの取り外し可能ストレージを列挙し、最後に成功した閲覧位置を記憶。登録すると保存済み一覧の登録行へ戻る。未接続・読取失敗でも登録を保持 |
+| 再生中の方向操作 | タッチは左／中央／右で−10秒／切替／＋10秒、右／左スワイプで前／次。接続キー・ポインターにも対応 | 映像にフォーカスがあれば左右＝前後、上下＝±10秒、決定＝再生切替。一時停止時は再生ボタンへ、再開時は映像へフォーカス |
+| ファイル一覧 | タップ・クリックで選択、ホイールでスクロール | 上下で行、決定で開く／再生。一覧にフォーカスがあると左右・Page Up／Downでページ移動。保存済み・サーバー・追加先一覧にはページ操作を適用しない |
+| 登録解除 | 保存済み行の長押し・右クリックで確認 | 保存済み行の決定キー長押し・右クリックで確認。初期フォーカスはキャンセル |
+| 情報画面 | スクロール可能なダイアログ。OK・I・Esc・戻るで閉じる | 同じ情報を表示し、OKへ初期フォーカス。横長画面では下の出力情報・注記までスクロールする |
+
+再生画面の戻る1回はスマホ・TVとも、セッションを保持したまま現在ファイルを指定して一覧を開く。コードには対象行の選択・表示処理があるが、11月1日のTV撮影用セッションでは開いた直後に子フォルダー行が選ばれ、下キーで動画行へ移っている。この画像だけで現在ファイルへのフォーカス復元が合格したとは扱わない。
+
+11月1日のTV記録には保存済み0件・1件、USB入口と許可案内、再生ボタンから上キーで情報へ移る状態、再生再開後のplayer_viewへのフォーカス、音声・終了・エラーを収録している。実TV・4K・文字拡大、物理リモコンの長押し、実USBの許可取得・ドライブ閲覧、実NAS、シーク不可・中断復帰の受入は別途必要である。
+
+根拠：[画面・TV判定と入力][a-main]・[保存済みと追加先][a-saf]・[USB追加ブラウザー][a-usb-browser]・[登録USBの選択][a-usb-playback]・[一覧キーとフォーカス][a-browser]・[Manifest][a-manifest]、[スマホ記録][a-snapshots]・[TV記録][a-tv-snapshots]。
+
+## 10. iOS・iPadOS・tvOS・Mac Catalystの個別仕様
 
 選択・キャンセル・エラーの状態処理は4版共通のPlayerSceneModel／PlaybackControllerが所有する。ホームや選択画面が最前面の間は背後のプレイヤー入力を無効にし、ホーム・ウィンドウ切断では保持セッションを終了する。
 
@@ -168,11 +215,11 @@ Apple 4版も「エラーで勝手に次へ進まない」に対応済みであ�
 
 ### TVリモコンと直接タッチの差
 
-Android TVは初版参照の同じAPK・SAF／USB／DLNA・上下操作部を維持する。Apple TVも、再生画面の戻る1回でセッションを保持したファイル一覧を開く。情報・失敗シート・選択画面が最前面なら、戻るはその画面が先に処理する。旧版の「1回目で操作部を表示、2回目で一覧」という段階は廃止済みである。
+Android TVは11月1日の現行参照でも同じAPK・SAF／USB／DLNA・上下操作部を使う。Apple TVも、再生画面の戻る1回でセッションを保持したファイル一覧を開く。情報・失敗シート・選択画面が最前面なら、戻るはその画面が先に処理する。旧版の「1回目で操作部を表示、2回目で一覧」という段階は廃止済みである。
 
 現行Apple TVの映像入力面は、左／右方向ボタンで前／次、上／下で−10秒／＋10秒、決定で再生切替を行う。同じ押下の繰り返しと、押下を伴った間接タッチの終了スワイプによる重複を抑止する。
 
-**tvOSの間接タッチの横スワイプは左＝前・右＝次**で、[共通案5.5節](common-operation-spec.md#55-tvosリモコンのタッチ面)の方向入力に対応する。iPhone／iPadの直接タッチと初版Androidは右＝前・左＝次であり、入力種別として意図的に異なる。tvOSは上下スワイプも±10秒へ変換する。操作部にフォーカスがある間の方向入力はボタン移動に使用する。物理Siri Remoteの世代別動作を今回の画像から保証しない。
+**tvOSの間接タッチの横スワイプは左＝前・右＝次**で、[共通案5.5節](common-operation-spec.md#55-tvosリモコンのタッチ面)の方向入力に対応する。iPhone／iPadとAndroidの直接タッチは右＝前・左＝次であり、入力種別として意図的に異なる。tvOSは上下スワイプも±10秒へ変換する。操作部にフォーカスがある間の方向入力はボタン移動に使用する。物理Siri Remoteの世代別動作を今回の画像から保証しない。
 
 ### Macのポインター・全画面・入力所有
 
@@ -186,11 +233,11 @@ iPhone／iPad／Macの一覧は上下で行、左右・Page Up／Downで可視�
 
 根拠：[共通シーン][i-scene]・[セッションと選択][i-scene-model]・[一覧][i-browser]・[一覧状態][i-selection]・[入力判定][i-input]・[tvOS画面と入力][i-tv]・[Macタイトルバー][i-mac-titlebar]・[ライフサイクル][i-lifecycle]・[Macネイティブ処理][i-mac-native]・[操作部の表示制御][i-chrome]・[情報のキー所有][i-info-keys]。
 
-## 10. 共通仕様への対応・残る差と移行判断
+## 11. 共通仕様への対応・残る差と移行判断
 
 本節は[共通操作仕様](common-operation-spec.md)を目標として見た差分であり、未対応版への実装指示や全環境の受入合格宣言ではない。Apple版の対応を理由に、共通仕様書の「提案」状態を変更しない。
 
-| 観点 | Android（初版参照） | Apple 4版（今回更新） | Windows（初版参照） |
+| 観点 | Android・Android TV（11月1日更新） | Apple 4版（11月1日更新） | Windows（初版参照） |
 |---|---|---|---|
 | 上下の操作部と映像位置 | 対応 | iPhone／iPad／tvOSは上下、Macはタイトルバー＋下部。iPhone／iPad／tvOSの状態文は左タイトル下の補助行で、共通案の「同じ行内」には差がある。終了文も共通案6節の「最後まで再生しました」と異なる | 従来の上部ツールバー |
 | アプリ内終了 | 廃止済み | プレイヤー／ホームに終了操作を追加しない。MacのOS標準終了は別 | ホーム・再生に終了ボタン |
@@ -200,27 +247,42 @@ iPhone／iPad／Macの一覧は上下で行、左右・Page Up／Downで可視�
 | ポインター背景クリック・ダブル入力 | 位置によらず切替、追加を抑制 | 位置によらず切替、追加を抑制。非アクティブクリック・ドラッグ等を分離 | 左右位置でシーク、ダブル入力は2回分 |
 | TVの戻る・方向・スワイプ | 方向ボタンは共通割当 | 戻る1回と方向ボタンは更新済み。間接スワイプも左＝前・右＝次で共通案5.5節に対応。直接タッチとの違いを維持 | TV対象外 |
 | DLNAの探索とアドレス指定 | 両方 | 通常iOS／iPadOS・Macの探索はビルド条件、tvOSはアドレス指定のみ。リソースはMP4／M4V系に限定 | 探索のみ |
+| 音声出力と診断 | PCMに応じた高精度出力・対応USBの優先設定。AudioTrack設定と診断時の実ミキサー／HALを区別し、DAC未測定の注記を表示 | AVAudioSessionの出力情報。ビットパーフェクト指定はない | OS標準ミキサー経由 |
 | 表示中フォーカス喪失と背景化 | 単なるフォーカス喪失では停止しない | iPad／Macは表示中の焦点移動と背景化等を区別。iPhone／tvOSは非アクティブ化で停止 | 非アクティブ化で停止 |
 | 全画面のEsc | 一覧 | Macは共通案7.2節のOS優先規則に対応。全画面解除と通常ウィンドウの一覧操作を分離 | 再生停止・一覧へ |
 
 10月24日資料で優先修正候補としたAndroidの案内、再選択保持、キー割当、読み込み表示、手入力導線などは初版の時点で対応済みだった。今回のApple版更新により、旧記載の「取消後は停止固定」「再選択後も停止」「通常エラーの自動スキップ」「縦画面35%情報欄」「Macの左右クリックシーク」は現行仕様から除外した。
 
-表示の確認範囲は[Apple 4版スナップショット](../ui-snapshots/apple-2026-11-01.md)と各manifestの未収録欄を参照する。現行コードに実装があることと、物理入力・実NAS・USB・全OS構成で検証済みであることを分けて、残る差を判断する。
+Android・Android TVの今回の変更はホーム文言と音声出力・情報表示が中心であり、初版のセッション保持・キー割当を撤回する変更はない。現在ファイルへのフォーカス復元は、コード上の対応と撮影時の選択位置を区別して継続確認する。
 
-[a-layout]: https://github.com/mnagata/ContinuousPlayer_for_Android/blob/268d99cbc2a3de2662210229dc7c4c267dcde375/app/src/main/res/layout/activity_main.xml
-[a-dimens]: https://github.com/mnagata/ContinuousPlayer_for_Android/blob/268d99cbc2a3de2662210229dc7c4c267dcde375/app/src/main/res/values/dimens.xml
-[a-land-dimens]: https://github.com/mnagata/ContinuousPlayer_for_Android/blob/268d99cbc2a3de2662210229dc7c4c267dcde375/app/src/main/res/values-land/dimens.xml
-[a-main]: https://github.com/mnagata/ContinuousPlayer_for_Android/blob/268d99cbc2a3de2662210229dc7c4c267dcde375/app/src/main/java/jp/nagu/continuousplayer/MainActivity.kt
-[a-saf]: https://github.com/mnagata/ContinuousPlayer_for_Android/blob/268d99cbc2a3de2662210229dc7c4c267dcde375/app/src/main/java/jp/nagu/continuousplayer/SafFileBrowser.kt
-[a-browser]: https://github.com/mnagata/ContinuousPlayer_for_Android/blob/268d99cbc2a3de2662210229dc7c4c267dcde375/app/src/main/java/jp/nagu/continuousplayer/DlnaSelectionDialog.kt
-[a-item]: https://github.com/mnagata/ContinuousPlayer_for_Android/blob/268d99cbc2a3de2662210229dc7c4c267dcde375/app/src/main/java/jp/nagu/continuousplayer/VideoItem.kt
-[a-gesture]: https://github.com/mnagata/ContinuousPlayer_for_Android/blob/268d99cbc2a3de2662210229dc7c4c267dcde375/app/src/main/java/jp/nagu/continuousplayer/GestureHandler.kt
-[a-swipe]: https://github.com/mnagata/ContinuousPlayer_for_Android/blob/268d99cbc2a3de2662210229dc7c4c267dcde375/app/src/main/java/jp/nagu/continuousplayer/SwipeDirection.kt
-[a-tap]: https://github.com/mnagata/ContinuousPlayer_for_Android/blob/268d99cbc2a3de2662210229dc7c4c267dcde375/app/src/main/java/jp/nagu/continuousplayer/TapSuppression.kt
-[a-pointer]: https://github.com/mnagata/ContinuousPlayer_for_Android/blob/268d99cbc2a3de2662210229dc7c4c267dcde375/app/src/main/java/jp/nagu/continuousplayer/PointerControls.kt
-[a-strings]: https://github.com/mnagata/ContinuousPlayer_for_Android/blob/268d99cbc2a3de2662210229dc7c4c267dcde375/app/src/main/res/values/strings.xml
-[a-spec]: https://github.com/mnagata/ContinuousPlayer_for_Android/blob/268d99cbc2a3de2662210229dc7c4c267dcde375/docs/spec.md
-[a-dlna]: https://github.com/mnagata/ContinuousPlayer_for_Android/blob/268d99cbc2a3de2662210229dc7c4c267dcde375/app/src/main/java/jp/nagu/continuousplayer/DlnaBrowser.kt
+表示の確認範囲は[Android][a-snapshots]・[Android TV][a-tv-snapshots]・[Apple 4版スナップショット](../ui-snapshots/apple-2026-11-01.md)と各manifestの未収録欄を参照する。現行コードに実装があることと、物理入力・実NAS・USB・全OS構成で検証済みであることを分けて、残る差を判断する。
+
+[a-layout]: https://github.com/mnagata/ContinuousPlayer_for_Android/blob/85ff21122442aa6ca6ed200d11c177f6e806ef60/app/src/main/res/layout/activity_main.xml
+[a-dimens]: https://github.com/mnagata/ContinuousPlayer_for_Android/blob/85ff21122442aa6ca6ed200d11c177f6e806ef60/app/src/main/res/values/dimens.xml
+[a-land-dimens]: https://github.com/mnagata/ContinuousPlayer_for_Android/blob/85ff21122442aa6ca6ed200d11c177f6e806ef60/app/src/main/res/values-land/dimens.xml
+[a-main]: https://github.com/mnagata/ContinuousPlayer_for_Android/blob/85ff21122442aa6ca6ed200d11c177f6e806ef60/app/src/main/java/jp/nagu/continuousplayer/MainActivity.kt
+[a-saf]: https://github.com/mnagata/ContinuousPlayer_for_Android/blob/85ff21122442aa6ca6ed200d11c177f6e806ef60/app/src/main/java/jp/nagu/continuousplayer/SafFileBrowser.kt
+[a-browser]: https://github.com/mnagata/ContinuousPlayer_for_Android/blob/85ff21122442aa6ca6ed200d11c177f6e806ef60/app/src/main/java/jp/nagu/continuousplayer/DlnaSelectionDialog.kt
+[a-item]: https://github.com/mnagata/ContinuousPlayer_for_Android/blob/85ff21122442aa6ca6ed200d11c177f6e806ef60/app/src/main/java/jp/nagu/continuousplayer/VideoItem.kt
+[a-gesture]: https://github.com/mnagata/ContinuousPlayer_for_Android/blob/85ff21122442aa6ca6ed200d11c177f6e806ef60/app/src/main/java/jp/nagu/continuousplayer/GestureHandler.kt
+[a-swipe]: https://github.com/mnagata/ContinuousPlayer_for_Android/blob/85ff21122442aa6ca6ed200d11c177f6e806ef60/app/src/main/java/jp/nagu/continuousplayer/SwipeDirection.kt
+[a-tap]: https://github.com/mnagata/ContinuousPlayer_for_Android/blob/85ff21122442aa6ca6ed200d11c177f6e806ef60/app/src/main/java/jp/nagu/continuousplayer/TapSuppression.kt
+[a-pointer]: https://github.com/mnagata/ContinuousPlayer_for_Android/blob/85ff21122442aa6ca6ed200d11c177f6e806ef60/app/src/main/java/jp/nagu/continuousplayer/PointerControls.kt
+[a-strings]: https://github.com/mnagata/ContinuousPlayer_for_Android/blob/85ff21122442aa6ca6ed200d11c177f6e806ef60/app/src/main/res/values/strings.xml
+[a-spec]: https://github.com/mnagata/ContinuousPlayer_for_Android/blob/85ff21122442aa6ca6ed200d11c177f6e806ef60/docs/spec.md
+[a-dlna]: https://github.com/mnagata/ContinuousPlayer_for_Android/blob/85ff21122442aa6ca6ed200d11c177f6e806ef60/app/src/main/java/jp/nagu/continuousplayer/DlnaBrowser.kt
+[a-controller]: https://github.com/mnagata/ContinuousPlayer_for_Android/blob/85ff21122442aa6ca6ed200d11c177f6e806ef60/app/src/main/java/jp/nagu/continuousplayer/PlayerController.kt
+[a-usb-audio]: https://github.com/mnagata/ContinuousPlayer_for_Android/blob/85ff21122442aa6ca6ed200d11c177f6e806ef60/app/src/main/java/jp/nagu/continuousplayer/UsbPcmAudioOutputProvider.kt
+[a-output-policy]: https://github.com/mnagata/ContinuousPlayer_for_Android/blob/85ff21122442aa6ca6ed200d11c177f6e806ef60/app/src/main/java/jp/nagu/continuousplayer/AudioOutputPolicy.kt
+[a-audio]: https://github.com/mnagata/ContinuousPlayer_for_Android/blob/85ff21122442aa6ca6ed200d11c177f6e806ef60/app/src/main/java/jp/nagu/continuousplayer/BitPerfectAudioManager.kt
+[a-audio-monitor]: https://github.com/mnagata/ContinuousPlayer_for_Android/blob/85ff21122442aa6ca6ed200d11c177f6e806ef60/app/src/main/java/jp/nagu/continuousplayer/PlaybackAudioMonitor.kt
+[a-diagnostics]: https://github.com/mnagata/ContinuousPlayer_for_Android/blob/85ff21122442aa6ca6ed200d11c177f6e806ef60/app/src/main/java/jp/nagu/continuousplayer/AudioMixerDiagnostics.kt
+[a-info]: https://github.com/mnagata/ContinuousPlayer_for_Android/blob/85ff21122442aa6ca6ed200d11c177f6e806ef60/app/src/main/java/jp/nagu/continuousplayer/MediaInformation.kt
+[a-usb-browser]: https://github.com/mnagata/ContinuousPlayer_for_Android/blob/85ff21122442aa6ca6ed200d11c177f6e806ef60/app/src/main/java/jp/nagu/continuousplayer/UsbFileBrowser.kt
+[a-usb-playback]: https://github.com/mnagata/ContinuousPlayer_for_Android/blob/85ff21122442aa6ca6ed200d11c177f6e806ef60/app/src/main/java/jp/nagu/continuousplayer/UsbPlaybackBrowser.kt
+[a-manifest]: https://github.com/mnagata/ContinuousPlayer_for_Android/blob/85ff21122442aa6ca6ed200d11c177f6e806ef60/app/src/main/AndroidManifest.xml
+[a-snapshots]: ../ui-snapshots/android/2026-11-01/README.md
+[a-tv-snapshots]: ../ui-snapshots/android-tv/2026-11-01/README.md
 [i-content]: https://github.com/mnagata/ContinuousPlayer_for_iOS/blob/a4c40408350ca1d2e0b9bee33c09f6d8bc14d5a5/ContinuousPlayer_for_iOS/ContentView.swift
 [i-player]: https://github.com/mnagata/ContinuousPlayer_for_iOS/blob/a4c40408350ca1d2e0b9bee33c09f6d8bc14d5a5/ContinuousPlayer_for_iOS/PlayerScreen.swift
 [i-browser]: https://github.com/mnagata/ContinuousPlayer_for_iOS/blob/a4c40408350ca1d2e0b9bee33c09f6d8bc14d5a5/ContinuousPlayer_for_iOS/FileSelectionScreen.swift
