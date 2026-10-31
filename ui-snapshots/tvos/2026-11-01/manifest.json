@@ -1,0 +1,447 @@
+{
+  "schema_version": 1,
+  "platform": "tvos",
+  "capture_id": "2026-11-01",
+  "captured_at": "2026-11-01T00:26:40+09:00",
+  "capture_kind": "runtime-fixture",
+  "source": {
+    "repository": "https://github.com/mnagata/ContinuousPlayer_for_iOS",
+    "revision": "a4c40408350ca1d2e0b9bee33c09f6d8bc14d5a5",
+    "production_tree": "参照コミットと一致。一時作業コピーのDeviceUITests / TVUITestsに撮影ハーネスのみ追加。製品ソース・Xcodeプロジェクトは変更なし。",
+    "build_variant": "Debug / 1.0 (1), arm64, Xcode 27.1",
+    "artifact_sha256": "2f2413960dd7a5ca5ac0333a007e4ccf8e4ef15d52d37788c9ada00324255e68",
+    "artifact_hash_scope": "bundle tree digest: artifact-files.jsonの各path + NUL + sha256 + LFをpath順に連結したUTF-8のSHA-256。全通常ファイル（Debug dylibを含む）を対象。",
+    "artifact_path": "Debug-appletvsimulator/ContinuousPlayer_for_tvOS.app",
+    "executable_sha256": "6476d03d57ed767dcca05efa1e0b818647eeec082a1b0c94c61289407116cbbd",
+    "artifact_inventory": "artifact-files.json",
+    "executable_path": "Debug-appletvsimulator/ContinuousPlayer_for_tvOS.app/ContinuousPlayer_for_tvOS"
+  },
+  "environment": {
+    "device": "Apple TV 4K (3rd generation) (at 1080p)",
+    "os": "tvOS 27.0 (24J360)",
+    "host_os": "macOS 26.7 (25G229)",
+    "xcode": "27.1 (27A9275)",
+    "architecture": "arm64",
+    "simulator_udid": "B751CB48-9ED3-4ECF-8B64-172F92E27EC3",
+    "app_language": "ja",
+    "app_locale": "ja_JP",
+    "os_language": null,
+    "appearance": "撮影画像の暗色外観",
+    "text_scale": "標準（倍率上書きなし）",
+    "display_scale": null,
+    "input": "XCUIRemoteによる方向・Select・Play/Pause",
+    "capture_method": "XCUIScreen.main.screenshot → XCTAttachment → xcresulttool export attachments（PNGをそのままコピー）",
+    "system_regions": "tvOSの全画面。シート背後の映像を含む",
+    "point_size": null,
+    "os_language_note": "撮影用アプリにはAppleLanguages=(ja)とAppleLocale=ja_JPを指定。OS全体の設定は変更していない。"
+  },
+  "fixture": {
+    "description": "640×360・24fps・90秒のtestsrc2動画（音声なし）、48kHz・mono無音AACのみのMP4（90秒 / 2秒）、意図的な破損MP4、空の子フォルダー、同名異形式M4V/MP4。",
+    "server": "127.0.0.1:18769、ループバック限定。SSDP・外部NASへ接続しない。",
+    "setup": "tools/apple/generate-media.py、fixture-server.py、SnapshotCaptureTests.swift。",
+    "data_impact": "登録はDEBUG専用uitests.キー。DLNA最終接続先は共通設定キーを更新。通常の登録・個人ファイルを削除しない。"
+  },
+  "limitations": [
+    "固定コミットのDebug実UI。サンプルでの見た目を記録し、共通仕様への準拠や実NAS・実機・外部DACの動作保証とは区別する。",
+    "登録はuitests.の専用キー。DLNA最終接続先は共通設定キーのため撮影用ループバックURLへ更新される。個人メディア・実NASは使用していない。",
+    "アプリ言語はja、文字倍率は標準。iPhone/iPadのOS全体の優先言語は測定していない。",
+    "フォーカス記録はbuttons/cells/textFieldsのhasFocusを取得。空文字はこの範囲に該当がなかったことを表し、映像入力surfaceのフォーカス不在を示さない。",
+    "音声情報を開く撮影ハーネスのリモコン移動が2回到達せず、その撮影を除外した。アプリの未実装とは判定しない。",
+    "pt寸法・OSの画面倍率は独立測定していないためnull。PNGの格納寸法とEXIF適用後の表示寸法を記録。"
+  ],
+  "screenshots": [
+    {
+      "screen": "add-source",
+      "state": "default",
+      "variant": "tv-focus",
+      "image": "images/add-source--default--tv-focus.png",
+      "title": "フォルダーの追加先 / tv-focus",
+      "width_px": 1920,
+      "height_px": 1080,
+      "sha256": "9e04ecd3d3771d253dd2faa78b4fded50a87f0240b0fd79b519ffaa1094ac6dd",
+      "captured_at": "2026-10-31T15:26:45Z",
+      "preconditions": [
+        "個人データを含まないlocalhostの撮影用DLNAサーバーを使用。",
+        "登録はDEBUGのuitests.キーを使用。"
+      ],
+      "steps": [
+        "ホーム → 動画フォルダーを選ぶ → フォルダーを追加。"
+      ],
+      "observations": [
+        "保存元の選択画面。tvOSはDLNA、ほかの3版は端末・外部ストレージとDLNAの入口を表示する。"
+      ],
+      "environment_overrides": {
+        "orientation": "landscape-window",
+        "window_focus": ":DLNAサーバー、NASのフォルダーを開いて登録",
+        "png_exif_orientation": 1,
+        "display_width_px": 1920,
+        "display_height_px": 1080
+      }
+    },
+    {
+      "screen": "dlna-servers",
+      "state": "populated",
+      "variant": "tv-focus",
+      "image": "images/dlna-servers--populated--tv-focus.png",
+      "title": "DLNAサーバー・サンプル接続済み / tv-focus",
+      "width_px": 1920,
+      "height_px": 1080,
+      "sha256": "04a68498c45d878b435ce5e872743d307ac37d21752f443e7f6b976ee2037ae1",
+      "captured_at": "2026-10-31T15:26:48Z",
+      "preconditions": [
+        "個人データを含まないlocalhostの撮影用DLNAサーバーを使用。",
+        "登録はDEBUGのuitests.キーを使用。"
+      ],
+      "steps": [
+        "フォルダーを追加 → DLNAサーバー。",
+        "起動引数の保存接続先からlocalhostの撮影用サーバーへ自動接続。"
+      ],
+      "observations": [
+        "UI Sample NAS、ループバックの接続先、接続操作を表示する。自動探索は撮影引数で無効化している。"
+      ],
+      "environment_overrides": {
+        "orientation": "landscape-window",
+        "window_focus": ":UI Sample NAS",
+        "png_exif_orientation": 1,
+        "display_width_px": 1920,
+        "display_height_px": 1080
+      }
+    },
+    {
+      "screen": "file-browser",
+      "state": "populated",
+      "variant": "tv-focus",
+      "image": "images/file-browser--populated--tv-focus.png",
+      "title": "再生開始ファイルの選択 / tv-focus",
+      "width_px": 1920,
+      "height_px": 1080,
+      "sha256": "f3e7e9e711c0720f6221f4edbfd81aae50fecec3f41bc5dcf82f8a0858d67cd1",
+      "captured_at": "2026-10-31T15:26:57Z",
+      "preconditions": [
+        "個人データを含まないlocalhostの撮影用DLNAサーバーを使用。",
+        "登録はDEBUGのuitests.キーを使用。"
+      ],
+      "steps": [
+        "登録したUI Sample NASを選択。",
+        "横向きまたはdesktop-playback-overlayは動画一時停止 → ファイル一覧。"
+      ],
+      "observations": [
+        "Other Folderと同名Sample OPの2形式を表示し、M4V / MP4の形式バッジで区別する。"
+      ],
+      "environment_overrides": {
+        "orientation": "landscape-window",
+        "window_focus": "dlna.folder.empty:Other Folder",
+        "png_exif_orientation": 1,
+        "display_width_px": 1920,
+        "display_height_px": 1080
+      }
+    },
+    {
+      "screen": "home",
+      "state": "default",
+      "variant": "tv-focus",
+      "image": "images/home--default--tv-focus.png",
+      "title": "ホーム / tv-focus",
+      "width_px": 1920,
+      "height_px": 1080,
+      "sha256": "9620d880a1ebd8669d5e5c24073d8f03ee792e791e9741865c5c453ffc276927",
+      "captured_at": "2026-10-31T15:26:40Z",
+      "preconditions": [
+        "個人データを含まないlocalhostの撮影用DLNAサーバーを使用。",
+        "登録はDEBUGのuitests.キーを使用。"
+      ],
+      "steps": [
+        "テスト用引数でアプリを起動。横向きは再生画面からホームへ戻る。"
+      ],
+      "observations": [
+        "ロゴ、ANIME OPENINGS / ENDINGS、ContinuousPlayer、「動画フォルダーを選ぶ」を表示する。"
+      ],
+      "environment_overrides": {
+        "orientation": "landscape-window",
+        "window_focus": "home.chooseFolder:動画フォルダーを選ぶ",
+        "png_exif_orientation": 1,
+        "display_width_px": 1920,
+        "display_height_px": 1080
+      }
+    },
+    {
+      "screen": "media-info",
+      "state": "video",
+      "variant": "tv-focus",
+      "image": "images/media-info--video--tv-focus.png",
+      "title": "動画のメディア情報 / tv-focus",
+      "width_px": 1920,
+      "height_px": 1080,
+      "sha256": "b2f58d629da8af123292b9a97cb6c3d08e99a319edee3b06a84df77a0b4782b6",
+      "captured_at": "2026-10-31T15:27:09Z",
+      "preconditions": [
+        "個人データを含まないlocalhostの撮影用DLNAサーバーを使用。",
+        "登録はDEBUGのuitests.キーを使用。"
+      ],
+      "steps": [
+        "動画を一時停止してメディア情報を選択。"
+      ],
+      "observations": [
+        "元のファイル名Sample OP.mp4、サイズ、avc1・640×360・24fps、音声なしを表示する。 撮影位置は一覧の上部で、音声出力欄は未収録。"
+      ],
+      "environment_overrides": {
+        "orientation": "landscape-window",
+        "window_focus": "player.info.close:閉じる",
+        "png_exif_orientation": 1,
+        "display_width_px": 1920,
+        "display_height_px": 1080
+      }
+    },
+    {
+      "screen": "playback-error",
+      "state": "decode",
+      "variant": "tv-focus",
+      "image": "images/playback-error--decode--tv-focus.png",
+      "title": "破損メディアの再生失敗 / tv-focus",
+      "width_px": 1920,
+      "height_px": 1080,
+      "sha256": "5c695d5525f7b44514f5bc63dfd1f13f3be7219790245282c2c08a7a6e49fe05",
+      "captured_at": "2026-10-31T15:28:01Z",
+      "preconditions": [
+        "個人データを含まないlocalhostの撮影用DLNAサーバーを使用。",
+        "登録はDEBUGのuitests.キーを使用。"
+      ],
+      "steps": [
+        "failure.xmlのDLNAフォルダーを登録。",
+        "Corrupt OP.mp4を選択し、失敗パネルの表示を待つ。"
+      ],
+      "observations": [
+        "Corrupt OP.mp4に対して「再生できません」「開けません」、再試行・ファイル一覧・閉じるを表示する。失敗原因の分類や復旧成功は画像だけでは判定しない。"
+      ],
+      "environment_overrides": {
+        "orientation": "landscape-window",
+        "window_focus": "player.error.retry:再試行",
+        "png_exif_orientation": 1,
+        "display_width_px": 1920,
+        "display_height_px": 1080
+      }
+    },
+    {
+      "screen": "player",
+      "state": "audio-playing",
+      "variant": "tv-audio-surface",
+      "image": "images/player--audio-playing--tv-audio-surface.png",
+      "title": "音声のみの再生中 / tv-audio-surface",
+      "width_px": 1920,
+      "height_px": 1080,
+      "sha256": "79158ae922f4e0339d242786b3e0991240c7eb58bc27b25981759d97dbe01275",
+      "captured_at": "2026-10-31T15:27:26Z",
+      "preconditions": [
+        "個人データを含まないlocalhostの撮影用DLNAサーバーを使用。",
+        "登録はDEBUGのuitests.キーを使用。"
+      ],
+      "steps": [
+        "audio.xmlのDLNAフォルダーを登録。",
+        "Sample Audio.mp4を選択。音声のみのAACを実プレイヤーで再生。"
+      ],
+      "observations": [
+        "黒背景中央に波形アイコンを表示し、再生中も上下の操作部を表示する。"
+      ],
+      "environment_overrides": {
+        "orientation": "landscape-window",
+        "window_focus": "",
+        "png_exif_orientation": 1,
+        "display_width_px": 1920,
+        "display_height_px": 1080
+      }
+    },
+    {
+      "screen": "player",
+      "state": "ended",
+      "variant": "tv-focus",
+      "image": "images/player--ended--tv-focus.png",
+      "title": "フォルダーの再生終了 / tv-focus",
+      "width_px": 1920,
+      "height_px": 1080,
+      "sha256": "4be11a5c4c356a036299f53fbd2f33cc476f88e2f9181d26fa51a03b5cec528f",
+      "captured_at": "2026-10-31T15:27:44Z",
+      "preconditions": [
+        "個人データを含まないlocalhostの撮影用DLNAサーバーを使用。",
+        "登録はDEBUGのuitests.キーを使用。"
+      ],
+      "steps": [
+        "end.xmlのDLNAフォルダーを登録。",
+        "2秒のShort Audio.mp4を選び、自然終了を待つ。"
+      ],
+      "observations": [
+        "Short Audioとフォルダーの再生終了メッセージ、再生ボタンを表示する。"
+      ],
+      "environment_overrides": {
+        "orientation": "landscape-window",
+        "window_focus": "player.toggle:再生",
+        "png_exif_orientation": 1,
+        "display_width_px": 1920,
+        "display_height_px": 1080
+      }
+    },
+    {
+      "screen": "player",
+      "state": "video-paused",
+      "variant": "tv-focus",
+      "image": "images/player--video-paused--tv-focus.png",
+      "title": "動画一時停止 / tv-focus",
+      "width_px": 1920,
+      "height_px": 1080,
+      "sha256": "efcbe567507b28863e26ea6a79b1949d50e223f22dd63a62d3a4560d58626b30",
+      "captured_at": "2026-10-31T15:27:05Z",
+      "preconditions": [
+        "個人データを含まないlocalhostの撮影用DLNAサーバーを使用。",
+        "登録はDEBUGのuitests.キーを使用。"
+      ],
+      "steps": [
+        "動画再生中にSpaceキー（iOS/iPadOS/Mac Catalyst）またはPlay/Pause（tvOS）。",
+        "横向きはlandscapeLeftへ回転。"
+      ],
+      "observations": [
+        "上端にタイトルとホーム・一覧・情報、下端に前・−10秒・再生・＋10秒・次の5操作を表示する。選択したMP4は2件キューの末尾で、次は無効。"
+      ],
+      "environment_overrides": {
+        "orientation": "landscape-window",
+        "window_focus": "player.toggle:再生",
+        "png_exif_orientation": 1,
+        "display_width_px": 1920,
+        "display_height_px": 1080
+      }
+    },
+    {
+      "screen": "player",
+      "state": "video-playing",
+      "variant": "tv-video-surface",
+      "image": "images/player--video-playing--tv-video-surface.png",
+      "title": "動画再生中 / tv-video-surface",
+      "width_px": 1920,
+      "height_px": 1080,
+      "sha256": "ea4ac5d90e273f1ea8d05e4703dc10975f61cbd90d8c06e3cfd008a0c61c554c",
+      "captured_at": "2026-10-31T15:27:02Z",
+      "preconditions": [
+        "個人データを含まないlocalhostの撮影用DLNAサーバーを使用。",
+        "登録はDEBUGのuitests.キーを使用。"
+      ],
+      "steps": [
+        "video.xmlのDLNAフォルダーを登録し、Sample OP.mp4から連続再生。",
+        "約3秒待って撮影。"
+      ],
+      "observations": [
+        "640×360・24fpsの合成テスト映像を表示する。再生操作部は隠れている。"
+      ],
+      "environment_overrides": {
+        "orientation": "landscape-window",
+        "window_focus": "",
+        "png_exif_orientation": 1,
+        "display_width_px": 1920,
+        "display_height_px": 1080
+      }
+    },
+    {
+      "screen": "saved-folders",
+      "state": "empty",
+      "variant": "tv-focus",
+      "image": "images/saved-folders--empty--tv-focus.png",
+      "title": "保存済みフォルダー・未登録 / tv-focus",
+      "width_px": 1920,
+      "height_px": 1080,
+      "sha256": "e16287b580b7124ab7256bbb3c350efb72a3affeb2ee1770bac8270601c79f88",
+      "captured_at": "2026-10-31T15:26:42Z",
+      "preconditions": [
+        "個人データを含まないlocalhostの撮影用DLNAサーバーを使用。",
+        "登録はDEBUGのuitests.キーを使用。"
+      ],
+      "steps": [
+        "テスト登録キーを初期化して起動。",
+        "ホームの「動画フォルダーを選ぶ」を選択。"
+      ],
+      "observations": [
+        "未登録の案内と「フォルダーを追加」を表示する。"
+      ],
+      "environment_overrides": {
+        "orientation": "landscape-window",
+        "window_focus": "saved.addFolder:フォルダーを追加",
+        "png_exif_orientation": 1,
+        "display_width_px": 1920,
+        "display_height_px": 1080
+      }
+    },
+    {
+      "screen": "saved-folders",
+      "state": "populated",
+      "variant": "tv-focus",
+      "image": "images/saved-folders--populated--tv-focus.png",
+      "title": "保存済みフォルダー・登録あり / tv-focus",
+      "width_px": 1920,
+      "height_px": 1080,
+      "sha256": "327e2fb6d86a9c4256320d3282e7fdf73af7be2e1a10f2e848f955c119f4c77d",
+      "captured_at": "2026-10-31T15:26:53Z",
+      "preconditions": [
+        "個人データを含まないlocalhostの撮影用DLNAサーバーを使用。",
+        "登録はDEBUGのuitests.キーを使用。"
+      ],
+      "steps": [
+        "ホーム → フォルダーを追加 → DLNAサーバー → UI Sample NAS。",
+        "「このフォルダーを登録」を選択。"
+      ],
+      "observations": [
+        "DLNAフォルダーにUI Sample NASの登録行を表示する。"
+      ],
+      "environment_overrides": {
+        "orientation": "landscape-window",
+        "window_focus": "saved.dlna.uuid:ui-sample-video\u00000:UI Sample NAS、UI Sample NAS · UI Sample NAS",
+        "png_exif_orientation": 1,
+        "display_width_px": 1920,
+        "display_height_px": 1080
+      }
+    }
+  ],
+  "coverage": [
+    {
+      "scope": "system-picker/default,permission/default",
+      "status": "pending",
+      "reason": "OSファイル選択・権限案内・USBストレージ接続は収録していない。"
+    },
+    {
+      "scope": "dlna-servers/empty,manual-entry,connection-error",
+      "status": "pending",
+      "reason": "DLNAはlocalhostへの接続済み画面のみ。自動探索・実LANの失敗・入力中は未収録。"
+    },
+    {
+      "scope": "file-browser/loading,failure",
+      "status": "pending",
+      "reason": "撮影用サーバーは即時応答。読み込み中・一覧取得失敗は未収録。"
+    },
+    {
+      "scope": "accessibility,additional-window-sizes,real-devices",
+      "status": "pending",
+      "reason": "大きな文字、VoiceOver、別サイズ、実機、実NAS、実USB DAC、中断復帰の表示は未収録。"
+    },
+    {
+      "scope": "saved-folders/remove-confirmation,file-browser/empty",
+      "status": "pending",
+      "reason": "この撮影ハーネスでは未収録。Mac Catalystの画像を代用しない。"
+    },
+    {
+      "scope": "media-info/audio",
+      "status": "pending",
+      "reason": "撮影ハーネスがフォーカス移動で到達できなかった。音声のみの再生画面は収録済み。"
+    },
+    {
+      "scope": "media-info/video-output-section",
+      "status": "pending",
+      "reason": "メディア情報の下部にスクロールした音声出力欄は未収録。"
+    },
+    {
+      "scope": "system-picker/local-folder",
+      "status": "not-applicable",
+      "reason": "この固定コミットのtvOS追加先はDLNAのみ。端末フォルダー入口を持たない。"
+    }
+  ],
+  "focus_record": "capture-details.json",
+  "verification": {
+    "visual_review": "全画像をコンタクトシートと主要画像の原寸表示で確認。",
+    "capture_result": "SnapshotCaptureTests/testCapture: 1 test, 0 failures",
+    "last_capture_at": "2026-11-01T00:28:01+09:00"
+  }
+}

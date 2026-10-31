@@ -1,0 +1,29 @@
+撮影実行ログの対象テスト・添付・結果部分を抜粋。ハーネスはtools/appleを参照。
+
+Test Suite 'Selected tests' started at 2026-11-01 00:21:31.167.
+Test Suite 'DeviceUITests.xctest' started at 2026-11-01 00:21:31.167.
+Test Suite 'SnapshotCaptureTests' started at 2026-11-01 00:21:31.167.
+    t =     3.82s Added attachment named 'home--default--portrait'
+    t =     6.14s Added attachment named 'saved-folders--empty--portrait'
+    t =     8.88s Added attachment named 'add-source--default--portrait'
+    t =    12.78s Added attachment named 'dlna-servers--populated--portrait'
+    t =    18.64s Added attachment named 'saved-folders--populated--portrait'
+    t =    22.43s Added attachment named 'file-browser--populated--portrait'
+    t =    27.67s Added attachment named 'player--video-playing--portrait'
+    t =    29.99s Added attachment named 'player--video-paused--portrait'
+    t =    34.18s Added attachment named 'media-info--video--portrait'
+    t =    38.65s Added attachment named 'player--video-paused--landscape'
+    t =    41.42s Added attachment named 'file-browser--populated--landscape'
+    t =    45.46s Added attachment named 'home--default--landscape'
+    t =    64.99s Added attachment named 'player--audio-playing--portrait'
+    t =    68.06s Added attachment named 'media-info--audio--portrait'
+    t =    91.92s Added attachment named 'player--ended--portrait'
+    t =   111.72s Added attachment named 'playback-error--decode--portrait'
+    t =   111.72s Added attachment named 'capture-details'
+Test Suite 'SnapshotCaptureTests' passed at 2026-11-01 00:23:24.104.
+	 Executed 1 test, with 0 failures (0 unexpected) in 112.936 (112.937) seconds
+Test Suite 'DeviceUITests.xctest' passed at 2026-11-01 00:23:24.105.
+	 Executed 1 test, with 0 failures (0 unexpected) in 112.936 (112.938) seconds
+Test Suite 'Selected tests' passed at 2026-11-01 00:23:24.106.
+	 Executed 1 test, with 0 failures (0 unexpected) in 112.936 (112.939) seconds
+** TEST SUCCEEDED **

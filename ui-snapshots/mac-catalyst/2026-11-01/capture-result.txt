@@ -1,0 +1,2 @@
+Mac Catalyst: 固定コミットのDebugビルド成功。Computer Useで通常UIを操作し16画像を保存。
+XCUITestによるMacのテストは実行していない。到達手順はmanifest.json、取得元JPEGはsource-jpeg/。

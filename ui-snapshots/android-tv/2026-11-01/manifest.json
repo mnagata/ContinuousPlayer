@@ -1,0 +1,621 @@
+{
+  "schema_version": 1,
+  "platform": "android-tv",
+  "capture_id": "2026-11-01",
+  "captured_at": "2026-11-01T00:10:28.728916+09:00",
+  "capture_kind": "runtime-fixture",
+  "source": {
+    "repository": "https://github.com/mnagata/ContinuousPlayer_for_Android",
+    "revision": "85ff21122442aa6ca6ed200d11c177f6e806ef60",
+    "production_tree": "app/src/main has no tracked differences from HEAD; capture harness is temporary androidTest code",
+    "build_variant": "debug; versionName 1.0; versionCode 1",
+    "artifact_sha256": "0f4e9a57a55f88df99bc5b3662b3119e01ffa45b8c72f3f136323218e172a947"
+  },
+  "environment": {
+    "device": "CP_UI_TV_API_36 / sdk_google_atv64_arm64",
+    "device_kind": "Android TV Emulator",
+    "emulator_version": "37.2.12.0 (16428233)",
+    "os": "Android 16 / API 36",
+    "abi": "arm64-v8a",
+    "system_image": "system-images;android-36;android-tv;arm64-v8a revision 4",
+    "system_image_url": "https://dl.google.com/android/repository/sys-img/android-tv/arm64-v8a-36_r04.zip",
+    "system_image_archive_sha1": "ceb1dfcc6a28dbd9dbade780428cf7bafb1c65ef",
+    "build_fingerprint": "google/sdk_google_atv64_arm64/emu64a:16/BT2A.260319.001/15058170:user/dev-keys",
+    "physical_display_px": [
+      1920,
+      1080
+    ],
+    "configuration_dp": [
+      960,
+      540
+    ],
+    "density_dpi": 320,
+    "font_scale": 1.0,
+    "orientation": "landscape",
+    "ui_mode": "television",
+    "app_language": "ja (default Japanese resources)",
+    "os_language": "en-US",
+    "os_appearance": "night",
+    "app_appearance": "dark, Theme.AppCompat.NoActionBar",
+    "input": "Injected SOURCE_DPAD key events; selected capture positions prepared with requestFocus; registration-removal dialog prepared via production ListView long-click callback",
+    "screenshot_method": "UiAutomation.takeScreenshot, full display, lossless PNG, no pixel edits",
+    "system_bars": "No phone status/navigation bars in the TV system image",
+    "focus_metadata": "Actual active-window focus recorded in capture-details.json for each screenshot",
+    "harness_sha256": "6e9f375513fb46388413e04d0fb08afa03bda999789e55a212f0fd97a4a42155",
+    "timestamp_precision": "Per-image UTC timestamps from device; batch timestamps converted to JST"
+  },
+  "fixture": {
+    "directory": "app-private files/UI Sample",
+    "media": [
+      "Sample OP.mp4: original geometric pattern, 640x360,24fps,90s,no audio",
+      "Sample ED.wav: silent PCM16 mono 48000Hz,90s",
+      "Sample OP.wav: same WAV for ambiguous title badges",
+      "Season 2: empty child directory",
+      "Sample unavailable.mp4: intentionally invalid bytes for parser error"
+    ],
+    "setup": "tools/android/TvUiSnapshotCaptureTest.kt; tools/android/make-fixture.sh; snapshotCaptureId=2026-11-01; preferences restored in finally",
+    "entry_point": "startPlayback invoked by reflection for sample sessions; file browser opened from actual player UI",
+    "permissions": "No storage permission changes; no actual USB mount or NAS connection"
+  },
+  "limitations": [
+    "Dedicated Android TV emulator; no physical TV, vendor-specific remote, overscan, HDMI sink or USB DAC verification",
+    "USB folder model points at an app-private sample directory; no real USB drive or storage permission grant",
+    "Playback started through capture harness using the real player; sample browser selection may differ from a real registered storage source",
+    "Some focus positions and long-click confirmation are prepared by the harness; not a physical-remote end-to-end or long-press timing test",
+    "No NAS discovery/connection, system SAF picker, loading/error browser variants or large-font coverage",
+    "No ADB diagnostic permission grants; mixer/HAL unavailable display is the actual emulator state, not a USB DAC measurement"
+  ],
+  "verification": {
+    "build": "assembleDebug and assembleDebugAndroidTest --offline: BUILD SUCCESSFUL",
+    "capture_run": "jp.nagu.continuousplayer.TvUiSnapshotCaptureTest:.\n\nTime: 25.986\n\nOK (1 test)",
+    "visual_review": "All PNGs inspected; changed home wording and audio-output note checked at full size; TV also captured after scrolling to bottom"
+  },
+  "screenshots": [
+    {
+      "screen": "home",
+      "state": "default",
+      "variant": "tv-focus-select",
+      "image": "images/home--default--tv-focus-select.png",
+      "title": "TVホーム",
+      "width_px": 1920,
+      "height_px": 1080,
+      "sha256": "c0961071b5e821b6fca2846cd86491094b9dab561300828e67ee9c308f667324",
+      "captured_at": "2026-10-31T15:10:28.728916Z",
+      "preconditions": [
+        "TVモードで起動、保存済み0件"
+      ],
+      "steps": [
+        "MainActivityをTVイメージ上で起動、非タッチ入力モードを使用"
+      ],
+      "observations": [
+        "英字見出しANIME OPENINGS / ENDINGS、アプリ名、動画フォルダーを選ぶを表示。TV操作案内と白いボタンフォーカス枠"
+      ],
+      "environment_overrides": {
+        "window_focus": [
+          {
+            "resource_id": "jp.nagu.continuousplayer:id/btn_select_folder",
+            "text": "動画フォルダーを選ぶ",
+            "content_description": null
+          }
+        ]
+      }
+    },
+    {
+      "screen": "saved-folders",
+      "state": "empty",
+      "variant": "tv-focus-add",
+      "image": "images/saved-folders--empty--tv-focus-add.png",
+      "title": "保存済み0件",
+      "width_px": 1920,
+      "height_px": 1080,
+      "sha256": "622869f856ce21f481ae5e9b854286bd557804b1cb3e2589503043651d3b81d1",
+      "captured_at": "2026-10-31T15:10:30.052464Z",
+      "preconditions": [
+        "撮影用の登録先を空にする"
+      ],
+      "steps": [
+        "ホームで決定",
+        "フォルダーを追加にフォーカスを指定"
+      ],
+      "observations": [
+        "登録0件の説明とフォルダーを追加・キャンセル。追加ボタンにシアンの枠"
+      ],
+      "environment_overrides": {
+        "window_focus": [
+          {
+            "resource_id": "jp.nagu.continuousplayer:id/dlna_refresh",
+            "text": "フォルダーを追加",
+            "content_description": "フォルダーを追加"
+          }
+        ]
+      }
+    },
+    {
+      "screen": "saved-folders",
+      "state": "populated",
+      "variant": "tv-focus-sample",
+      "image": "images/saved-folders--populated--tv-focus-sample.png",
+      "title": "保存済み1件",
+      "width_px": 1920,
+      "height_px": 1080,
+      "sha256": "e55d5d5c6cf9b3375c4da3da0eaae8199bd0f47d161047021218fc2fc6fe58a8",
+      "captured_at": "2026-10-31T15:10:31.182288Z",
+      "preconditions": [
+        "UI SampleをUSB形式のモデルに登録、実体はアプリ専用領域"
+      ],
+      "steps": [
+        "ホームで決定"
+      ],
+      "observations": [
+        "保存済み一覧にUI Sampleを表示し、行全体に選択枠"
+      ],
+      "environment_overrides": {
+        "window_focus": [
+          {
+            "resource_id": "jp.nagu.continuousplayer:id/saved_folder_open",
+            "text": null,
+            "content_description": "UI Sample。USB / 外部ストレージ · /data/data/jp.nagu.continuousplayer/files/UI Sample。開く"
+          }
+        ]
+      }
+    },
+    {
+      "screen": "saved-folders",
+      "state": "remove-confirmation",
+      "variant": "tv-focus-cancel",
+      "image": "images/saved-folders--remove-confirmation--tv-focus-cancel.png",
+      "title": "登録解除確認",
+      "width_px": 1920,
+      "height_px": 1080,
+      "sha256": "736d17e40f08075b242135b6be9f445bf74e89247111fda706025e04313f669c",
+      "captured_at": "2026-10-31T15:10:31.983293Z",
+      "preconditions": [
+        "UI Sample行を表示"
+      ],
+      "steps": [
+        "ListViewの既存長押しコールバックを呼ぶ"
+      ],
+      "observations": [
+        "ファイルは削除されない旨の説明。キャンセルにフォーカス"
+      ],
+      "environment_overrides": {
+        "window_focus": [
+          {
+            "resource_id": "jp.nagu.continuousplayer:id/dlna_close",
+            "text": "キャンセル",
+            "content_description": null
+          }
+        ]
+      }
+    },
+    {
+      "screen": "add-source",
+      "state": "default",
+      "variant": "tv-focus-usb",
+      "image": "images/add-source--default--tv-focus-usb.png",
+      "title": "TVの追加先選択",
+      "width_px": 1920,
+      "height_px": 1080,
+      "sha256": "b1bb57cffae9105d009096b286d8baf43eab80e6cbbd3dbee55cac0d8db91c2e",
+      "captured_at": "2026-10-31T15:10:33.335609Z",
+      "preconditions": [
+        "保存済み一覧からフォルダーを追加を開く"
+      ],
+      "steps": [
+        "追加ボタンを選んで決定",
+        "下キーでUSB行へ移動"
+      ],
+      "observations": [
+        "端末 / SAF・USB / 外部ストレージ・NAS / DLNAの3行。USB行にシアンの選択枠"
+      ],
+      "environment_overrides": {
+        "window_focus": [
+          {
+            "resource_id": "jp.nagu.continuousplayer:id/dlna_list",
+            "text": null,
+            "content_description": null
+          }
+        ]
+      }
+    },
+    {
+      "screen": "permission",
+      "state": "default",
+      "variant": "tv-usb-guidance",
+      "image": "images/permission--default--tv-usb-guidance.png",
+      "title": "USBアクセスの案内",
+      "width_px": 1920,
+      "height_px": 1080,
+      "sha256": "9ff5e57ec4d18802ac0c74ccc2fac6413340bcdfe3ad2d6e26a7180b8ed88eef",
+      "captured_at": "2026-10-31T15:10:34.479798Z",
+      "preconditions": [
+        "ストレージアクセス権なし"
+      ],
+      "steps": [
+        "USB行で決定"
+      ],
+      "observations": [
+        "USBメモリーへのアクセスの説明。設定を開くにフォーカス。設定変更は実行しない"
+      ],
+      "environment_overrides": {
+        "window_focus": [
+          {
+            "resource_id": "android:id/button1",
+            "text": "設定を開く",
+            "content_description": null
+          }
+        ]
+      }
+    },
+    {
+      "screen": "player",
+      "state": "video-paused",
+      "variant": "tv-focus-play",
+      "image": "images/player--video-paused--tv-focus-play.png",
+      "title": "動画一時停止・再生ボタン選択",
+      "width_px": 1920,
+      "height_px": 1080,
+      "sha256": "e18a9c49d74e852f6590b1b4eca8c56733dcf977f3b39d16291e97861c4f0b74",
+      "captured_at": "2026-10-31T15:10:37.076162Z",
+      "preconditions": [
+        "640×360・24fps・音声なし動画、2件キュー先頭、約30秒"
+      ],
+      "steps": [
+        "撮影ハーネスでサンプル再生開始",
+        "決定で一時停止し30秒へシーク",
+        "再生ボタンへフォーカス指定"
+      ],
+      "observations": [
+        "上端にタイトルと3アイコン、下端に5操作。再生に緑色のフォーカス表示。前のファイルは無効"
+      ],
+      "environment_overrides": {
+        "window_focus": [
+          {
+            "resource_id": "jp.nagu.continuousplayer:id/btn_overlay_play_pause",
+            "text": null,
+            "content_description": "再生"
+          }
+        ]
+      }
+    },
+    {
+      "screen": "player",
+      "state": "video-paused",
+      "variant": "tv-focus-info",
+      "image": "images/player--video-paused--tv-focus-info.png",
+      "title": "動画一時停止・情報ボタン選択",
+      "width_px": 1920,
+      "height_px": 1080,
+      "sha256": "5d2289d63bcd9ceb9011e299389259bd67227c5741b2a7c4275e46d44d4b6ac3",
+      "captured_at": "2026-10-31T15:10:37.951882Z",
+      "preconditions": [
+        "再生ボタンにフォーカス"
+      ],
+      "steps": [
+        "上キーでメディア情報へ移動"
+      ],
+      "observations": [
+        "上端右のメディア情報に緑色のフォーカス表示"
+      ],
+      "environment_overrides": {
+        "window_focus": [
+          {
+            "resource_id": "jp.nagu.continuousplayer:id/btn_overlay_info",
+            "text": null,
+            "content_description": "メディア情報"
+          }
+        ]
+      }
+    },
+    {
+      "screen": "media-info",
+      "state": "video",
+      "variant": "tv-focus-ok",
+      "image": "images/media-info--video--tv-focus-ok.png",
+      "title": "動画情報",
+      "width_px": 1920,
+      "height_px": 1080,
+      "sha256": "59091e3589224fb2fe0bad16256ed8a66ba06b9637f0d9652854f3144c577bfe",
+      "captured_at": "2026-10-31T15:10:39.768680Z",
+      "preconditions": [
+        "動画を一時停止"
+      ],
+      "steps": [
+        "情報ボタンで決定",
+        "情報取得完了後に撮影"
+      ],
+      "observations": [
+        "Sample OP.mp4、1:30、640×360、24.00fps、映像コーデック、音声なし。OKにシアンの枠"
+      ],
+      "environment_overrides": {
+        "window_focus": [
+          {
+            "resource_id": "jp.nagu.continuousplayer:id/info_close",
+            "text": "OK",
+            "content_description": null
+          }
+        ]
+      }
+    },
+    {
+      "screen": "player",
+      "state": "video-playing",
+      "variant": "tv-unfocused",
+      "image": "images/player--video-playing--tv-unfocused.png",
+      "title": "動画再生・操作部非表示",
+      "width_px": 1920,
+      "height_px": 1080,
+      "sha256": "0f05e47abd67fd6d24f0454ddbcd63dd607c15b0f5e2cccfcd6b8068e8ac34f2",
+      "captured_at": "2026-10-31T15:10:41.181601Z",
+      "preconditions": [
+        "動画情報を閉じて一時停止へ戻す"
+      ],
+      "steps": [
+        "再生ボタンを選び決定",
+        "操作部が隠れるまで待つ"
+      ],
+      "observations": [
+        "格子と2つの枠を含むサンプル動画のみ表示。最前面のキー入力先はplayer_view"
+      ],
+      "environment_overrides": {
+        "window_focus": [
+          {
+            "resource_id": "jp.nagu.continuousplayer:id/player_view",
+            "text": null,
+            "content_description": null
+          }
+        ]
+      }
+    },
+    {
+      "screen": "file-browser",
+      "state": "populated",
+      "variant": "tv-focus-folder",
+      "image": "images/file-browser--populated--tv-focus-folder.png",
+      "title": "ファイル一覧・子フォルダー選択",
+      "width_px": 1920,
+      "height_px": 1080,
+      "sha256": "e55ca41ec17af4e9a60daeda8904f5cded37d422b38e6986d4dea8f133e1bb26",
+      "captured_at": "2026-10-31T15:10:42.417515Z",
+      "preconditions": [
+        "撮影用動画セッションを一時停止"
+      ],
+      "steps": [
+        "再生画面で戻るキー"
+      ],
+      "observations": [
+        "上へ・キャンセル・再読み込みと一覧。撮影条件では最初のSeason 2行に選択枠"
+      ],
+      "environment_overrides": {
+        "window_focus": [
+          {
+            "resource_id": "jp.nagu.continuousplayer:id/dlna_list",
+            "text": null,
+            "content_description": null
+          }
+        ]
+      }
+    },
+    {
+      "screen": "file-browser",
+      "state": "populated",
+      "variant": "tv-focus-video",
+      "image": "images/file-browser--populated--tv-focus-video.png",
+      "title": "ファイル一覧・動画選択",
+      "width_px": 1920,
+      "height_px": 1080,
+      "sha256": "f1a78944595f38e81c76409a6983fbd4ff28ff677b9f382afc510f7821f27979",
+      "captured_at": "2026-10-31T15:10:43.312979Z",
+      "preconditions": [
+        "Season 2行を選択"
+      ],
+      "steps": [
+        "下キーで次の行へ移動"
+      ],
+      "observations": [
+        "Sample OPのMP4行に選択枠。同名のWAV行には形式バッジ"
+      ],
+      "environment_overrides": {
+        "window_focus": [
+          {
+            "resource_id": "jp.nagu.continuousplayer:id/dlna_list",
+            "text": null,
+            "content_description": null
+          }
+        ]
+      }
+    },
+    {
+      "screen": "player",
+      "state": "audio-playing",
+      "variant": "tv-focus-pause",
+      "image": "images/player--audio-playing--tv-focus-pause.png",
+      "title": "音声再生",
+      "width_px": 1920,
+      "height_px": 1080,
+      "sha256": "a868af0d37ff22fb731dc0bb5003a4f2630e6ce2d8a3d5d8f7b2ef06dc9c0a2c",
+      "captured_at": "2026-10-31T15:10:44.570939Z",
+      "preconditions": [
+        "90秒の48kHz mono PCM16 WAV、単一キュー"
+      ],
+      "steps": [
+        "ホームへ戻り音声サンプルの再生を開始",
+        "一時停止ボタンにフォーカス指定"
+      ],
+      "observations": [
+        "黒背景にタイトルと操作部を常時表示。中央は一時停止アイコン、前後は無効"
+      ],
+      "environment_overrides": {
+        "window_focus": [
+          {
+            "resource_id": "jp.nagu.continuousplayer:id/btn_overlay_play_pause",
+            "text": null,
+            "content_description": "一時停止"
+          }
+        ]
+      }
+    },
+    {
+      "screen": "media-info",
+      "state": "audio",
+      "variant": "tv-focus-ok",
+      "image": "images/media-info--audio--tv-focus-ok.png",
+      "title": "音声情報・スクロール上端",
+      "width_px": 1920,
+      "height_px": 1080,
+      "sha256": "543a44b5e3e1e1045cc5cfe014afd9cea791929f9411a32239fb07a37e7395db",
+      "captured_at": "2026-10-31T15:10:46.649874Z",
+      "preconditions": [
+        "音声再生中"
+      ],
+      "steps": [
+        "上キーで情報ボタンへ移動し決定",
+        "情報取得完了後に撮影"
+      ],
+      "observations": [
+        "スクロール上端。出力情報の後半と注記は別の下端画像に収録"
+      ],
+      "environment_overrides": {
+        "window_focus": [
+          {
+            "resource_id": "jp.nagu.continuousplayer:id/info_close",
+            "text": "OK",
+            "content_description": null
+          }
+        ]
+      }
+    },
+    {
+      "screen": "media-info",
+      "state": "audio",
+      "variant": "tv-output",
+      "image": "images/media-info--audio--tv-output.png",
+      "title": "音声情報・スクロール下部",
+      "width_px": 1920,
+      "height_px": 1080,
+      "sha256": "fb037f687d44d462e155405c0a1dc1f698028e433f1e761833f7c197e3806d08",
+      "captured_at": "2026-10-31T15:10:47.914968Z",
+      "preconditions": [
+        "音声再生中"
+      ],
+      "steps": [
+        "音声のメディア情報を開く",
+        "実際のScrollViewを下端へスクロールして撮影"
+      ],
+      "observations": [
+        "出力経路・ミキサー/HALの取得不可表示、Bit-Perfect・優先ミキサー、AudioTrack設定値とDAC未測定の注記を表示"
+      ],
+      "environment_overrides": {
+        "window_focus": [
+          {
+            "resource_id": "jp.nagu.continuousplayer:id/info_scroll",
+            "text": null,
+            "content_description": null
+          }
+        ]
+      }
+    },
+    {
+      "screen": "player",
+      "state": "ended",
+      "variant": "tv-focus-play",
+      "image": "images/player--ended--tv-focus-play.png",
+      "title": "再生終了",
+      "width_px": 1920,
+      "height_px": 1080,
+      "sha256": "d52719f04befe8d9414e3f7ee1db12a5a2842a5ec451d96604fc83ba553a0555",
+      "captured_at": "2026-10-31T15:10:50.775330Z",
+      "preconditions": [
+        "単一の音声キュー"
+      ],
+      "steps": [
+        "情報を閉じ復帰完了を待つ",
+        "末尾1秒前へシークし実際の終了を待つ",
+        "再生ボタンへフォーカス指定"
+      ],
+      "observations": [
+        "最後まで再生しましたを上端に表示。中央は再生アイコンで緑の枠"
+      ],
+      "environment_overrides": {
+        "window_focus": [
+          {
+            "resource_id": "jp.nagu.continuousplayer:id/btn_overlay_play_pause",
+            "text": null,
+            "content_description": "再生"
+          }
+        ]
+      }
+    },
+    {
+      "screen": "playback-error",
+      "state": "decode",
+      "variant": "tv-focus-retry",
+      "image": "images/playback-error--decode--tv-focus-retry.png",
+      "title": "再生エラー",
+      "width_px": 1920,
+      "height_px": 1080,
+      "sha256": "095d0950b206865eaf1b001009102558602ca27449b017210a535041a3d62c22",
+      "captured_at": "2026-10-31T15:10:51.805256Z",
+      "preconditions": [
+        "不正なMP4内容の単一キュー"
+      ],
+      "steps": [
+        "撮影ハーネスで再生開始し解析失敗を待つ",
+        "再試行ボタンにフォーカス指定"
+      ],
+      "observations": [
+        "元の名前・理由・解析エラーコード3003と再試行・ファイル一覧・閉じる。再試行の背景が明るい"
+      ],
+      "environment_overrides": {
+        "window_focus": [
+          {
+            "resource_id": "jp.nagu.continuousplayer:id/error_retry",
+            "text": "再試行",
+            "content_description": null
+          }
+        ]
+      }
+    }
+  ],
+  "coverage": [
+    {
+      "scope": "file-browser/empty,loading,failure",
+      "status": "pending",
+      "reason": "通常一覧の子フォルダー選択・動画選択のみ収録"
+    },
+    {
+      "scope": "dlna-servers/*",
+      "status": "pending",
+      "reason": "実NASへの探索・手入力・接続失敗は未収録"
+    },
+    {
+      "scope": "system-picker/default",
+      "status": "pending",
+      "reason": "TV上のSAFシステム選択画面は未収録"
+    },
+    {
+      "scope": "permission/settings,usb-drive",
+      "status": "pending",
+      "reason": "アプリの案内だけを撮影しOS権限設定や実USBドライブの一覧は未収録"
+    },
+    {
+      "scope": "android-tv/physical-device,4k,overscan,large-font",
+      "status": "pending",
+      "reason": "1080pのTVエミュレーター標準文字倍率だけを収録"
+    },
+    {
+      "scope": "player/additional-states",
+      "status": "pending",
+      "reason": "シーク不可・長いタイトル・中断復帰などは未収録"
+    }
+  ],
+  "capture_end": "2026-11-01T00:10:51.805256+09:00",
+  "focus_record": "capture-details.json",
+  "previous_capture": "../2026-10-27/manifest.json",
+  "changes_since_previous": [
+    "Home heading changed from ホーム to ANIME OPENINGS / ENDINGS",
+    "Primary home button changed from OP / EDを選ぶ to 動画フォルダーを選ぶ",
+    "Media information now includes output route, mixer/HAL diagnostic placeholders and AudioTrack/DAC explanation",
+    "TV audio-information bottom scroll position additionally captured"
+  ]
+}

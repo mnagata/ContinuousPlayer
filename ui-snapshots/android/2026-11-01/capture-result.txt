@@ -1,0 +1,8 @@
+
+jp.nagu.continuousplayer.UiSnapshotCaptureTest:.
+
+Time: 31.233
+
+OK (1 test)
+
+

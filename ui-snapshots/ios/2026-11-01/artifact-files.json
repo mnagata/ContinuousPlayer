@@ -1,0 +1,61 @@
+{
+  "algorithm": "SHA-256 of sorted relative-path + NUL + file-sha256 + LF (UTF-8), all regular bundle files",
+  "bundle_name": "ContinuousPlayer_for_iOS.app",
+  "files": [
+    {
+      "path": "AppIcon60x60@2x.png",
+      "bytes": 6371,
+      "sha256": "05bb16551d8d12c8d64cd20739066cf4244e9c60751d779aa97159ef4b82017b"
+    },
+    {
+      "path": "AppIcon76x76@2x~ipad.png",
+      "bytes": 8598,
+      "sha256": "56ac14d211ec7533fe1cceb955e35c73c1a57ca3221d4363054f990bf8bbe7f1"
+    },
+    {
+      "path": "Assets.car",
+      "bytes": 221800,
+      "sha256": "647af22b1a42284a53028dcc22b4c883e2bcff6b06f841d62c0eaf6911bdbe44"
+    },
+    {
+      "path": "ContinuousPlayer_for_iOS",
+      "bytes": 40232,
+      "sha256": "7e7ccc9258e0a4cdd56e21b62c9b3215db366f047dc1483793a833579c3222be"
+    },
+    {
+      "path": "ContinuousPlayer_for_iOS.debug.dylib",
+      "bytes": 6379624,
+      "sha256": "8c11ab081202bfabf74ca212974f6e6f35e801f9eab4d17c92603c7385e0ea45"
+    },
+    {
+      "path": "Info.plist",
+      "bytes": 2103,
+      "sha256": "cce442edefd26be67f776b17af84c3c0dbacb6d0d2b8b81d9f23b548908c3e62"
+    },
+    {
+      "path": "LaunchScreen.storyboardc/Info.plist",
+      "bytes": 246,
+      "sha256": "80222f2959338ca0943b2406501cd4f3a2d2a548a05a92caad966bcf41c2b915"
+    },
+    {
+      "path": "LaunchScreen.storyboardc/UIViewController-launch.nib",
+      "bytes": 914,
+      "sha256": "a3d0adb0e9254f9a071419b8302a4ec227d586c3971b0cde4a8ebc47068032ea"
+    },
+    {
+      "path": "LaunchScreen.storyboardc/launch-view-root.nib",
+      "bytes": 2118,
+      "sha256": "c4031f367ceee018998d5e4024e1e7f5638de6900848ecf26947b126e9df1b80"
+    },
+    {
+      "path": "PkgInfo",
+      "bytes": 8,
+      "sha256": "82502191c9484b04d685374f9879a0066069c49b8acae7a04b01d38d07e8eca0"
+    },
+    {
+      "path": "__preview.dylib",
+      "bytes": 16776,
+      "sha256": "1138df526de41e2f908f602d7445b1ad628ad65ce9891e78a6927559d436595f"
+    }
+  ]
+}

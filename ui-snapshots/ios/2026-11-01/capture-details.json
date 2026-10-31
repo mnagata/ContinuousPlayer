@@ -1,0 +1,82 @@
+[
+  {
+    "captured_at" : "2026-10-31T15:21:34Z",
+    "image" : "home--default--portrait.png",
+    "window_focus" : "Touch interaction; keyboard focus not queried"
+  },
+  {
+    "captured_at" : "2026-10-31T15:21:37Z",
+    "image" : "saved-folders--empty--portrait.png",
+    "window_focus" : "Touch interaction; keyboard focus not queried"
+  },
+  {
+    "captured_at" : "2026-10-31T15:21:40Z",
+    "image" : "add-source--default--portrait.png",
+    "window_focus" : "Touch interaction; keyboard focus not queried"
+  },
+  {
+    "captured_at" : "2026-10-31T15:21:43Z",
+    "image" : "dlna-servers--populated--portrait.png",
+    "window_focus" : "Touch interaction; keyboard focus not queried"
+  },
+  {
+    "captured_at" : "2026-10-31T15:21:49Z",
+    "image" : "saved-folders--populated--portrait.png",
+    "window_focus" : "Touch interaction; keyboard focus not queried"
+  },
+  {
+    "captured_at" : "2026-10-31T15:21:53Z",
+    "image" : "file-browser--populated--portrait.png",
+    "window_focus" : "Touch interaction; keyboard focus not queried"
+  },
+  {
+    "captured_at" : "2026-10-31T15:21:58Z",
+    "image" : "player--video-playing--portrait.png",
+    "window_focus" : "Touch interaction; keyboard focus not queried"
+  },
+  {
+    "captured_at" : "2026-10-31T15:22:01Z",
+    "image" : "player--video-paused--portrait.png",
+    "window_focus" : "Touch interaction; keyboard focus not queried"
+  },
+  {
+    "captured_at" : "2026-10-31T15:22:05Z",
+    "image" : "media-info--video--portrait.png",
+    "window_focus" : "Touch interaction; keyboard focus not queried"
+  },
+  {
+    "captured_at" : "2026-10-31T15:22:09Z",
+    "image" : "player--video-paused--landscape.png",
+    "window_focus" : "Touch interaction; keyboard focus not queried"
+  },
+  {
+    "captured_at" : "2026-10-31T15:22:12Z",
+    "image" : "file-browser--populated--landscape.png",
+    "window_focus" : "Touch interaction; keyboard focus not queried"
+  },
+  {
+    "captured_at" : "2026-10-31T15:22:16Z",
+    "image" : "home--default--landscape.png",
+    "window_focus" : "Touch interaction; keyboard focus not queried"
+  },
+  {
+    "captured_at" : "2026-10-31T15:22:36Z",
+    "image" : "player--audio-playing--portrait.png",
+    "window_focus" : "Touch interaction; keyboard focus not queried"
+  },
+  {
+    "captured_at" : "2026-10-31T15:22:39Z",
+    "image" : "media-info--audio--portrait.png",
+    "window_focus" : "Touch interaction; keyboard focus not queried"
+  },
+  {
+    "captured_at" : "2026-10-31T15:23:03Z",
+    "image" : "player--ended--portrait.png",
+    "window_focus" : "Touch interaction; keyboard focus not queried"
+  },
+  {
+    "captured_at" : "2026-10-31T15:23:22Z",
+    "image" : "playback-error--decode--portrait.png",
+    "window_focus" : "Touch interaction; keyboard focus not queried"
+  }
+]

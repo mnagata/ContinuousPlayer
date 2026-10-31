@@ -1,0 +1,36 @@
+{
+  "algorithm": "SHA-256 of sorted relative-path + NUL + file-sha256 + LF (UTF-8), all regular bundle files",
+  "bundle_name": "ContinuousPlayer_for_tvOS.app",
+  "files": [
+    {
+      "path": "Assets.car",
+      "bytes": 660808,
+      "sha256": "46d654eb82686b8e4834ee90d4226a55bcafb1bc0034b08e116e97973a3b94ca"
+    },
+    {
+      "path": "ContinuousPlayer_for_tvOS",
+      "bytes": 40232,
+      "sha256": "6476d03d57ed767dcca05efa1e0b818647eeec082a1b0c94c61289407116cbbd"
+    },
+    {
+      "path": "ContinuousPlayer_for_tvOS.debug.dylib",
+      "bytes": 5007752,
+      "sha256": "3d84d0f40222be159be1591659bfee7debf6e94a3bb0730355f902e211d6941c"
+    },
+    {
+      "path": "Info.plist",
+      "bytes": 1353,
+      "sha256": "80f4b6ed38f002904e5c41e4683400f1da0dcd66f9bcf2fa61c3d48564a4a64e"
+    },
+    {
+      "path": "PkgInfo",
+      "bytes": 8,
+      "sha256": "82502191c9484b04d685374f9879a0066069c49b8acae7a04b01d38d07e8eca0"
+    },
+    {
+      "path": "__preview.dylib",
+      "bytes": 16776,
+      "sha256": "81fd45b23f44e3f96aedf03e63beeabafb766ff2378367530ff3de1cce7c88e2"
+    }
+  ]
+}

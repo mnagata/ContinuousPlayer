@@ -1,0 +1,167 @@
+[
+  {
+    "image": "home--default--portrait.png",
+    "captured_at": "2026-10-31T15:09:10.413356Z",
+    "window_focus": [
+      {
+        "resource_id": null,
+        "text": null,
+        "content_description": null
+      }
+    ]
+  },
+  {
+    "image": "home--default--landscape.png",
+    "captured_at": "2026-10-31T15:09:12.157157Z",
+    "window_focus": [
+      {
+        "resource_id": null,
+        "text": null,
+        "content_description": null
+      }
+    ]
+  },
+  {
+    "image": "saved-folders--populated--portrait.png",
+    "captured_at": "2026-10-31T15:09:14.095933Z",
+    "window_focus": [
+      {
+        "resource_id": "jp.nagu.continuousplayer:id\/saved_folder_open",
+        "text": null,
+        "content_description": "UI Sample。USB \/ 外部ストレージ · \/data\/data\/jp.nagu.continuousplayer\/files\/UI Sample。開く"
+      }
+    ]
+  },
+  {
+    "image": "saved-folders--remove-confirmation--portrait.png",
+    "captured_at": "2026-10-31T15:09:15.410078Z",
+    "window_focus": [
+      {
+        "resource_id": "jp.nagu.continuousplayer:id\/dlna_close",
+        "text": "キャンセル",
+        "content_description": null
+      }
+    ]
+  },
+  {
+    "image": "add-source--default--portrait.png",
+    "captured_at": "2026-10-31T15:09:16.440119Z",
+    "window_focus": [
+      {
+        "resource_id": "jp.nagu.continuousplayer:id\/dlna_list",
+        "text": null,
+        "content_description": null
+      }
+    ]
+  },
+  {
+    "image": "file-browser--populated--portrait.png",
+    "captured_at": "2026-10-31T15:09:18.153443Z",
+    "window_focus": [
+      {
+        "resource_id": "jp.nagu.continuousplayer:id\/dlna_list",
+        "text": null,
+        "content_description": null
+      }
+    ]
+  },
+  {
+    "image": "file-browser--populated--landscape.png",
+    "captured_at": "2026-10-31T15:09:20.002601Z",
+    "window_focus": [
+      {
+        "resource_id": "jp.nagu.continuousplayer:id\/dlna_list",
+        "text": null,
+        "content_description": null
+      }
+    ]
+  },
+  {
+    "image": "player--video-paused--landscape.png",
+    "captured_at": "2026-10-31T15:09:21.673098Z",
+    "window_focus": [
+      {
+        "resource_id": null,
+        "text": null,
+        "content_description": null
+      }
+    ]
+  },
+  {
+    "image": "player--video-paused--portrait.png",
+    "captured_at": "2026-10-31T15:09:23.417390Z",
+    "window_focus": [
+      {
+        "resource_id": null,
+        "text": null,
+        "content_description": null
+      }
+    ]
+  },
+  {
+    "image": "media-info--video--portrait.png",
+    "captured_at": "2026-10-31T15:09:25.035678Z",
+    "window_focus": [
+      {
+        "resource_id": null,
+        "text": null,
+        "content_description": null
+      }
+    ]
+  },
+  {
+    "image": "player--video-playing--landscape.png",
+    "captured_at": "2026-10-31T15:09:30.370209Z",
+    "window_focus": [
+      {
+        "resource_id": null,
+        "text": null,
+        "content_description": null
+      }
+    ]
+  },
+  {
+    "image": "player--audio-playing--portrait.png",
+    "captured_at": "2026-10-31T15:09:32.317898Z",
+    "window_focus": [
+      {
+        "resource_id": null,
+        "text": null,
+        "content_description": null
+      }
+    ]
+  },
+  {
+    "image": "media-info--audio--portrait.png",
+    "captured_at": "2026-10-31T15:09:34.164986Z",
+    "window_focus": [
+      {
+        "resource_id": null,
+        "text": null,
+        "content_description": null
+      }
+    ]
+  },
+  {
+    "image": "player--ended--portrait.png",
+    "captured_at": "2026-10-31T15:09:37.325Z",
+    "window_focus": [
+      {
+        "resource_id": null,
+        "text": null,
+        "content_description": null
+      }
+    ]
+  },
+  {
+    "image": "playback-error--decode--portrait.png",
+    "captured_at": "2026-10-31T15:09:38.185056Z",
+    "window_focus": [
+      {
+        "resource_id": null,
+        "text": null,
+        "content_description": null
+      }
+    ]
+  }
+]

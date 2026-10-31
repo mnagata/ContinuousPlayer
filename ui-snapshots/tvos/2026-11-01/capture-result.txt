@@ -1,0 +1,25 @@
+撮影実行ログの対象テスト・添付・結果部分を抜粋。ハーネスはtools/appleを参照。
+
+Test Suite 'Selected tests' started at 2026-11-01 00:26:36.828.
+Test Suite 'TVUITests.xctest' started at 2026-11-01 00:26:36.828.
+Test Suite 'SnapshotCaptureTests' started at 2026-11-01 00:26:36.829.
+    t =     3.63s Added attachment named 'home--default--tv-focus'
+    t =     5.86s Added attachment named 'saved-folders--empty--tv-focus'
+    t =     8.08s Added attachment named 'add-source--default--tv-focus'
+    t =    11.55s Added attachment named 'dlna-servers--populated--tv-focus'
+    t =    16.90s Added attachment named 'saved-folders--populated--tv-focus'
+    t =    20.14s Added attachment named 'file-browser--populated--tv-focus'
+    t =    25.99s Added attachment named 'player--video-playing--tv-unfocused'
+    t =    28.14s Added attachment named 'player--video-paused--tv-focus'
+    t =    32.19s Added attachment named 'media-info--video--tv-focus'
+    t =    49.32s Added attachment named 'player--audio-playing--tv-focus'
+    t =    68.04s Added attachment named 'player--ended--tv-focus'
+    t =    84.80s Added attachment named 'playback-error--decode--tv-focus'
+    t =    84.97s Added attachment named 'capture-details'
+Test Suite 'SnapshotCaptureTests' passed at 2026-11-01 00:28:02.941.
+	 Executed 1 test, with 0 failures (0 unexpected) in 86.111 (86.112) seconds
+Test Suite 'TVUITests.xctest' passed at 2026-11-01 00:28:02.943.
+	 Executed 1 test, with 0 failures (0 unexpected) in 86.111 (86.115) seconds
+Test Suite 'Selected tests' passed at 2026-11-01 00:28:02.943.
+	 Executed 1 test, with 0 failures (0 unexpected) in 86.111 (86.115) seconds
+** TEST SUCCEEDED **

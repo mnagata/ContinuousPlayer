@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "platforms": [
+    {
+      "id": "android",
+      "name": "Android",
+      "status": "captured",
+      "latest": "android/2026-11-01"
+    },
+    {
+      "id": "android-tv",
+      "name": "Android TV",
+      "status": "captured",
+      "latest": "android-tv/2026-11-01"
+    },
+    {
+      "id": "ios",
+      "name": "iOS",
+      "status": "captured",
+      "latest": "ios/2026-11-01"
+    },
+    {
+      "id": "ipados",
+      "name": "iPadOS",
+      "status": "captured",
+      "latest": "ipados/2026-11-01"
+    },
+    {
+      "id": "tvos",
+      "name": "tvOS",
+      "status": "captured",
+      "latest": "tvos/2026-11-01"
+    },
+    {
+      "id": "mac-catalyst",
+      "name": "Mac Catalyst",
+      "status": "captured",
+      "latest": "mac-catalyst/2026-11-01"
+    },
+    {
+      "id": "macos",
+      "name": "macOS native",
+      "status": "planned",
+      "latest": null
+    },
+    {
+      "id": "windows",
+      "name": "Windows",
+      "status": "planned",
+      "latest": null
+    }
+  ]
+}

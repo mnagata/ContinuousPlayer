@@ -1,0 +1,189 @@
+[
+  {
+    "image": "home--default--tv-focus-select.png",
+    "captured_at": "2026-10-31T15:10:28.728916Z",
+    "window_focus": [
+      {
+        "resource_id": "jp.nagu.continuousplayer:id\/btn_select_folder",
+        "text": "動画フォルダーを選ぶ",
+        "content_description": null
+      }
+    ]
+  },
+  {
+    "image": "saved-folders--empty--tv-focus-add.png",
+    "captured_at": "2026-10-31T15:10:30.052464Z",
+    "window_focus": [
+      {
+        "resource_id": "jp.nagu.continuousplayer:id\/dlna_refresh",
+        "text": "フォルダーを追加",
+        "content_description": "フォルダーを追加"
+      }
+    ]
+  },
+  {
+    "image": "saved-folders--populated--tv-focus-sample.png",
+    "captured_at": "2026-10-31T15:10:31.182288Z",
+    "window_focus": [
+      {
+        "resource_id": "jp.nagu.continuousplayer:id\/saved_folder_open",
+        "text": null,
+        "content_description": "UI Sample。USB \/ 外部ストレージ · \/data\/data\/jp.nagu.continuousplayer\/files\/UI Sample。開く"
+      }
+    ]
+  },
+  {
+    "image": "saved-folders--remove-confirmation--tv-focus-cancel.png",
+    "captured_at": "2026-10-31T15:10:31.983293Z",
+    "window_focus": [
+      {
+        "resource_id": "jp.nagu.continuousplayer:id\/dlna_close",
+        "text": "キャンセル",
+        "content_description": null
+      }
+    ]
+  },
+  {
+    "image": "add-source--default--tv-focus-usb.png",
+    "captured_at": "2026-10-31T15:10:33.335609Z",
+    "window_focus": [
+      {
+        "resource_id": "jp.nagu.continuousplayer:id\/dlna_list",
+        "text": null,
+        "content_description": null
+      }
+    ]
+  },
+  {
+    "image": "permission--default--tv-usb-guidance.png",
+    "captured_at": "2026-10-31T15:10:34.479798Z",
+    "window_focus": [
+      {
+        "resource_id": "android:id\/button1",
+        "text": "設定を開く",
+        "content_description": null
+      }
+    ]
+  },
+  {
+    "image": "player--video-paused--tv-focus-play.png",
+    "captured_at": "2026-10-31T15:10:37.076162Z",
+    "window_focus": [
+      {
+        "resource_id": "jp.nagu.continuousplayer:id\/btn_overlay_play_pause",
+        "text": null,
+        "content_description": "再生"
+      }
+    ]
+  },
+  {
+    "image": "player--video-paused--tv-focus-info.png",
+    "captured_at": "2026-10-31T15:10:37.951882Z",
+    "window_focus": [
+      {
+        "resource_id": "jp.nagu.continuousplayer:id\/btn_overlay_info",
+        "text": null,
+        "content_description": "メディア情報"
+      }
+    ]
+  },
+  {
+    "image": "media-info--video--tv-focus-ok.png",
+    "captured_at": "2026-10-31T15:10:39.768680Z",
+    "window_focus": [
+      {
+        "resource_id": "jp.nagu.continuousplayer:id\/info_close",
+        "text": "OK",
+        "content_description": null
+      }
+    ]
+  },
+  {
+    "image": "player--video-playing--tv-unfocused.png",
+    "captured_at": "2026-10-31T15:10:41.181601Z",
+    "window_focus": [
+      {
+        "resource_id": "jp.nagu.continuousplayer:id\/player_view",
+        "text": null,
+        "content_description": null
+      }
+    ]
+  },
+  {
+    "image": "file-browser--populated--tv-focus-folder.png",
+    "captured_at": "2026-10-31T15:10:42.417515Z",
+    "window_focus": [
+      {
+        "resource_id": "jp.nagu.continuousplayer:id\/dlna_list",
+        "text": null,
+        "content_description": null
+      }
+    ]
+  },
+  {
+    "image": "file-browser--populated--tv-focus-video.png",
+    "captured_at": "2026-10-31T15:10:43.312979Z",
+    "window_focus": [
+      {
+        "resource_id": "jp.nagu.continuousplayer:id\/dlna_list",
+        "text": null,
+        "content_description": null
+      }
+    ]
+  },
+  {
+    "image": "player--audio-playing--tv-focus-pause.png",
+    "captured_at": "2026-10-31T15:10:44.570939Z",
+    "window_focus": [
+      {
+        "resource_id": "jp.nagu.continuousplayer:id\/btn_overlay_play_pause",
+        "text": null,
+        "content_description": "一時停止"
+      }
+    ]
+  },
+  {
+    "image": "media-info--audio--tv-focus-ok.png",
+    "captured_at": "2026-10-31T15:10:46.649874Z",
+    "window_focus": [
+      {
+        "resource_id": "jp.nagu.continuousplayer:id\/info_close",
+        "text": "OK",
+        "content_description": null
+      }
+    ]
+  },
+  {
+    "image": "media-info--audio--tv-output.png",
+    "captured_at": "2026-10-31T15:10:47.914968Z",
+    "window_focus": [
+      {
+        "resource_id": "jp.nagu.continuousplayer:id\/info_scroll",
+        "text": null,
+        "content_description": null
+      }
+    ]
+  },
+  {
+    "image": "player--ended--tv-focus-play.png",
+    "captured_at": "2026-10-31T15:10:50.775330Z",
+    "window_focus": [
+      {
+        "resource_id": "jp.nagu.continuousplayer:id\/btn_overlay_play_pause",
+        "text": null,
+        "content_description": "再生"
+      }
+    ]
+  },
+  {
+    "image": "playback-error--decode--tv-focus-retry.png",
+    "captured_at": "2026-10-31T15:10:51.805256Z",
+    "window_focus": [
+      {
+        "resource_id": "jp.nagu.continuousplayer:id\/error_retry",
+        "text": "再試行",
+        "content_description": null
+      }
+    ]
+  }
+]

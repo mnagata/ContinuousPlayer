@@ -1,0 +1,611 @@
+{
+  "schema_version": 1,
+  "platform": "mac-catalyst",
+  "capture_id": "2026-11-01",
+  "captured_at": "2026-11-01T00:19:40.624000+09:00",
+  "capture_kind": "runtime-fixture",
+  "source": {
+    "repository": "https://github.com/mnagata/ContinuousPlayer_for_iOS",
+    "revision": "a4c40408350ca1d2e0b9bee33c09f6d8bc14d5a5",
+    "production_tree": "参照コミットと一致。一時作業コピーのDeviceUITests / TVUITestsに撮影ハーネスのみ追加。製品ソース・Xcodeプロジェクトは変更なし。",
+    "build_variant": "Debug / 1.0 (1), arm64, Xcode 27.1",
+    "artifact_sha256": "47f35ccafdd30789a0283cb2e65a5eec8088cfe545f252ed0619242dc666c7fe",
+    "artifact_hash_scope": "bundle tree digest: artifact-files.jsonの各path + NUL + sha256 + LFをpath順に連結したUTF-8のSHA-256。全通常ファイル（Debug dylibを含む）を対象。",
+    "artifact_path": "Debug-maccatalyst/ContinuousPlayer.app",
+    "executable_sha256": "62406adfb6c47666fd998a4fc24901b16f0669420642f14337100ed17eb2cb97",
+    "artifact_inventory": "artifact-files.json",
+    "executable_path": "Debug-maccatalyst/ContinuousPlayer.app/Contents/MacOS/ContinuousPlayer"
+  },
+  "environment": {
+    "device": "Mac (arm64)",
+    "os": "macOS 26.7 (25G229)",
+    "host_os": "macOS 26.7 (25G229)",
+    "xcode": "27.1 (27A9275)",
+    "architecture": "arm64",
+    "simulator_udid": null,
+    "app_language": "ja",
+    "app_locale": "ja_JP",
+    "os_language": null,
+    "appearance": "撮影画像の暗色外観",
+    "text_scale": "標準（倍率上書きなし）",
+    "display_scale": null,
+    "input": "Computer Useによるポインター・Spaceキー",
+    "capture_method": "CUA app.getScreenshot JPEG → sips PNG。取得元JPEG保存",
+    "system_regions": "ネイティブタイトルバー。シート画像はその領域のみ",
+    "point_size": null,
+    "os_language_note": "撮影用アプリにはAppleLanguages=(ja)とAppleLocale=ja_JPを指定。OS全体の設定は変更していない。"
+  },
+  "fixture": {
+    "description": "640×360・24fps・90秒のtestsrc2動画（音声なし）、48kHz・mono無音AACのみのMP4（90秒 / 2秒）、意図的な破損MP4、空の子フォルダー、同名異形式M4V/MP4。",
+    "server": "127.0.0.1:18769、ループバック限定。SSDP・外部NASへ接続しない。",
+    "setup": "tools/apple/generate-media.py、fixture-server.py、SnapshotCaptureTests.swift。",
+    "data_impact": "登録はDEBUG専用uitests.キー。DLNA最終接続先は共通設定キーを更新。通常の登録・個人ファイルを削除しない。"
+  },
+  "limitations": [
+    "固定コミットのDebug実UI。サンプルでの見た目を記録し、共通仕様への準拠や実NAS・実機・外部DACの動作保証とは区別する。",
+    "登録はuitests.の専用キー。DLNA最終接続先は共通設定キーのため撮影用ループバックURLへ更新される。個人メディア・実NASは使用していない。",
+    "アプリ言語はja、文字倍率は標準。iPhone/iPadのOS全体の優先言語は測定していない。",
+    "Computer Useが返すJPEGを原寸のままPNGへ形式変換。JPEG由来の圧縮を含み、PNG直接撮影とは区別する。取得元JPEGとハッシュを保存。",
+    "ウィンドウ画像は2240×1292px。OSの撮影中インジケーター・ポインターを含む。情報と解除確認はツールが返したネイティブシート領域のみで、アプリ全体へ合成していない。",
+    "ウィンドウのpt寸法、backing scale、CatalystのUIKit倍率は未測定。PNGのpx寸法から逆算しない。",
+    "pt寸法・OSの画面倍率は独立測定していないためnull。PNGの格納寸法とEXIF適用後の表示寸法を記録。"
+  ],
+  "screenshots": [
+    {
+      "screen": "add-source",
+      "state": "default",
+      "variant": "desktop-window",
+      "image": "images/add-source--default--desktop-window.png",
+      "title": "フォルダーの追加先 / desktop-window",
+      "width_px": 2240,
+      "height_px": 1292,
+      "sha256": "52f7102200512cbcc966bd5ec8139fb5eb2960a0f85c485f7358ca1c3d40f25d",
+      "captured_at": "2026-10-31T15:20:35.948Z",
+      "preconditions": [
+        "個人データを含まないlocalhostの撮影用DLNAサーバーを使用。",
+        "登録はDEBUGのuitests.キーを使用。"
+      ],
+      "steps": [
+        "ホーム → 動画フォルダーを選ぶ → フォルダーを追加。"
+      ],
+      "observations": [
+        "保存元の選択画面。tvOSはDLNA、ほかの3版は端末・外部ストレージとDLNAの入口を表示する。"
+      ],
+      "environment_overrides": {
+        "orientation": "window",
+        "window_focus": "Mac Catalyst front window; pointer/keyboard; no TV focus",
+        "png_exif_orientation": 1,
+        "display_width_px": 2240,
+        "display_height_px": 1292,
+        "surface": "application-window-with-titlebar"
+      },
+      "source_image": "source-jpeg/add-source--default--desktop-window.jpg",
+      "source_sha256": "655be7670a1db8df04e485689ad1db6ae33af53f31c51c7d90996990e4b41036",
+      "encoding_conversion": "CUA JPEGをsips -s format pngでPNGへ変換。リサイズ・合成・描き直しなし。取得元JPEGを同梱。"
+    },
+    {
+      "screen": "dlna-servers",
+      "state": "populated",
+      "variant": "desktop-window",
+      "image": "images/dlna-servers--populated--desktop-window.png",
+      "title": "DLNAサーバー・サンプル接続済み / desktop-window",
+      "width_px": 2240,
+      "height_px": 1292,
+      "sha256": "64b18a5297fafc011c7fc3ceaff0bb6374a8e737faf4ee4d3705807e18cdbbe5",
+      "captured_at": "2026-10-31T15:21:19.101Z",
+      "preconditions": [
+        "個人データを含まないlocalhostの撮影用DLNAサーバーを使用。",
+        "登録はDEBUGのuitests.キーを使用。"
+      ],
+      "steps": [
+        "フォルダーを追加 → DLNAサーバー。",
+        "起動引数の保存接続先からlocalhostの撮影用サーバーへ自動接続。"
+      ],
+      "observations": [
+        "UI Sample NAS、ループバックの接続先、接続操作を表示する。自動探索は撮影引数で無効化している。"
+      ],
+      "environment_overrides": {
+        "orientation": "window",
+        "window_focus": "Mac Catalyst front window; pointer/keyboard; no TV focus",
+        "png_exif_orientation": 1,
+        "display_width_px": 2240,
+        "display_height_px": 1292,
+        "surface": "application-window-with-titlebar"
+      },
+      "source_image": "source-jpeg/dlna-servers--populated--desktop-window.jpg",
+      "source_sha256": "6570428496a3f6a0f285b832bd41fa0f3a8b906a9110f0057d2564de453be649",
+      "encoding_conversion": "CUA JPEGをsips -s format pngでPNGへ変換。リサイズ・合成・描き直しなし。取得元JPEGを同梱。"
+    },
+    {
+      "screen": "file-browser",
+      "state": "empty",
+      "variant": "desktop-window",
+      "image": "images/file-browser--empty--desktop-window.png",
+      "title": "空のフォルダー / desktop-window",
+      "width_px": 2240,
+      "height_px": 1292,
+      "sha256": "65d65fddc742c569f470e2f8c4c120b5d46fbe1b7310c799e16aebac06b1d9fc",
+      "captured_at": "2026-10-31T15:21:44.447Z",
+      "preconditions": [
+        "個人データを含まないlocalhostの撮影用DLNAサーバーを使用。",
+        "登録はDEBUGのuitests.キーを使用。"
+      ],
+      "steps": [
+        "ファイル一覧でOther Folderを開く。"
+      ],
+      "observations": [
+        "「この階層には再生対象のファイルがありません。」と再読み込みを表示する。"
+      ],
+      "environment_overrides": {
+        "orientation": "window",
+        "window_focus": "Mac Catalyst front window; pointer/keyboard; no TV focus",
+        "png_exif_orientation": 1,
+        "display_width_px": 2240,
+        "display_height_px": 1292,
+        "surface": "application-window-with-titlebar"
+      },
+      "source_image": "source-jpeg/file-browser--empty--desktop-window.jpg",
+      "source_sha256": "4cb4691992eff3f5cd25dc9e3758269a32e635970ed9f603ead2d856494d013b",
+      "encoding_conversion": "CUA JPEGをsips -s format pngでPNGへ変換。リサイズ・合成・描き直しなし。取得元JPEGを同梱。"
+    },
+    {
+      "screen": "file-browser",
+      "state": "populated",
+      "variant": "desktop-playback-overlay",
+      "image": "images/file-browser--populated--desktop-playback-overlay.png",
+      "title": "再生開始ファイルの選択 / desktop-playback-overlay",
+      "width_px": 2240,
+      "height_px": 1292,
+      "sha256": "38e4c4a67ec3228fc5b54932fc5b941675dc4b182fdd1497faf30c9603ef12b6",
+      "captured_at": "2026-10-31T15:22:47.211Z",
+      "preconditions": [
+        "個人データを含まないlocalhostの撮影用DLNAサーバーを使用。",
+        "登録はDEBUGのuitests.キーを使用。"
+      ],
+      "steps": [
+        "登録したUI Sample NASを選択。",
+        "横向きまたはdesktop-playback-overlayは動画一時停止 → ファイル一覧。"
+      ],
+      "observations": [
+        "Other Folderと同名Sample OPの2形式を表示し、M4V / MP4の形式バッジで区別する。"
+      ],
+      "environment_overrides": {
+        "orientation": "window",
+        "window_focus": "Mac Catalyst front window; pointer/keyboard; no TV focus",
+        "png_exif_orientation": 1,
+        "display_width_px": 2240,
+        "display_height_px": 1292,
+        "surface": "application-window-with-titlebar"
+      },
+      "source_image": "source-jpeg/file-browser--populated--desktop-playback-overlay.jpg",
+      "source_sha256": "a7264620cabf3a39c095907bc73914f9314380756cb2eb610aa5258fc7a3051a",
+      "encoding_conversion": "CUA JPEGをsips -s format pngでPNGへ変換。リサイズ・合成・描き直しなし。取得元JPEGを同梱。"
+    },
+    {
+      "screen": "file-browser",
+      "state": "populated",
+      "variant": "desktop-window",
+      "image": "images/file-browser--populated--desktop-window.png",
+      "title": "再生開始ファイルの選択 / desktop-window",
+      "width_px": 2240,
+      "height_px": 1292,
+      "sha256": "2cac772654a61af307fae073388ffaedc0f24be3305be8c48c1dd672048dae44",
+      "captured_at": "2026-10-31T15:21:40.782Z",
+      "preconditions": [
+        "個人データを含まないlocalhostの撮影用DLNAサーバーを使用。",
+        "登録はDEBUGのuitests.キーを使用。"
+      ],
+      "steps": [
+        "登録したUI Sample NASを選択。",
+        "横向きまたはdesktop-playback-overlayは動画一時停止 → ファイル一覧。"
+      ],
+      "observations": [
+        "Other Folderと同名Sample OPの2形式を表示し、M4V / MP4の形式バッジで区別する。"
+      ],
+      "environment_overrides": {
+        "orientation": "window",
+        "window_focus": "Mac Catalyst front window; pointer/keyboard; no TV focus",
+        "png_exif_orientation": 1,
+        "display_width_px": 2240,
+        "display_height_px": 1292,
+        "surface": "application-window-with-titlebar"
+      },
+      "source_image": "source-jpeg/file-browser--populated--desktop-window.jpg",
+      "source_sha256": "b9f4b1e5cc4198c76d7b40ed501d19cb239f4bced22dfee7a1057bcbc10cd0ed",
+      "encoding_conversion": "CUA JPEGをsips -s format pngでPNGへ変換。リサイズ・合成・描き直しなし。取得元JPEGを同梱。"
+    },
+    {
+      "screen": "home",
+      "state": "default",
+      "variant": "desktop-window",
+      "image": "images/home--default--desktop-window.png",
+      "title": "ホーム / desktop-window",
+      "width_px": 2240,
+      "height_px": 1292,
+      "sha256": "925a3932b1a9037f16d6ea6e650b4d3d996058ce91a96cf39a3ada0e9ac86b75",
+      "captured_at": "2026-10-31T15:19:40.624Z",
+      "preconditions": [
+        "個人データを含まないlocalhostの撮影用DLNAサーバーを使用。",
+        "登録はDEBUGのuitests.キーを使用。"
+      ],
+      "steps": [
+        "テスト用引数でアプリを起動。横向きは再生画面からホームへ戻る。"
+      ],
+      "observations": [
+        "ロゴ、ANIME OPENINGS / ENDINGS、ContinuousPlayer、「動画フォルダーを選ぶ」を表示する。"
+      ],
+      "environment_overrides": {
+        "orientation": "window",
+        "window_focus": "Mac Catalyst front window; pointer/keyboard; no TV focus",
+        "png_exif_orientation": 1,
+        "display_width_px": 2240,
+        "display_height_px": 1292,
+        "surface": "application-window-with-titlebar"
+      },
+      "source_image": "source-jpeg/home--default--desktop-window.jpg",
+      "source_sha256": "89b10887d1e56e693e57297d10c495f1d3801810e0cae378878fad3419bb0797",
+      "encoding_conversion": "CUA JPEGをsips -s format pngでPNGへ変換。リサイズ・合成・描き直しなし。取得元JPEGを同梱。"
+    },
+    {
+      "screen": "media-info",
+      "state": "audio",
+      "variant": "desktop-sheet",
+      "image": "images/media-info--audio--desktop-sheet.png",
+      "title": "音声のメディア情報 / desktop-sheet",
+      "width_px": 478,
+      "height_px": 524,
+      "sha256": "d8cf64b8486c8a8111d7e7146026c8c5bbbf13c9d51e411453e6c373fbc835d7",
+      "captured_at": "2026-10-31T15:24:23.716Z",
+      "preconditions": [
+        "個人データを含まないlocalhostの撮影用DLNAサーバーを使用。",
+        "登録はDEBUGのuitests.キーを使用。"
+      ],
+      "steps": [
+        "音声再生中にメディア情報を選択。"
+      ],
+      "observations": [
+        "元のファイル名Sample Audio.mp4、映像なし、AAC・48kHz・1chと、環境の音声出力情報を表示する。"
+      ],
+      "environment_overrides": {
+        "orientation": "window",
+        "window_focus": "Mac Catalyst front window; pointer/keyboard; no TV focus",
+        "png_exif_orientation": 1,
+        "display_width_px": 478,
+        "display_height_px": 524,
+        "surface": "native-sheet-only"
+      },
+      "source_image": "source-jpeg/media-info--audio--desktop-sheet.jpg",
+      "source_sha256": "5d1bc4412f58822e7d334804a9f09c29e32ea71f236e0fc31767bec2f35fbb3a",
+      "encoding_conversion": "CUA JPEGをsips -s format pngでPNGへ変換。リサイズ・合成・描き直しなし。取得元JPEGを同梱。"
+    },
+    {
+      "screen": "media-info",
+      "state": "video",
+      "variant": "desktop-sheet",
+      "image": "images/media-info--video--desktop-sheet.png",
+      "title": "動画のメディア情報 / desktop-sheet",
+      "width_px": 478,
+      "height_px": 524,
+      "sha256": "c36625f37017d49bb8e725a9ba218c7cf31598f343aaf0f27df093440b1e56f0",
+      "captured_at": "2026-10-31T15:22:34.094Z",
+      "preconditions": [
+        "個人データを含まないlocalhostの撮影用DLNAサーバーを使用。",
+        "登録はDEBUGのuitests.キーを使用。"
+      ],
+      "steps": [
+        "動画を一時停止してメディア情報を選択。"
+      ],
+      "observations": [
+        "元のファイル名Sample OP.mp4、サイズ、avc1・640×360・24fps、音声なしを表示する。"
+      ],
+      "environment_overrides": {
+        "orientation": "window",
+        "window_focus": "Mac Catalyst front window; pointer/keyboard; no TV focus",
+        "png_exif_orientation": 1,
+        "display_width_px": 478,
+        "display_height_px": 524,
+        "surface": "native-sheet-only"
+      },
+      "source_image": "source-jpeg/media-info--video--desktop-sheet.jpg",
+      "source_sha256": "701b50c4a65d72ad981319b54e68eddce52f2f9256ee5d070014fceb2261f959",
+      "encoding_conversion": "CUA JPEGをsips -s format pngでPNGへ変換。リサイズ・合成・描き直しなし。取得元JPEGを同梱。"
+    },
+    {
+      "screen": "playback-error",
+      "state": "decode",
+      "variant": "desktop-window",
+      "image": "images/playback-error--decode--desktop-window.png",
+      "title": "破損メディアの再生失敗 / desktop-window",
+      "width_px": 2240,
+      "height_px": 1292,
+      "sha256": "445ff95ae7d2ec2b0ef52ee202295ed66610d6a7f96b09cba0708e59c9049cc7",
+      "captured_at": "2026-10-31T15:25:26.483Z",
+      "preconditions": [
+        "個人データを含まないlocalhostの撮影用DLNAサーバーを使用。",
+        "登録はDEBUGのuitests.キーを使用。"
+      ],
+      "steps": [
+        "failure.xmlのDLNAフォルダーを登録。",
+        "Corrupt OP.mp4を選択し、失敗パネルの表示を待つ。"
+      ],
+      "observations": [
+        "Corrupt OP.mp4に対して「再生できません」「開けません」、再試行・ファイル一覧・閉じるを表示する。失敗原因の分類や復旧成功は画像だけでは判定しない。"
+      ],
+      "environment_overrides": {
+        "orientation": "window",
+        "window_focus": "Mac Catalyst front window; pointer/keyboard; no TV focus",
+        "png_exif_orientation": 1,
+        "display_width_px": 2240,
+        "display_height_px": 1292,
+        "surface": "application-window-with-titlebar"
+      },
+      "source_image": "source-jpeg/playback-error--decode--desktop-window.jpg",
+      "source_sha256": "3f112a409685479acb69f96073d9658329a517c4e21aeae20788dfb29c9aa34d",
+      "encoding_conversion": "CUA JPEGをsips -s format pngでPNGへ変換。リサイズ・合成・描き直しなし。取得元JPEGを同梱。"
+    },
+    {
+      "screen": "player",
+      "state": "audio-playing",
+      "variant": "desktop-window",
+      "image": "images/player--audio-playing--desktop-window.png",
+      "title": "音声のみの再生中 / desktop-window",
+      "width_px": 2240,
+      "height_px": 1292,
+      "sha256": "3be7d1e22793d58b619c94652a7cb18cb8bae16c49b5b91bdec9096e503376d6",
+      "captured_at": "2026-10-31T15:24:16.607Z",
+      "preconditions": [
+        "個人データを含まないlocalhostの撮影用DLNAサーバーを使用。",
+        "登録はDEBUGのuitests.キーを使用。"
+      ],
+      "steps": [
+        "audio.xmlのDLNAフォルダーを登録。",
+        "Sample Audio.mp4を選択。音声のみのAACを実プレイヤーで再生。"
+      ],
+      "observations": [
+        "黒背景中央に波形アイコンを表示し、再生中も上下の操作部を表示する。 Mac Catalystではタイトルとホーム・一覧・情報・全画面操作をネイティブのタイトルバーに置く。"
+      ],
+      "environment_overrides": {
+        "orientation": "window",
+        "window_focus": "Mac Catalyst front window; pointer/keyboard; no TV focus",
+        "png_exif_orientation": 1,
+        "display_width_px": 2240,
+        "display_height_px": 1292,
+        "surface": "application-window-with-titlebar"
+      },
+      "source_image": "source-jpeg/player--audio-playing--desktop-window.jpg",
+      "source_sha256": "548ec4a2271753f118351cd0d305c3cc4459ddb7b07b7322f47cd06489b3a459",
+      "encoding_conversion": "CUA JPEGをsips -s format pngでPNGへ変換。リサイズ・合成・描き直しなし。取得元JPEGを同梱。"
+    },
+    {
+      "screen": "player",
+      "state": "ended",
+      "variant": "desktop-window",
+      "image": "images/player--ended--desktop-window.png",
+      "title": "フォルダーの再生終了 / desktop-window",
+      "width_px": 2240,
+      "height_px": 1292,
+      "sha256": "d5ef329b411e4032df5725216502ff20a48c2eed8feaf3c0cb555471cbddb1bc",
+      "captured_at": "2026-10-31T15:25:05.093Z",
+      "preconditions": [
+        "個人データを含まないlocalhostの撮影用DLNAサーバーを使用。",
+        "登録はDEBUGのuitests.キーを使用。"
+      ],
+      "steps": [
+        "end.xmlのDLNAフォルダーを登録。",
+        "2秒のShort Audio.mp4を選び、自然終了を待つ。"
+      ],
+      "observations": [
+        "Short Audioとフォルダーの再生終了メッセージ、再生ボタンを表示する。 Mac Catalystではタイトルとホーム・一覧・情報・全画面操作をネイティブのタイトルバーに置く。"
+      ],
+      "environment_overrides": {
+        "orientation": "window",
+        "window_focus": "Mac Catalyst front window; pointer/keyboard; no TV focus",
+        "png_exif_orientation": 1,
+        "display_width_px": 2240,
+        "display_height_px": 1292,
+        "surface": "application-window-with-titlebar"
+      },
+      "source_image": "source-jpeg/player--ended--desktop-window.jpg",
+      "source_sha256": "1052459038b362c41d89f6996e71f6f39a2ed53814f713da91208e611d64c955",
+      "encoding_conversion": "CUA JPEGをsips -s format pngでPNGへ変換。リサイズ・合成・描き直しなし。取得元JPEGを同梱。"
+    },
+    {
+      "screen": "player",
+      "state": "video-paused",
+      "variant": "desktop-window",
+      "image": "images/player--video-paused--desktop-window.png",
+      "title": "動画一時停止 / desktop-window",
+      "width_px": 2240,
+      "height_px": 1292,
+      "sha256": "d6e65b870b28b21f434182b0294b7bf3aea7ee7c6ca90c9ffef88bbcab36f64a",
+      "captured_at": "2026-10-31T15:22:27.438Z",
+      "preconditions": [
+        "個人データを含まないlocalhostの撮影用DLNAサーバーを使用。",
+        "登録はDEBUGのuitests.キーを使用。"
+      ],
+      "steps": [
+        "動画再生中にSpaceキー（iOS/iPadOS/Mac Catalyst）またはPlay/Pause（tvOS）。",
+        "横向きはlandscapeLeftへ回転。"
+      ],
+      "observations": [
+        "上端にタイトルとホーム・一覧・情報、下端に前・−10秒・再生・＋10秒・次の5操作を表示する。選択したMP4は2件キューの末尾で、次は無効。 Mac Catalystではタイトルとホーム・一覧・情報・全画面操作をネイティブのタイトルバーに置く。"
+      ],
+      "environment_overrides": {
+        "orientation": "window",
+        "window_focus": "Mac Catalyst front window; pointer/keyboard; no TV focus",
+        "png_exif_orientation": 1,
+        "display_width_px": 2240,
+        "display_height_px": 1292,
+        "surface": "application-window-with-titlebar"
+      },
+      "source_image": "source-jpeg/player--video-paused--desktop-window.jpg",
+      "source_sha256": "dca5a6d33982979bd08291ccde9d6e19c0eca45a35a2b9907fc25881ced7f565",
+      "encoding_conversion": "CUA JPEGをsips -s format pngでPNGへ変換。リサイズ・合成・描き直しなし。取得元JPEGを同梱。"
+    },
+    {
+      "screen": "player",
+      "state": "video-playing",
+      "variant": "desktop-window",
+      "image": "images/player--video-playing--desktop-window.png",
+      "title": "動画再生中 / desktop-window",
+      "width_px": 2240,
+      "height_px": 1292,
+      "sha256": "10ebf3085c12ded8b6a5bbf49d553eaf59f59d39f3775df9304929a65a7b5d02",
+      "captured_at": "2026-10-31T15:21:53.522Z",
+      "preconditions": [
+        "個人データを含まないlocalhostの撮影用DLNAサーバーを使用。",
+        "登録はDEBUGのuitests.キーを使用。"
+      ],
+      "steps": [
+        "video.xmlのDLNAフォルダーを登録し、Sample OP.mp4から連続再生。",
+        "約3秒待って撮影。"
+      ],
+      "observations": [
+        "640×360・24fpsの合成テスト映像を表示する。再生操作部は隠れている。 Mac Catalystではタイトルとホーム・一覧・情報・全画面操作をネイティブのタイトルバーに置く。"
+      ],
+      "environment_overrides": {
+        "orientation": "window",
+        "window_focus": "Mac Catalyst front window; pointer/keyboard; no TV focus",
+        "png_exif_orientation": 1,
+        "display_width_px": 2240,
+        "display_height_px": 1292,
+        "surface": "application-window-with-titlebar"
+      },
+      "source_image": "source-jpeg/player--video-playing--desktop-window.jpg",
+      "source_sha256": "99a6334255e480f2f32d209f37b2a45f4158c148a9062d0746db901bc14d3d49",
+      "encoding_conversion": "CUA JPEGをsips -s format pngでPNGへ変換。リサイズ・合成・描き直しなし。取得元JPEGを同梱。"
+    },
+    {
+      "screen": "saved-folders",
+      "state": "empty",
+      "variant": "desktop-window",
+      "image": "images/saved-folders--empty--desktop-window.png",
+      "title": "保存済みフォルダー・未登録 / desktop-window",
+      "width_px": 2240,
+      "height_px": 1292,
+      "sha256": "18a7462e47e3511e60e689e8959633026ff065861db4dc397f8ba95d56ee7416",
+      "captured_at": "2026-10-31T15:19:57.476Z",
+      "preconditions": [
+        "個人データを含まないlocalhostの撮影用DLNAサーバーを使用。",
+        "登録はDEBUGのuitests.キーを使用。"
+      ],
+      "steps": [
+        "テスト登録キーを初期化して起動。",
+        "ホームの「動画フォルダーを選ぶ」を選択。"
+      ],
+      "observations": [
+        "未登録の案内と「フォルダーを追加」を表示する。"
+      ],
+      "environment_overrides": {
+        "orientation": "window",
+        "window_focus": "Mac Catalyst front window; pointer/keyboard; no TV focus",
+        "png_exif_orientation": 1,
+        "display_width_px": 2240,
+        "display_height_px": 1292,
+        "surface": "application-window-with-titlebar"
+      },
+      "source_image": "source-jpeg/saved-folders--empty--desktop-window.jpg",
+      "source_sha256": "07a27ea42b66dc18173825bc624a65c2a379d0cbea26c17652539bcc9f23120a",
+      "encoding_conversion": "CUA JPEGをsips -s format pngでPNGへ変換。リサイズ・合成・描き直しなし。取得元JPEGを同梱。"
+    },
+    {
+      "screen": "saved-folders",
+      "state": "populated",
+      "variant": "desktop-window",
+      "image": "images/saved-folders--populated--desktop-window.png",
+      "title": "保存済みフォルダー・登録あり / desktop-window",
+      "width_px": 2240,
+      "height_px": 1292,
+      "sha256": "4a95461d2e635074cfbfa36c547e5591ee372bce7c26419c6b93252b99e42ced",
+      "captured_at": "2026-10-31T15:21:28.086Z",
+      "preconditions": [
+        "個人データを含まないlocalhostの撮影用DLNAサーバーを使用。",
+        "登録はDEBUGのuitests.キーを使用。"
+      ],
+      "steps": [
+        "ホーム → フォルダーを追加 → DLNAサーバー → UI Sample NAS。",
+        "「このフォルダーを登録」を選択。"
+      ],
+      "observations": [
+        "DLNAフォルダーにUI Sample NASの登録行を表示する。"
+      ],
+      "environment_overrides": {
+        "orientation": "window",
+        "window_focus": "Mac Catalyst front window; pointer/keyboard; no TV focus",
+        "png_exif_orientation": 1,
+        "display_width_px": 2240,
+        "display_height_px": 1292,
+        "surface": "application-window-with-titlebar"
+      },
+      "source_image": "source-jpeg/saved-folders--populated--desktop-window.jpg",
+      "source_sha256": "e34aee5396c648b5224e978432d146fb10fe4156a0bc57b95b115e294eae8c1f",
+      "encoding_conversion": "CUA JPEGをsips -s format pngでPNGへ変換。リサイズ・合成・描き直しなし。取得元JPEGを同梱。"
+    },
+    {
+      "screen": "saved-folders",
+      "state": "remove-confirmation",
+      "variant": "desktop-sheet",
+      "image": "images/saved-folders--remove-confirmation--desktop-sheet.png",
+      "title": "登録解除の確認 / desktop-sheet",
+      "width_px": 260,
+      "height_px": 122,
+      "sha256": "c94d83bbfb9cc0a465cedd1af30a49dda281c31ac0081fbd41cebf9ff9865fb3",
+      "captured_at": "2026-10-31T15:21:33.599Z",
+      "preconditions": [
+        "個人データを含まないlocalhostの撮影用DLNAサーバーを使用。",
+        "登録はDEBUGのuitests.キーを使用。"
+      ],
+      "steps": [
+        "登録済みのUI Sample NASを右クリック。",
+        "撮影後にキャンセル。"
+      ],
+      "observations": [
+        "「登録を解除しますか？」「ファイルは削除されません。」とキャンセル・登録解除を表示する。解除は確定しない。"
+      ],
+      "environment_overrides": {
+        "orientation": "window",
+        "window_focus": "Mac Catalyst front window; pointer/keyboard; no TV focus",
+        "png_exif_orientation": 1,
+        "display_width_px": 260,
+        "display_height_px": 122,
+        "surface": "native-sheet-only"
+      },
+      "source_image": "source-jpeg/saved-folders--remove-confirmation--desktop-sheet.jpg",
+      "source_sha256": "8974eb42095c7e07c94d0c8cac190bc531d3c8430619b7cafd7afda1af6e639e",
+      "encoding_conversion": "CUA JPEGをsips -s format pngでPNGへ変換。リサイズ・合成・描き直しなし。取得元JPEGを同梱。"
+    }
+  ],
+  "coverage": [
+    {
+      "scope": "system-picker/default,permission/default",
+      "status": "pending",
+      "reason": "OSファイル選択・権限案内・USBストレージ接続は収録していない。"
+    },
+    {
+      "scope": "dlna-servers/empty,manual-entry,connection-error",
+      "status": "pending",
+      "reason": "DLNAはlocalhostへの接続済み画面のみ。自動探索・実LANの失敗・入力中は未収録。"
+    },
+    {
+      "scope": "file-browser/loading,failure",
+      "status": "pending",
+      "reason": "撮影用サーバーは即時応答。読み込み中・一覧取得失敗は未収録。"
+    },
+    {
+      "scope": "accessibility,additional-window-sizes,real-devices",
+      "status": "pending",
+      "reason": "大きな文字、VoiceOver、別サイズ、実機、実NAS、実USB DAC、中断復帰の表示は未収録。"
+    },
+    {
+      "scope": "mac-catalyst/fullscreen,resized-window",
+      "status": "pending",
+      "reason": "資料には通常ウィンドウのみ収録。異なるサイズと全画面は未収録。"
+    }
+  ],
+  "focus_record": "capture-details.json",
+  "verification": {
+    "visual_review": "全画像をコンタクトシートと主要画像の原寸表示で確認。",
+    "capture_result": "手動UI経路を確認、16画像保存",
+    "last_capture_at": "2026-11-01T00:25:26.483000+09:00"
+  }
+}

@@ -1,0 +1,562 @@
+{
+  "schema_version": 1,
+  "platform": "android",
+  "capture_id": "2026-11-01",
+  "captured_at": "2026-11-01T00:09:10.413356+09:00",
+  "capture_kind": "runtime-fixture",
+  "source": {
+    "repository": "https://github.com/mnagata/ContinuousPlayer_for_Android",
+    "revision": "85ff21122442aa6ca6ed200d11c177f6e806ef60",
+    "production_tree": "app/src/main has no tracked differences from HEAD; capture harness is temporary androidTest code",
+    "build_variant": "debug; versionName 1.0; versionCode 1",
+    "artifact_sha256": "0f4e9a57a55f88df99bc5b3662b3119e01ffa45b8c72f3f136323218e172a947"
+  },
+  "environment": {
+    "device": "Medium_Phone_API_36.1",
+    "device_kind": "Android Emulator",
+    "emulator_version": "37.2.12.0 (16428233)",
+    "os": "Android 16 / API 36.1",
+    "abi": "arm64-v8a",
+    "physical_display_px": [
+      1080,
+      2400
+    ],
+    "density_dpi": 420,
+    "portrait_configuration_dp": [
+      411,
+      914
+    ],
+    "font_scale": 1.0,
+    "app_language": "ja (default Japanese resources)",
+    "os_language": "en-US",
+    "os_appearance": "light (notnight)",
+    "app_appearance": "dark, Theme.AppCompat.NoActionBar",
+    "input": "View.performClick and UiAutomation touch/long press; list initial selection is visible",
+    "screenshot_method": "UiAutomation.takeScreenshot, lossless PNG, full display, no pixel edits",
+    "system_bars": "visible on home/dialogs; immersive player; OS full-screen introduction dismissed with normal click",
+    "timestamp_precision": "Per-image UTC timestamps from device; batch timestamps converted to JST",
+    "harness_sha256": "d18dfd0091b2a36d5c5222f510896d0084ab4a3c165a21b048823d9da28fab63",
+    "focus_metadata": "Actual active-window focus recorded in capture-details.json for each screenshot"
+  },
+  "fixture": {
+    "directory": "app-private files/UI Sample",
+    "media": [
+      "Sample OP.mp4: original geometric pattern, 640x360,24fps,90s,no audio",
+      "Sample ED.wav: silent PCM16 mono 48000Hz,90s",
+      "Sample OP.wav: same WAV for ambiguous title badges",
+      "Season 2: empty child directory",
+      "Sample unavailable.mp4: intentionally invalid bytes for parser error"
+    ],
+    "setup": "tools/android/UiSnapshotCaptureTest.kt; tools/android/make-fixture.sh; snapshotCaptureId=2026-11-01; preferences restored in finally",
+    "entry_point": "startPlayback invoked by reflection for sample sessions; file browser opened from actual player UI",
+    "permissions": "No storage permission changes; no actual USB mount or NAS connection"
+  },
+  "limitations": [
+    "Emulator screenshots with fixture data; not proof of physical-device playback or common-spec conformance",
+    "No tablet, Android TV, external USB drive, NAS, or USB DAC coverage",
+    "Synthetic private-directory USB model; playback starts through capture harness rather than a real USB selection",
+    "System status-bar time is device-local and differs from host JST; no image pixels edited",
+    "No ADB diagnostic permission grants; mixer/HAL unavailable display is the actual emulator state, not a USB DAC measurement"
+  ],
+  "verification": {
+    "build": "assembleDebug and assembleDebugAndroidTest --offline: BUILD SUCCESSFUL",
+    "capture_run": "jp.nagu.continuousplayer.UiSnapshotCaptureTest:.\n\nTime: 31.233\n\nOK (1 test)",
+    "visual_review": "All 15 PNGs inspected; home wording and complete audio-output information/note checked at full size"
+  },
+  "screenshots": [
+    {
+      "screen": "home",
+      "state": "default",
+      "variant": "portrait",
+      "image": "images/home--default--portrait.png",
+      "title": "ホーム（縦）",
+      "width_px": 1080,
+      "height_px": 2400,
+      "sha256": "a63b5cf8af4d78af515bbd881a7901cd35628df0f7ca7b1fd978f58cb5631e93",
+      "preconditions": [
+        "起動直後、再生セッションなし"
+      ],
+      "steps": [
+        "MainActivityを起動し縦向きにする"
+      ],
+      "observations": [
+        "英字見出しANIME OPENINGS / ENDINGS、アプリ名、動画フォルダーを選ぶを表示"
+      ],
+      "captured_at": "2026-10-31T15:09:10.413356Z",
+      "environment_overrides": {
+        "window_focus": [
+          {
+            "resource_id": null,
+            "text": null,
+            "content_description": null
+          }
+        ]
+      }
+    },
+    {
+      "screen": "home",
+      "state": "default",
+      "variant": "landscape",
+      "image": "images/home--default--landscape.png",
+      "title": "ホーム（横）",
+      "width_px": 2400,
+      "height_px": 1080,
+      "sha256": "58fbe90655717adb1ef7845c704d1571a192ebc077062ae274d21f102beb02f9",
+      "preconditions": [
+        "再生セッションなし"
+      ],
+      "steps": [
+        "ホームを横向きにする"
+      ],
+      "observations": [
+        "英字見出しANIME OPENINGS / ENDINGS、アプリ名、動画フォルダーを選ぶを表示"
+      ],
+      "captured_at": "2026-10-31T15:09:12.157157Z",
+      "environment_overrides": {
+        "window_focus": [
+          {
+            "resource_id": null,
+            "text": null,
+            "content_description": null
+          }
+        ]
+      }
+    },
+    {
+      "screen": "saved-folders",
+      "state": "populated",
+      "variant": "portrait",
+      "image": "images/saved-folders--populated--portrait.png",
+      "title": "保存済みフォルダー",
+      "width_px": 1080,
+      "height_px": 2400,
+      "sha256": "ea67daf3423c4036693843f3b457d923be85248e49b4bae560f719f45b187299",
+      "preconditions": [
+        "UI SampleをUSB形式の保存先モデルとして1件登録、実体はアプリ専用領域"
+      ],
+      "steps": [
+        "ホームの動画フォルダーを選ぶを押す"
+      ],
+      "observations": [
+        "UI Sample行、フォルダーを追加、キャンセルを表示。行にシアンの選択表示"
+      ],
+      "captured_at": "2026-10-31T15:09:14.095933Z",
+      "environment_overrides": {
+        "window_focus": [
+          {
+            "resource_id": "jp.nagu.continuousplayer:id/saved_folder_open",
+            "text": null,
+            "content_description": "UI Sample。USB / 外部ストレージ · /data/data/jp.nagu.continuousplayer/files/UI Sample。開く"
+          }
+        ]
+      }
+    },
+    {
+      "screen": "saved-folders",
+      "state": "remove-confirmation",
+      "variant": "portrait",
+      "image": "images/saved-folders--remove-confirmation--portrait.png",
+      "title": "登録解除の確認",
+      "width_px": 1080,
+      "height_px": 2400,
+      "sha256": "21cc37c177823d861550d5a31683c94f3dfd6dcad83894d0827daa7443721f33",
+      "preconditions": [
+        "保存済み一覧にUI Sampleを表示"
+      ],
+      "steps": [
+        "UI Sample行を長押し"
+      ],
+      "observations": [
+        "ファイルが削除されない旨の説明、登録解除とキャンセル。キャンセルにフォーカス表示"
+      ],
+      "captured_at": "2026-10-31T15:09:15.410078Z",
+      "environment_overrides": {
+        "window_focus": [
+          {
+            "resource_id": "jp.nagu.continuousplayer:id/dlna_close",
+            "text": "キャンセル",
+            "content_description": null
+          }
+        ]
+      }
+    },
+    {
+      "screen": "add-source",
+      "state": "default",
+      "variant": "portrait",
+      "image": "images/add-source--default--portrait.png",
+      "title": "フォルダーの追加先",
+      "width_px": 1080,
+      "height_px": 2400,
+      "sha256": "4a6f0f7bca3b7470457deb3f1d091675687b52b6511e12f1852b259fd0de5c7a",
+      "preconditions": [
+        "保存済み一覧を表示"
+      ],
+      "steps": [
+        "フォルダーを追加を押す"
+      ],
+      "observations": [
+        "端末 / SAFのフォルダーとNAS / DLNAから選ぶを表示。スマートフォンではUSB専用入口は表示されない"
+      ],
+      "captured_at": "2026-10-31T15:09:16.440119Z",
+      "environment_overrides": {
+        "window_focus": [
+          {
+            "resource_id": "jp.nagu.continuousplayer:id/dlna_list",
+            "text": null,
+            "content_description": null
+          }
+        ]
+      }
+    },
+    {
+      "screen": "file-browser",
+      "state": "populated",
+      "variant": "portrait",
+      "image": "images/file-browser--populated--portrait.png",
+      "title": "ファイル一覧（縦）",
+      "width_px": 1080,
+      "height_px": 2400,
+      "sha256": "9adcef4bf72e8c8933900d010df9f21badbdf9ccf6ed0206783eb597b86991ac",
+      "preconditions": [
+        "サンプル動画で開始した再生を一時停止。動画・音声・同名異形式・子フォルダーあり"
+      ],
+      "steps": [
+        "再生状態を撮影ハーネスで準備する",
+        "再生画面のファイル一覧を押す"
+      ],
+      "observations": [
+        "拡張子を省略したSample OPにMP4 / WAVバッジ。Season 2行に初期選択表示。上部に上へ・キャンセル・再読み込み"
+      ],
+      "captured_at": "2026-10-31T15:09:18.153443Z",
+      "environment_overrides": {
+        "window_focus": [
+          {
+            "resource_id": "jp.nagu.continuousplayer:id/dlna_list",
+            "text": null,
+            "content_description": null
+          }
+        ]
+      }
+    },
+    {
+      "screen": "file-browser",
+      "state": "populated",
+      "variant": "landscape",
+      "image": "images/file-browser--populated--landscape.png",
+      "title": "ファイル一覧（横）",
+      "width_px": 2400,
+      "height_px": 1080,
+      "sha256": "00f527a000cd41d7aa00e2c05700bc24ab35a8bc56dd3b2d3f367a870fa20856",
+      "preconditions": [
+        "縦の一覧と同じサンプル"
+      ],
+      "steps": [
+        "ファイル一覧を開いたまま横向きにする"
+      ],
+      "observations": [
+        "横向きでは見出しと余白が縮まり、行がコンパクトになる"
+      ],
+      "captured_at": "2026-10-31T15:09:20.002601Z",
+      "environment_overrides": {
+        "window_focus": [
+          {
+            "resource_id": "jp.nagu.continuousplayer:id/dlna_list",
+            "text": null,
+            "content_description": null
+          }
+        ]
+      }
+    },
+    {
+      "screen": "player",
+      "state": "video-paused",
+      "variant": "landscape",
+      "image": "images/player--video-paused--landscape.png",
+      "title": "動画一時停止（横）",
+      "width_px": 2400,
+      "height_px": 1080,
+      "sha256": "b04e414c73d8e0462d12d98745166cc446125ffb02a7e206e80ce73c6cc0303d",
+      "preconditions": [
+        "640×360、24fps、音声なしの90秒動画、再生位置約30秒。2件キューの先頭"
+      ],
+      "steps": [
+        "startPlaybackでサンプルキューを準備する",
+        "プレイヤーを一時停止し30秒へシークする"
+      ],
+      "observations": [
+        "上端に左タイトル・右3アイコン、下端中央に5操作。前のファイルは無効。映像はアスペクト比を維持"
+      ],
+      "captured_at": "2026-10-31T15:09:21.673098Z",
+      "environment_overrides": {
+        "window_focus": [
+          {
+            "resource_id": null,
+            "text": null,
+            "content_description": null
+          }
+        ]
+      }
+    },
+    {
+      "screen": "player",
+      "state": "video-paused",
+      "variant": "portrait",
+      "image": "images/player--video-paused--portrait.png",
+      "title": "動画一時停止（縦）",
+      "width_px": 1080,
+      "height_px": 2400,
+      "sha256": "7f620a42ba89eefa9e4a23913d30cef2beb5c055b409267ff75ecd16218400dd",
+      "preconditions": [
+        "横の一時停止と同じキュー・位置"
+      ],
+      "steps": [
+        "一時停止を維持して縦向きにする"
+      ],
+      "observations": [
+        "黒い余白を含む映像領域に上下の操作行を重ねる"
+      ],
+      "captured_at": "2026-10-31T15:09:23.417390Z",
+      "environment_overrides": {
+        "window_focus": [
+          {
+            "resource_id": null,
+            "text": null,
+            "content_description": null
+          }
+        ]
+      }
+    },
+    {
+      "screen": "media-info",
+      "state": "video",
+      "variant": "portrait",
+      "image": "images/media-info--video--portrait.png",
+      "title": "動画のメディア情報",
+      "width_px": 1080,
+      "height_px": 2400,
+      "sha256": "8ab4832dfae61fc88ef5b1a0e66e0c3ee996d98286c1c1ede6114f8ee56e16b0",
+      "preconditions": [
+        "動画を一時停止、音声トラックなし"
+      ],
+      "steps": [
+        "再生画面のメディア情報を押す",
+        "非同期の情報取得完了後に撮影する"
+      ],
+      "observations": [
+        "元のSample OP.mp4、再生時間1:30、video/avc、640×360、24.00fps。音声トラック・出力なし"
+      ],
+      "captured_at": "2026-10-31T15:09:25.035678Z",
+      "environment_overrides": {
+        "window_focus": [
+          {
+            "resource_id": null,
+            "text": null,
+            "content_description": null
+          }
+        ]
+      }
+    },
+    {
+      "screen": "player",
+      "state": "video-playing",
+      "variant": "landscape",
+      "image": "images/player--video-playing--landscape.png",
+      "title": "動画再生（横）",
+      "width_px": 2400,
+      "height_px": 1080,
+      "sha256": "517c515b442362fe5849e955e74944b4d9ed6422c0515e43884cef3009e64d34",
+      "preconditions": [
+        "同じ動画を再生中"
+      ],
+      "steps": [
+        "メディア情報を閉じる",
+        "横向きで再生し3.5秒待つ"
+      ],
+      "observations": [
+        "タイトルと操作部が隠れ、幾何学模様の動画と左右の余白を表示"
+      ],
+      "captured_at": "2026-10-31T15:09:30.370209Z",
+      "environment_overrides": {
+        "window_focus": [
+          {
+            "resource_id": null,
+            "text": null,
+            "content_description": null
+          }
+        ]
+      }
+    },
+    {
+      "screen": "player",
+      "state": "audio-playing",
+      "variant": "portrait",
+      "image": "images/player--audio-playing--portrait.png",
+      "title": "音声再生（縦）",
+      "width_px": 1080,
+      "height_px": 2400,
+      "sha256": "1da7e1b79ece6a51fc211b824134eb2ff766601c4edc799dbab9133cae2661fe",
+      "preconditions": [
+        "48kHz、mono、16bit、90秒の無音WAV。1件キュー"
+      ],
+      "steps": [
+        "ホームへ戻る",
+        "サンプルWAVをstartPlaybackで開始する"
+      ],
+      "observations": [
+        "黒背景にSample EDと操作部を表示し続ける。中央は一時停止アイコン、前後ボタンは無効"
+      ],
+      "captured_at": "2026-10-31T15:09:32.317898Z",
+      "environment_overrides": {
+        "window_focus": [
+          {
+            "resource_id": null,
+            "text": null,
+            "content_description": null
+          }
+        ]
+      }
+    },
+    {
+      "screen": "media-info",
+      "state": "audio",
+      "variant": "portrait",
+      "image": "images/media-info--audio--portrait.png",
+      "title": "音声のメディア情報",
+      "width_px": 1080,
+      "height_px": 2400,
+      "sha256": "649c427cc9ab0de5334ce2e51b890eab899c7c0f3dede7c85d40bb65e042921c",
+      "preconditions": [
+        "サンプルWAV再生中、エミュレーター内蔵出力"
+      ],
+      "steps": [
+        "メディア情報を押す",
+        "非同期の情報取得完了後に撮影する"
+      ],
+      "observations": [
+        "ファイル→映像・音声形式→音声出力。ソース48000Hz・1chとAudioTrack情報を分けて表示",
+        "この条件では出力経路、実ミキサー/HAL取得不可、Bit-Perfect・優先ミキサー、注記まで1画面に表示"
+      ],
+      "captured_at": "2026-10-31T15:09:34.164986Z",
+      "environment_overrides": {
+        "window_focus": [
+          {
+            "resource_id": null,
+            "text": null,
+            "content_description": null
+          }
+        ]
+      }
+    },
+    {
+      "screen": "player",
+      "state": "ended",
+      "variant": "portrait",
+      "image": "images/player--ended--portrait.png",
+      "title": "最後まで再生した状態",
+      "width_px": 1080,
+      "height_px": 2400,
+      "sha256": "c3713a01b542ffcfe5dedcc9aea32ba89ec8260595fc35a854642ac0759f132c",
+      "preconditions": [
+        "単一WAVキュー"
+      ],
+      "steps": [
+        "情報画面を閉じて復帰完了を待つ",
+        "音声の末尾1秒前へシークし実際の再生終了を待つ"
+      ],
+      "observations": [
+        "上端の状態文と操作部を表示し、中央を再生アイコンへ切り替える。長い状態文は表示幅で省略"
+      ],
+      "captured_at": "2026-10-31T15:09:37.325Z",
+      "environment_overrides": {
+        "window_focus": [
+          {
+            "resource_id": null,
+            "text": null,
+            "content_description": null
+          }
+        ]
+      }
+    },
+    {
+      "screen": "playback-error",
+      "state": "decode",
+      "variant": "portrait",
+      "image": "images/playback-error--decode--portrait.png",
+      "title": "不正なメディアの再生エラー",
+      "width_px": 1080,
+      "height_px": 2400,
+      "sha256": "102981c34226a36637d4f51150fca5044c6b3f74576af766c20c36275ae7ebb5",
+      "preconditions": [
+        "不正な内容のSample unavailable.mp4を単一キューにする"
+      ],
+      "steps": [
+        "startPlaybackで不正MP4を開始する",
+        "実際のコンテナ解析失敗を待つ"
+      ],
+      "observations": [
+        "元のファイル名、理由、エラーコード3003、再試行・ファイル一覧・閉じる。単一キューのため次へは表示されない"
+      ],
+      "captured_at": "2026-10-31T15:09:38.185056Z",
+      "environment_overrides": {
+        "window_focus": [
+          {
+            "resource_id": null,
+            "text": null,
+            "content_description": null
+          }
+        ]
+      }
+    }
+  ],
+  "coverage": [
+    {
+      "scope": "saved-folders/empty",
+      "status": "pending",
+      "reason": "登録0件の状態は今回未収録"
+    },
+    {
+      "scope": "file-browser/empty,loading,failure",
+      "status": "pending",
+      "reason": "今回の一覧はローカルサンプルの通常表示のみ"
+    },
+    {
+      "scope": "dlna-servers/*",
+      "status": "pending",
+      "reason": "実NASへの探索・手入力・接続失敗は未収録"
+    },
+    {
+      "scope": "system-picker/default",
+      "status": "pending",
+      "reason": "OSのSAFフォルダー選択画面は未収録"
+    },
+    {
+      "scope": "permission/default",
+      "status": "pending",
+      "reason": "OS権限設定・実USBのアクセス取得は未収録"
+    },
+    {
+      "scope": "android/tablet,large-font,windowed",
+      "status": "pending",
+      "reason": "スマートフォン標準文字倍率・全画面でのみ撮影"
+    },
+    {
+      "scope": "player/additional-states",
+      "status": "pending",
+      "reason": "動画再生の縦向き、長いタイトル、シーク不可、中断・復帰などは未収録"
+    },
+    {
+      "scope": "media-info/landscape,usb-dac",
+      "status": "pending",
+      "reason": "横向き情報画面・実USB DACは未収録"
+    }
+  ],
+  "capture_end": "2026-11-01T00:09:38.185056+09:00",
+  "focus_record": "capture-details.json",
+  "previous_capture": "../2026-10-27/manifest.json",
+  "changes_since_previous": [
+    "Home heading changed from ホーム to ANIME OPENINGS / ENDINGS",
+    "Primary home button changed from OP / EDを選ぶ to 動画フォルダーを選ぶ",
+    "Media information now includes output route, mixer/HAL diagnostic placeholders and AudioTrack/DAC explanation"
+  ]
+}

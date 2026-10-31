@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "screens": {
+    "home": [
+      "default"
+    ],
+    "saved-folders": [
+      "empty",
+      "populated",
+      "remove-confirmation"
+    ],
+    "add-source": [
+      "default"
+    ],
+    "file-browser": [
+      "populated",
+      "empty",
+      "loading",
+      "failure"
+    ],
+    "dlna-servers": [
+      "populated",
+      "empty",
+      "manual-entry",
+      "connection-error"
+    ],
+    "player": [
+      "video-playing",
+      "video-paused",
+      "audio-playing",
+      "ended"
+    ],
+    "media-info": [
+      "video",
+      "audio"
+    ],
+    "playback-error": [
+      "decode"
+    ],
+    "system-picker": [
+      "default"
+    ],
+    "permission": [
+      "default"
+    ]
+  }
+}

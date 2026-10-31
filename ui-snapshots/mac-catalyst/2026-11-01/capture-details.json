@@ -1,0 +1,114 @@
+[
+  {
+    "image": "home--default--desktop-window.png",
+    "captured_at": "2026-10-31T15:19:40.624Z",
+    "window_focus": "Mac Catalyst front window; pointer/keyboard; no TV focus",
+    "variant": "desktop-window",
+    "source_image": "source-jpeg/home--default--desktop-window.jpg"
+  },
+  {
+    "image": "saved-folders--empty--desktop-window.png",
+    "source_image": "source-jpeg/saved-folders--empty--desktop-window.jpg",
+    "captured_at": "2026-10-31T15:19:57.476Z",
+    "window_focus": "Mac Catalyst front window; pointer/keyboard; no TV focus",
+    "variant": "desktop-window"
+  },
+  {
+    "image": "add-source--default--desktop-window.png",
+    "source_image": "source-jpeg/add-source--default--desktop-window.jpg",
+    "captured_at": "2026-10-31T15:20:35.948Z",
+    "window_focus": "Mac Catalyst front window; pointer/keyboard; no TV focus",
+    "variant": "desktop-window"
+  },
+  {
+    "image": "dlna-servers--populated--desktop-window.png",
+    "source_image": "source-jpeg/dlna-servers--populated--desktop-window.jpg",
+    "captured_at": "2026-10-31T15:21:19.101Z",
+    "window_focus": "Mac Catalyst front window; pointer/keyboard; no TV focus",
+    "variant": "desktop-window"
+  },
+  {
+    "image": "saved-folders--populated--desktop-window.png",
+    "source_image": "source-jpeg/saved-folders--populated--desktop-window.jpg",
+    "captured_at": "2026-10-31T15:21:28.086Z",
+    "window_focus": "Mac Catalyst front window; pointer/keyboard; no TV focus",
+    "variant": "desktop-window"
+  },
+  {
+    "image": "saved-folders--remove-confirmation--desktop-sheet.png",
+    "source_image": "source-jpeg/saved-folders--remove-confirmation--desktop-sheet.jpg",
+    "captured_at": "2026-10-31T15:21:33.599Z",
+    "window_focus": "Mac Catalyst front window; pointer/keyboard; no TV focus",
+    "variant": "desktop-window"
+  },
+  {
+    "image": "file-browser--populated--desktop-window.png",
+    "source_image": "source-jpeg/file-browser--populated--desktop-window.jpg",
+    "captured_at": "2026-10-31T15:21:40.782Z",
+    "window_focus": "Mac Catalyst front window; pointer/keyboard; no TV focus",
+    "variant": "desktop-window"
+  },
+  {
+    "image": "file-browser--empty--desktop-window.png",
+    "source_image": "source-jpeg/file-browser--empty--desktop-window.jpg",
+    "captured_at": "2026-10-31T15:21:44.447Z",
+    "window_focus": "Mac Catalyst front window; pointer/keyboard; no TV focus",
+    "variant": "desktop-window"
+  },
+  {
+    "image": "player--video-playing--desktop-window.png",
+    "source_image": "source-jpeg/player--video-playing--desktop-window.jpg",
+    "captured_at": "2026-10-31T15:21:53.522Z",
+    "window_focus": "Mac Catalyst front window; pointer/keyboard; no TV focus",
+    "variant": "desktop-window"
+  },
+  {
+    "image": "player--video-paused--desktop-window.png",
+    "source_image": "source-jpeg/player--video-paused--desktop-window.jpg",
+    "captured_at": "2026-10-31T15:22:27.438Z",
+    "window_focus": "Mac Catalyst front window; pointer/keyboard; no TV focus",
+    "variant": "desktop-window"
+  },
+  {
+    "image": "media-info--video--desktop-sheet.png",
+    "source_image": "source-jpeg/media-info--video--desktop-sheet.jpg",
+    "captured_at": "2026-10-31T15:22:34.094Z",
+    "window_focus": "Mac Catalyst front window; pointer/keyboard; no TV focus",
+    "variant": "desktop-sheet"
+  },
+  {
+    "image": "file-browser--populated--desktop-playback-overlay.png",
+    "source_image": "source-jpeg/file-browser--populated--desktop-playback-overlay.jpg",
+    "captured_at": "2026-10-31T15:22:47.211Z",
+    "window_focus": "Mac Catalyst front window; pointer/keyboard; no TV focus",
+    "variant": "desktop-playback-overlay"
+  },
+  {
+    "image": "player--audio-playing--desktop-window.png",
+    "source_image": "source-jpeg/player--audio-playing--desktop-window.jpg",
+    "captured_at": "2026-10-31T15:24:16.607Z",
+    "window_focus": "Mac Catalyst front window; pointer/keyboard; no TV focus",
+    "variant": "desktop-window"
+  },
+  {
+    "image": "media-info--audio--desktop-sheet.png",
+    "source_image": "source-jpeg/media-info--audio--desktop-sheet.jpg",
+    "captured_at": "2026-10-31T15:24:23.716Z",
+    "window_focus": "Mac Catalyst front window; pointer/keyboard; no TV focus",
+    "variant": "desktop-sheet"
+  },
+  {
+    "image": "player--ended--desktop-window.png",
+    "source_image": "source-jpeg/player--ended--desktop-window.jpg",
+    "captured_at": "2026-10-31T15:25:05.093Z",
+    "window_focus": "Mac Catalyst front window; pointer/keyboard; no TV focus",
+    "variant": "desktop-window"
+  },
+  {
+    "image": "playback-error--decode--desktop-window.png",
+    "source_image": "source-jpeg/playback-error--decode--desktop-window.jpg",
+    "captured_at": "2026-10-31T15:25:26.483Z",
+    "window_focus": "Mac Catalyst front window; pointer/keyboard; no TV focus",
+    "variant": "desktop-window"
+  }
+]

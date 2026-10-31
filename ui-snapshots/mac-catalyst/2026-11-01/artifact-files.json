@@ -1,0 +1,121 @@
+{
+  "algorithm": "SHA-256 of sorted relative-path + NUL + file-sha256 + LF (UTF-8), all regular bundle files",
+  "bundle_name": "ContinuousPlayer.app",
+  "files": [
+    {
+      "path": "Contents/Info.plist",
+      "bytes": 3289,
+      "sha256": "1a7881d5bec2a37812b6698b6ea03eda645a0ec40e75616fe84a4977750ef5d7"
+    },
+    {
+      "path": "Contents/MacOS/ContinuousPlayer",
+      "bytes": 59248,
+      "sha256": "62406adfb6c47666fd998a4fc24901b16f0669420642f14337100ed17eb2cb97"
+    },
+    {
+      "path": "Contents/MacOS/ContinuousPlayer.debug.dylib",
+      "bytes": 6698432,
+      "sha256": "e92b5424e9b611c3226d40f347067719725b0a935804a0d6d65f7070c41ac112"
+    },
+    {
+      "path": "Contents/MacOS/__preview.dylib",
+      "bytes": 34800,
+      "sha256": "378342b4e75a98ce5beb1fc86223f623ca281db28fc6a650480602cd30c562f4"
+    },
+    {
+      "path": "Contents/PkgInfo",
+      "bytes": 8,
+      "sha256": "82502191c9484b04d685374f9879a0066069c49b8acae7a04b01d38d07e8eca0"
+    },
+    {
+      "path": "Contents/PlugIns/MacPlaybackLifecycle.bundle/Contents/Info.plist",
+      "bytes": 461,
+      "sha256": "6c610295435760641c3eb09aab033fd791e99030dfd57e0313db605219912bec"
+    },
+    {
+      "path": "Contents/PlugIns/MacPlaybackLifecycle.bundle/Contents/MacOS/MacPlaybackLifecycle",
+      "bytes": 140144,
+      "sha256": "efeeb5ff5016bb7f75c44c3843520cd70975776a5a443f25a3dec3b40468368e"
+    },
+    {
+      "path": "Contents/PlugIns/MacPlaybackLifecycle.bundle/Contents/_CodeSignature/CodeResources",
+      "bytes": 2200,
+      "sha256": "6686de10a28a2fe11b36cbb86dcbacc827cfc4ea116b4dabf1845e5aee629e9b"
+    },
+    {
+      "path": "Contents/Resources/AppIcon.icns",
+      "bytes": 34472,
+      "sha256": "4623909f2ee0b966c39f6e1aee61b7c07fc874b63e9ea1381e35cb01d8fd789d"
+    },
+    {
+      "path": "Contents/Resources/Assets.car",
+      "bytes": 221800,
+      "sha256": "08cd754011672dbc93ea9aa7dfabbb4e8ded620bf839bce19951a4b43e859441"
+    },
+    {
+      "path": "Contents/Resources/ContinuousPlayer.help/Contents/Info.plist",
+      "bytes": 924,
+      "sha256": "12f3f9984c0bc44c9e194168236b760c2d11605086410dabca195fbf0704384e"
+    },
+    {
+      "path": "Contents/Resources/ContinuousPlayer.help/Contents/Resources/ja.lproj/ContinuousPlayer.cshelpindex",
+      "bytes": 5308,
+      "sha256": "17c5dab2e927bc47ef49b4459fcabeec4236e5e07c37328164e03af8e7a11a79"
+    },
+    {
+      "path": "Contents/Resources/ContinuousPlayer.help/Contents/Resources/ja.lproj/InfoPlist.strings",
+      "bytes": 46,
+      "sha256": "6c5f265ab896c93a284e5447d07fd5aea4facccd445bd00e2baea3622e873317"
+    },
+    {
+      "path": "Contents/Resources/ContinuousPlayer.help/Contents/Resources/ja.lproj/controls.html",
+      "bytes": 5201,
+      "sha256": "182d42976abe80f57e52dd67cde86ef19884dbfa33e020fd5d303a4852e90c16"
+    },
+    {
+      "path": "Contents/Resources/ContinuousPlayer.help/Contents/Resources/ja.lproj/dlna.html",
+      "bytes": 2450,
+      "sha256": "1af0c32b1e96c1a3908cfa75b707e63e6831f8157308196cddb4b87d18ba866b"
+    },
+    {
+      "path": "Contents/Resources/ContinuousPlayer.help/Contents/Resources/ja.lproj/index.html",
+      "bytes": 2119,
+      "sha256": "fd340f311e26ab7e1726f85abed1f7f31242eea43f8760b663acdc6f4b6d675b"
+    },
+    {
+      "path": "Contents/Resources/ContinuousPlayer.help/Contents/Resources/ja.lproj/local.html",
+      "bytes": 2419,
+      "sha256": "b6e3d702bfb6d6dde2f0a9c018457880b6beb410a2d7e61f9fe5d7bdfdad7551"
+    },
+    {
+      "path": "Contents/Resources/ContinuousPlayer.help/Contents/Resources/ja.lproj/style.css",
+      "bytes": 1805,
+      "sha256": "af851846bbdeb4e7212deb31b1d37c11c72dc47327df21811120883012c595b9"
+    },
+    {
+      "path": "Contents/Resources/ContinuousPlayer.help/Contents/Resources/ja.lproj/troubleshooting.html",
+      "bytes": 3527,
+      "sha256": "3c731ac4bff732a31b59c89787849c2503b4ed58bc080a913711785c2c09fd42"
+    },
+    {
+      "path": "Contents/Resources/LaunchScreen.storyboardc/Info.plist",
+      "bytes": 246,
+      "sha256": "80222f2959338ca0943b2406501cd4f3a2d2a548a05a92caad966bcf41c2b915"
+    },
+    {
+      "path": "Contents/Resources/LaunchScreen.storyboardc/UIViewController-launch.nib",
+      "bytes": 914,
+      "sha256": "a3d0adb0e9254f9a071419b8302a4ec227d586c3971b0cde4a8ebc47068032ea"
+    },
+    {
+      "path": "Contents/Resources/LaunchScreen.storyboardc/launch-view-root.nib",
+      "bytes": 2118,
+      "sha256": "c4031f367ceee018998d5e4024e1e7f5638de6900848ecf26947b126e9df1b80"
+    },
+    {
+      "path": "Contents/_CodeSignature/CodeResources",
+      "bytes": 8096,
+      "sha256": "06bf0783144d0f9ca8246d5fc6be272659f16bd6e98e39330ec0e00db7cdc25d"
+    }
+  ]
+}

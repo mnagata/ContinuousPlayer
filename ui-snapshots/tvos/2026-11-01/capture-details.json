@@ -1,0 +1,62 @@
+[
+  {
+    "captured_at": "2026-10-31T15:26:40Z",
+    "image": "home--default--tv-focus.png",
+    "window_focus": "home.chooseFolder:動画フォルダーを選ぶ"
+  },
+  {
+    "captured_at": "2026-10-31T15:26:42Z",
+    "image": "saved-folders--empty--tv-focus.png",
+    "window_focus": "saved.addFolder:フォルダーを追加"
+  },
+  {
+    "captured_at": "2026-10-31T15:26:45Z",
+    "image": "add-source--default--tv-focus.png",
+    "window_focus": ":DLNAサーバー、NASのフォルダーを開いて登録"
+  },
+  {
+    "captured_at": "2026-10-31T15:26:48Z",
+    "image": "dlna-servers--populated--tv-focus.png",
+    "window_focus": ":UI Sample NAS"
+  },
+  {
+    "captured_at": "2026-10-31T15:26:53Z",
+    "image": "saved-folders--populated--tv-focus.png",
+    "window_focus": "saved.dlna.uuid:ui-sample-video\u00000:UI Sample NAS、UI Sample NAS · UI Sample NAS"
+  },
+  {
+    "captured_at": "2026-10-31T15:26:57Z",
+    "image": "file-browser--populated--tv-focus.png",
+    "window_focus": "dlna.folder.empty:Other Folder"
+  },
+  {
+    "captured_at": "2026-10-31T15:27:02Z",
+    "image": "player--video-playing--tv-video-surface.png",
+    "window_focus": ""
+  },
+  {
+    "captured_at": "2026-10-31T15:27:05Z",
+    "image": "player--video-paused--tv-focus.png",
+    "window_focus": "player.toggle:再生"
+  },
+  {
+    "captured_at": "2026-10-31T15:27:09Z",
+    "image": "media-info--video--tv-focus.png",
+    "window_focus": "player.info.close:閉じる"
+  },
+  {
+    "captured_at": "2026-10-31T15:27:26Z",
+    "image": "player--audio-playing--tv-audio-surface.png",
+    "window_focus": ""
+  },
+  {
+    "captured_at": "2026-10-31T15:27:44Z",
+    "image": "player--ended--tv-focus.png",
+    "window_focus": "player.toggle:再生"
+  },
+  {
+    "captured_at": "2026-10-31T15:28:01Z",
+    "image": "playback-error--decode--tv-focus.png",
+    "window_focus": "player.error.retry:再試行"
+  }
+]
