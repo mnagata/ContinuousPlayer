@@ -6,21 +6,22 @@ ContinuousPlayer各プラットフォームの共通仕様・設計資料を管�
 
 ## ドキュメント
 
-| 文書 | 内容 | 状態 |
-|---|---|---|
-| [共通操作仕様案 v1](docs/common-operation-spec.md) | ファイル選択・キャンセル、再生操作、フォーカス、中断・復帰、登録、エラー処理と共通の確認項目 | 提案・未実装 |
-| [UI・操作比較（2026年10月27日）](docs/platform-ui-operation-comparison-2026-10-27.md) | 現行Android版を反映した3版の比較。上下端の操作部、選び直し・入力・DLNA・エラーと共通仕様に残る差 | 固定コミットの実装比較 |
-| [UI・操作比較（2026年10月24日）](docs/platform-ui-operation-comparison-2026-10-24.md) | Android・iOS・Windowsのコード調査とMac／TV版の差分。参照コミット・根拠へのリンク付き | 調査時点の記録 |
+| 文書                                                                                         | 内容                                                                                         | 状態                   |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | ---------------------- |
+| [UIデザイン・スナップショット](ui-snapshots/README.md)                                       | Android・Android TVとApple 4版の実UI画像、画面ID・状態・撮影条件                             | 撮影時点の記録         |
+| [Apple 4版 UIスナップショット（2026年11月1日）](ui-snapshots/apple.md)                       | iOS・iPadOS・tvOS・Mac Catalyst、計60枚と比較入口                                            | 固定コミットの実UI     |
+| [共通操作仕様案 v1](docs/common-operation-spec.md)                                           | ファイル選択・キャンセル、再生操作、フォーカス、中断・復帰、登録、エラー処理と共通の確認項目 | 提案・未実装           |
+| [UI・操作比較（10月27日初版／Apple版11月1日更新）](docs/platform-ui-operation-comparison.md) | 現行Apple 4版の選択・復元・再生UI・入力・エラーを反映。Android・Windowsは初版の固定版と比較  | 固定コミットの実装比較 |
 
 共通操作仕様はこのリポジトリの [docs/common-operation-spec.md](docs/common-operation-spec.md) を管理元とします。比較資料は調査日時点の記録であり、最新の実装状況や動作保証を示すものではありません。
 
 ## アプリのリポジトリ
 
-| リポジトリ | 対象 |
-|---|---|
-| [ContinuousPlayer_for_Android](https://github.com/mnagata/ContinuousPlayer_for_Android) | Android・Android TV |
-| [ContinuousPlayer_for_iOS](https://github.com/mnagata/ContinuousPlayer_for_iOS) | iOS・iPadOS・tvOS・Mac Catalyst |
-| [ContinuousPlayer_for_Win](https://github.com/mnagata/ContinuousPlayer_for_Win) | Windows |
+| リポジトリ                                                                              | 対象                            |
+| --------------------------------------------------------------------------------------- | ------------------------------- |
+| [ContinuousPlayer_for_Android](https://github.com/mnagata/ContinuousPlayer_for_Android) | Android・Android TV             |
+| [ContinuousPlayer_for_iOS](https://github.com/mnagata/ContinuousPlayer_for_iOS)         | iOS・iPadOS・tvOS・Mac Catalyst |
+| [ContinuousPlayer_for_Win](https://github.com/mnagata/ContinuousPlayer_for_Win)         | Windows                         |
 
 ## 更新方針
 
