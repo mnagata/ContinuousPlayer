@@ -1,0 +1,18 @@
+Windows UI snapshot capture: 2026-11-03
+Source revision: 5aeed393d93c09a4a572bd3d9c01263f2bb538aa
+Capture kind: runtime-fixture (local Windows, isolated package identity)
+
+PASS: application Debug/x64 build, 0 warnings, 0 errors.
+PASS: 16 PNGs and 16 JPEG originals, all 1026 x 610 px.
+PASS: PNG and JPEG SHA-256, registered screen/state IDs, unique variants.
+PASS: capture README image links, Windows catalog entry, artifact inventory digest.
+PASS: visual review of all 16 PNGs against their descriptions.
+PASS: fixture generator build and runtime smoke check; generated 90-second WAV matches captured fixture SHA-256.
+NOTE: fixture generator restore emitted NU1900 because NuGet vulnerability data was unreachable; compilation and sample generation succeeded.
+PASS: isolated capture package removed; normal development package registration restored.
+
+Command for metadata validation:
+pwsh -File tools/windows/Test-Capture.ps1
+
+Scope: visual documentation only. Uncaptured conditions are listed in manifest.json coverage.
+JPEG originals retain compression artifacts; PNG conversion does not recover lost detail.

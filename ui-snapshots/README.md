@@ -13,17 +13,17 @@
 | `tvos` | Apple TV / tvOS | [2026-11-01：1080p、リモコン](tvos/2026-11-01/README.md) | Simulator実UI、12枚。音声情報は未収録 |
 | `mac-catalyst` | Mac Catalyst | [2026-11-01：ウィンドウ・シート](mac-catalyst/2026-11-01/README.md) | Mac実UI、16枚。JPEG原本と同寸法PNG |
 | `macos` | macOSネイティブ | — | 未収録。実装の存在を示すものではない |
-| `windows` | Windows | — | 未収録 |
+| `windows` | Windows | [2026-11-03：ウィンドウ・ダイアログ](windows/2026-11-03/README.md) | Windows実UI、16枚。JPEG原本と同寸法PNG |
 
 同じアプリのコードを共有していても、TV・タブレット・デスクトップの撮影記録は分けます。Mac CatalystとmacOSネイティブも別IDで扱います。
 
 ## 資料の使い方
 
 - Apple 4版を比較する：[2026-11-01の比較入口・60枚](apple-2026-11-01.md)
-- 画面を見る：[Android](android/2026-11-01/README.md)、[Android TV](android-tv/2026-11-01/README.md)
+- 画面を見る：[Android](android/2026-11-01/README.md)、[Android TV](android-tv/2026-11-01/README.md)、[Windows](windows/2026-11-03/README.md)
 - 他OSを追加する：[記録形式・更新ルール](format.md)、[追加用テンプレート](templates/capture-record.md)
 - 自動処理する：[プラットフォーム台帳](catalog.json)、各記録の `manifest.json`
-- 撮影を再現する：[Android撮影手順](../tools/android/README.md)、[Apple版撮影手順](../tools/apple/README.md)
+- 撮影を再現する：[Android撮影手順](../tools/android/README.md)、[Apple版撮影手順](../tools/apple/README.md)、[Windows版撮影手順](../tools/windows/README.md)
 
 収録後にUIが変わったら、新しい撮影IDのディレクトリを追加します。旧画像は履歴資料として残し、この一覧と `catalog.json` の最新記録へのリンクを更新します。プラットフォーム間でUIを一律に揃える判断は、この資料から自動的には行いません。
 

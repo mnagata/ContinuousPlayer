@@ -42,6 +42,9 @@
     ],
     "permission": [
       "default"
+    ],
+    "windows-audio-settings": [
+      "default"
     ]
   }
 }

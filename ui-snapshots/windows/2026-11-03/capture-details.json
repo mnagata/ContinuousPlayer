@@ -1,0 +1,114 @@
+[
+  {
+    "screen": "home",
+    "state": "default",
+    "variant": "desktop-window",
+    "file": "source-jpeg/home--default--desktop-window.jpg",
+    "captured_at": "2026-11-03T10:15:43.696Z"
+  },
+  {
+    "screen": "saved-folders",
+    "state": "empty",
+    "variant": "desktop-window",
+    "file": "source-jpeg/saved-folders--empty--desktop-window.jpg",
+    "captured_at": "2026-11-03T10:15:57.112Z"
+  },
+  {
+    "screen": "add-source",
+    "state": "default",
+    "variant": "desktop-window",
+    "file": "source-jpeg/add-source--default--desktop-window.jpg",
+    "captured_at": "2026-11-03T10:16:44.643Z"
+  },
+  {
+    "screen": "saved-folders",
+    "state": "populated",
+    "variant": "desktop-window",
+    "file": "source-jpeg/saved-folders--populated--desktop-window.jpg",
+    "captured_at": "2026-11-03T10:17:23.741Z"
+  },
+  {
+    "screen": "file-browser",
+    "state": "empty",
+    "variant": "desktop-window",
+    "file": "source-jpeg/file-browser--empty--desktop-window.jpg",
+    "captured_at": "2026-11-03T10:17:46.735Z"
+  },
+  {
+    "screen": "file-browser",
+    "state": "populated",
+    "variant": "desktop-window",
+    "file": "source-jpeg/file-browser--populated--desktop-window.jpg",
+    "captured_at": "2026-11-03T10:17:51.710Z"
+  },
+  {
+    "screen": "player",
+    "state": "video-playing",
+    "variant": "desktop-window",
+    "file": "source-jpeg/player--video-playing--desktop-window.jpg",
+    "captured_at": "2026-11-03T10:17:57.566Z"
+  },
+  {
+    "screen": "player",
+    "state": "video-paused",
+    "variant": "desktop-window",
+    "file": "source-jpeg/player--video-paused--desktop-window.jpg",
+    "captured_at": "2026-11-03T10:18:03.168Z"
+  },
+  {
+    "screen": "media-info",
+    "state": "video",
+    "variant": "desktop-window",
+    "file": "source-jpeg/media-info--video--desktop-window.jpg",
+    "captured_at": "2026-11-03T10:18:10.980Z"
+  },
+  {
+    "screen": "player",
+    "state": "audio-playing",
+    "variant": "desktop-window",
+    "file": "source-jpeg/player--audio-playing--desktop-window.jpg",
+    "captured_at": "2026-11-03T10:18:25.213Z"
+  },
+  {
+    "screen": "media-info",
+    "state": "audio",
+    "variant": "desktop-window",
+    "file": "source-jpeg/media-info--audio--desktop-window.jpg",
+    "captured_at": "2026-11-03T10:18:30.542Z"
+  },
+  {
+    "screen": "file-browser",
+    "state": "populated",
+    "variant": "desktop-playback-overlay",
+    "file": "source-jpeg/file-browser--populated--desktop-playback-overlay.jpg",
+    "captured_at": "2026-11-03T10:18:40.360Z"
+  },
+  {
+    "screen": "playback-error",
+    "state": "decode",
+    "variant": "desktop-window",
+    "file": "source-jpeg/playback-error--decode--desktop-window.jpg",
+    "captured_at": "2026-11-03T10:18:46.220Z"
+  },
+  {
+    "screen": "saved-folders",
+    "state": "remove-confirmation",
+    "variant": "desktop-window",
+    "file": "source-jpeg/saved-folders--remove-confirmation--desktop-window.jpg",
+    "captured_at": "2026-11-03T10:19:07.799Z"
+  },
+  {
+    "screen": "player",
+    "state": "ended",
+    "variant": "desktop-window",
+    "file": "source-jpeg/player--ended--desktop-window.jpg",
+    "captured_at": "2026-11-03T10:19:27.689Z"
+  },
+  {
+    "screen": "windows-audio-settings",
+    "state": "default",
+    "variant": "desktop-window",
+    "file": "source-jpeg/windows-audio-settings--default--desktop-window.jpg",
+    "captured_at": "2026-11-03T10:19:36.838Z"
+  }
+]

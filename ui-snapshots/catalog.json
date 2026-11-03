@@ -46,8 +46,8 @@
     {
       "id": "windows",
       "name": "Windows",
-      "status": "planned",
-      "latest": null
+      "status": "captured",
+      "latest": "windows/2026-11-03"
     }
   ]
 }

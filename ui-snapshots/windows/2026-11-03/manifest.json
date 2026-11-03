@@ -1,0 +1,532 @@
+{
+  "schema_version": 1,
+  "platform": "windows",
+  "capture_id": "2026-11-03",
+  "captured_at": "2026-11-03T10:15:43.696Z",
+  "capture_end": "2026-11-03T10:19:36.838Z",
+  "capture_kind": "runtime-fixture",
+  "source": {
+    "repository": "https://github.com/mnagata/ContinuousPlayer_for_Win",
+    "revision": "5aeed393d93c09a4a572bd3d9c01263f2bb538aa",
+    "production_tree": "製品ソースは参照コミットと一致。既存の作業差分は.gitignoreと未追跡の設計文書のみ。撮影用レイアウトのAppxManifest.xmlのIdentity NameだけをContinuousPlayer.UISnapshotsへ変更。アプリDLL・XAML・再生処理の変更や画面状態注入なし。",
+    "build_variant": "Debug / x64 / 1.0.0.0, .NET SDK 11.0.100-rc.3.26522.148, Windows App SDK 2.5.1, WinApp CLI 0.7.1",
+    "artifact_sha256": "3398941cdd2ea116d8af0372f52b46ff0fcdc9afd1cd96b3ca26b61d7ee0c764",
+    "artifact_hash_scope": "artifact-files.jsonをpathのordinal順に並べ、path + NUL + sha256 + LFを連結したUTF-8のSHA-256。撮影レイアウトの全通常ファイル252件。",
+    "artifact_inventory": "artifact-files.json",
+    "managed_assembly_sha256": "7278901ce2e6260b88be96fa7c68d862e4f46d204a7d109f53cce72bbef5221d",
+    "executable_sha256": "a4eb836ade6c1de9f39b725494f2367b9cbd8030467587981ec84284cffcbce2"
+  },
+  "environment": {
+    "device": "Windows PC（ローカル実行）",
+    "os": "Windows NT 10.0, build 26300.9818, DisplayVersion 26H2",
+    "os_edition_registry": "Windows 10 Home（レジストリのProductName値）",
+    "architecture": "x64 application",
+    "runtime": ".NET 10.0.14 / Windows App SDK 2.5.1",
+    "app_language": "ja（画面で確認）",
+    "os_culture": "ja-JP",
+    "appearance": "暗色（撮影画像で確認）",
+    "text_scale": null,
+    "display_scale": null,
+    "window_dip_size": null,
+    "window_image_size_px": [
+      1026,
+      610
+    ],
+    "input": "Computer Use @oai/skyのポインター操作。キーボード選択の比較は未収録。",
+    "capture_method": "sky.get_window_stateのウィンドウJPEGを保存し、PowerShell 7 / System.Drawing.Image.Saveで同寸法PNGへ形式変換。",
+    "system_regions": "タイトルバー、枠、ポインターと周囲の青い強調表示を含む。ダイアログもアプリ全体で撮影。",
+    "execution_target": "local; Sandboxは停止しており、ホストはWindows Home。撮影専用パッケージIDで通常版の設定領域と分離。"
+  },
+  "fixture": {
+    "description": "単色の120秒MP4（H264・320×240・15fps、AAC・44.1kHz・2ch）、90秒と2秒の48kHz mono 16-bit無音WAV、意図的な破損MP4、空の子フォルダー。",
+    "setup": "tools/windows/README.md。動画は既存の合成テスト用Cursor test.mp4をSample OP.mp4として複写。音声はゼロ値PCMのRIFF/WAVを生成。",
+    "video_sha256": "61c840f1d6129a8f162788f5f2ac17faf2758ab39d7bcc766cfe930d083b851e",
+    "audio_sha256": "fd967467076ec933370ff8a661819ee7b6390dc2d5975c71f1e2d3d72743400b",
+    "data_impact": "別ID ContinuousPlayer.UISnapshotsのLocalState/library.jsonだけに2件のサンプル登録を事前設定。通常版の登録・設定・個人メディアは使用していない。撮影専用パッケージは撮影後に削除し、通常版の開発登録を標準ビルド先へ復元。"
+  },
+  "limitations": [
+    "実UIの見た目の記録であり、仕様への準拠、実NAS、USB、外部DACの動作保証ではない。",
+    "Computer Useが返すJPEGを原寸PNGへ形式変換。JPEGの圧縮を含む。source-jpegに取得元を保存。リサイズ、切り抜き、合成、注釈、描き直しなし。",
+    "画像の1026×610は取得ファイルの格納px寸法。OSのDPI、文字倍率、ウィンドウDIP寸法は独立測定していないためnull。",
+    "ポインターと青い強調表示は撮影環境由来。外観は暗色のみ。",
+    "各captured_atは取得画像を保存した時刻。撮影ツールはフレームそのもののタイムスタンプを返さない。",
+    "通常UIの画面遷移・再生処理を使用。登録済み2件の準備のみ撮影専用の保存ファイルで行い、登録操作そのものの検証とは区別する。"
+  ],
+  "screenshots": [
+    {
+      "screen": "home",
+      "state": "default",
+      "variant": "desktop-window",
+      "image": "images/home--default--desktop-window.png",
+      "title": "ホーム",
+      "width_px": 1026,
+      "height_px": 610,
+      "sha256": "a254ee1bfb43c284a499f4346d1514f37d35acfcc00298ab82efc495750709b5",
+      "captured_at": "2026-11-03T10:15:43.696Z",
+      "preconditions": [
+        "起動直後。登録状態によらずホームから開始。"
+      ],
+      "steps": [
+        "撮影専用パッケージを起動。"
+      ],
+      "observations": [
+        "ロゴ、英字見出し、アプリ名、動画フォルダーを選ぶボタン。"
+      ],
+      "source_image": "source-jpeg/home--default--desktop-window.jpg",
+      "source_sha256": "124f41be6b6ea01a8a686bb229ebe2611d610e8f0e2801f172b60f6cc98b79f0",
+      "encoding_conversion": "取得元JPEG → System.Drawing.Image.Save(Png)。リサイズ・合成なし。",
+      "environment_overrides": {
+        "surface": "application-window-with-titlebar",
+        "window_focus": null,
+        "window_focus_note": "アプリ操作直後の画面。実測フォーカス要素は画像ごとに保存していないためnull。"
+      }
+    },
+    {
+      "screen": "saved-folders",
+      "state": "empty",
+      "variant": "desktop-window",
+      "image": "images/saved-folders--empty--desktop-window.png",
+      "title": "保存済みフォルダー・未登録",
+      "width_px": 1026,
+      "height_px": 610,
+      "sha256": "23e7a379f298155e20fb3744968a529fc14b3c6b346bacedd758bc7b74e757eb",
+      "captured_at": "2026-11-03T10:15:57.112Z",
+      "preconditions": [
+        "撮影専用IDの初回起動で登録0件。"
+      ],
+      "steps": [
+        "ホーム → 動画フォルダーを選ぶ。"
+      ],
+      "observations": [
+        "フォルダーを追加の行のみを表示。"
+      ],
+      "source_image": "source-jpeg/saved-folders--empty--desktop-window.jpg",
+      "source_sha256": "2c903d9583e79b87c2f465c4687138d5f611df5830b6e2e404a0789d38e811fc",
+      "encoding_conversion": "取得元JPEG → System.Drawing.Image.Save(Png)。リサイズ・合成なし。",
+      "environment_overrides": {
+        "surface": "application-window-with-titlebar",
+        "window_focus": null,
+        "window_focus_note": "アプリ操作直後の画面。実測フォーカス要素は画像ごとに保存していないためnull。"
+      }
+    },
+    {
+      "screen": "add-source",
+      "state": "default",
+      "variant": "desktop-window",
+      "image": "images/add-source--default--desktop-window.png",
+      "title": "フォルダーの追加先",
+      "width_px": 1026,
+      "height_px": 610,
+      "sha256": "7f38a93d23ebfbed12a7f0eb6819652e137c3dbe7e303ef723d2674c3401d80e",
+      "captured_at": "2026-11-03T10:16:44.643Z",
+      "preconditions": [
+        "登録0件の保存済み一覧。"
+      ],
+      "steps": [
+        "保存済みフォルダー → フォルダーを追加。"
+      ],
+      "observations": [
+        "PC / ローカルフォルダー、USB / 外部ストレージ、NAS / DLNAの3つの入口。"
+      ],
+      "source_image": "source-jpeg/add-source--default--desktop-window.jpg",
+      "source_sha256": "f7b9aa6b02d4ddd5b450da99329af28c4f7bc8855632bcd59602004af35c47c1",
+      "encoding_conversion": "取得元JPEG → System.Drawing.Image.Save(Png)。リサイズ・合成なし。",
+      "environment_overrides": {
+        "surface": "application-window-with-titlebar",
+        "window_focus": null,
+        "window_focus_note": "アプリ操作直後の画面。実測フォーカス要素は画像ごとに保存していないためnull。"
+      }
+    },
+    {
+      "screen": "saved-folders",
+      "state": "populated",
+      "variant": "desktop-window",
+      "image": "images/saved-folders--populated--desktop-window.png",
+      "title": "保存済みフォルダー・登録あり",
+      "width_px": 1026,
+      "height_px": 610,
+      "sha256": "f332d3d61c496513507691ff02bf136fbd640cd69e10f2f6e796830f24b50746",
+      "captured_at": "2026-11-03T10:17:23.741Z",
+      "preconditions": [
+        "撮影専用library.jsonへSample MediaとEnd Sampleの2件を準備して再起動。"
+      ],
+      "steps": [
+        "ホーム → 動画フォルダーを選ぶ。"
+      ],
+      "observations": [
+        "2件のローカル登録とフォルダーを追加の行。"
+      ],
+      "source_image": "source-jpeg/saved-folders--populated--desktop-window.jpg",
+      "source_sha256": "7e670fb26ed90d53f2313b1363131775f810ceb08cb7467ea9b23c66ec61cd42",
+      "encoding_conversion": "取得元JPEG → System.Drawing.Image.Save(Png)。リサイズ・合成なし。",
+      "environment_overrides": {
+        "surface": "application-window-with-titlebar",
+        "window_focus": null,
+        "window_focus_note": "アプリ操作直後の画面。実測フォーカス要素は画像ごとに保存していないためnull。"
+      }
+    },
+    {
+      "screen": "file-browser",
+      "state": "empty",
+      "variant": "desktop-window",
+      "image": "images/file-browser--empty--desktop-window.png",
+      "title": "ファイル一覧・空フォルダー",
+      "width_px": 1026,
+      "height_px": 610,
+      "sha256": "8ef90383f03871c99197b5c62f52af58b37471cc20119130a6fcdf8b13202bd4",
+      "captured_at": "2026-11-03T10:17:46.735Z",
+      "preconditions": [
+        "Sample内のEmptyは空。"
+      ],
+      "steps": [
+        "保存済み → Sample Media → Empty。"
+      ],
+      "observations": [
+        "このフォルダーに対応メディアはありません、と表示。"
+      ],
+      "source_image": "source-jpeg/file-browser--empty--desktop-window.jpg",
+      "source_sha256": "93b551a90fca1188e61b3ed5b65daee261f97aded27e57e34fb8509dca9e5933",
+      "encoding_conversion": "取得元JPEG → System.Drawing.Image.Save(Png)。リサイズ・合成なし。",
+      "environment_overrides": {
+        "surface": "application-window-with-titlebar",
+        "window_focus": null,
+        "window_focus_note": "アプリ操作直後の画面。実測フォーカス要素は画像ごとに保存していないためnull。"
+      }
+    },
+    {
+      "screen": "file-browser",
+      "state": "populated",
+      "variant": "desktop-window",
+      "image": "images/file-browser--populated--desktop-window.png",
+      "title": "ファイル一覧・サンプルあり",
+      "width_px": 1026,
+      "height_px": 610,
+      "sha256": "3c67c50d1b870a5b3b47244239a9a1f043fecdcc906199d627f2e34f81fcb2f8",
+      "captured_at": "2026-11-03T10:17:51.710Z",
+      "preconditions": [
+        "動画・音声・破損ファイルと空の子フォルダーを配置。"
+      ],
+      "steps": [
+        "Empty → 上のフォルダー。"
+      ],
+      "observations": [
+        "フォルダー、動画、音声のアイコン。対応拡張子を省略してCorrupt、Sample OP、Sample EDを表示。"
+      ],
+      "source_image": "source-jpeg/file-browser--populated--desktop-window.jpg",
+      "source_sha256": "f3a8f3e36c3deac8cc6ca69d7f5530395670b7d020143302161adf8e876590cc",
+      "encoding_conversion": "取得元JPEG → System.Drawing.Image.Save(Png)。リサイズ・合成なし。",
+      "environment_overrides": {
+        "surface": "application-window-with-titlebar",
+        "window_focus": null,
+        "window_focus_note": "アプリ操作直後の画面。実測フォーカス要素は画像ごとに保存していないためnull。"
+      }
+    },
+    {
+      "screen": "player",
+      "state": "video-playing",
+      "variant": "desktop-window",
+      "image": "images/player--video-playing--desktop-window.png",
+      "title": "動画・再生中",
+      "width_px": 1026,
+      "height_px": 610,
+      "sha256": "981ee3f5a60ddae2e8a89a83ff55d3fe538aba1203f5d59752c519d5361dfa54",
+      "captured_at": "2026-11-03T10:17:57.566Z",
+      "preconditions": [
+        "Sample OP.mp4は120秒の単色サンプル動画。"
+      ],
+      "steps": [
+        "ファイル一覧 → Sample OPを選択して再生開始。"
+      ],
+      "observations": [
+        "タイトルバーにSample OPと標準。下部操作部を隠し、青い4:3映像と左右の黒帯を表示。"
+      ],
+      "source_image": "source-jpeg/player--video-playing--desktop-window.jpg",
+      "source_sha256": "04a0fe3acf773194085e4db07d14347a78984c75e71a6f5e510c5a2acbbc9b16",
+      "encoding_conversion": "取得元JPEG → System.Drawing.Image.Save(Png)。リサイズ・合成なし。",
+      "environment_overrides": {
+        "surface": "application-window-with-titlebar",
+        "window_focus": null,
+        "window_focus_note": "アプリ操作直後の画面。実測フォーカス要素は画像ごとに保存していないためnull。"
+      }
+    },
+    {
+      "screen": "player",
+      "state": "video-paused",
+      "variant": "desktop-window",
+      "image": "images/player--video-paused--desktop-window.png",
+      "title": "動画・一時停止",
+      "width_px": 1026,
+      "height_px": 610,
+      "sha256": "74faba100be51b03195a5fe401a05dc629f801eb1a962692306d55a0c3ccc553",
+      "captured_at": "2026-11-03T10:18:03.168Z",
+      "preconditions": [
+        "Sample OP.mp4の再生開始後。"
+      ],
+      "steps": [
+        "再生面をクリックして一時停止。"
+      ],
+      "observations": [
+        "下部に前・10秒戻す・再生・10秒進める・次の操作部。"
+      ],
+      "source_image": "source-jpeg/player--video-paused--desktop-window.jpg",
+      "source_sha256": "2ede2929f67cb6beb0421be47851008b1799d5ae838e13a3ce9fd23c22ce224f",
+      "encoding_conversion": "取得元JPEG → System.Drawing.Image.Save(Png)。リサイズ・合成なし。",
+      "environment_overrides": {
+        "surface": "application-window-with-titlebar",
+        "window_focus": null,
+        "window_focus_note": "アプリ操作直後の画面。実測フォーカス要素は画像ごとに保存していないためnull。"
+      }
+    },
+    {
+      "screen": "media-info",
+      "state": "video",
+      "variant": "desktop-window",
+      "image": "images/media-info--video--desktop-window.png",
+      "title": "メディア情報・動画",
+      "width_px": 1026,
+      "height_px": 610,
+      "sha256": "47d6de377d1474ead60eee83f9ce76dd756d681e1e7f859b6806ef17ebc4eb8a",
+      "captured_at": "2026-11-03T10:18:10.980Z",
+      "preconditions": [
+        "Sample OP.mp4を約4秒の位置で一時停止。"
+      ],
+      "steps": [
+        "タイトルバーのメディア情報を選択。"
+      ],
+      "observations": [
+        "H264、320×240、15fps、AAC、44,100Hz、2ch、標準共有モードなどを表示。"
+      ],
+      "source_image": "source-jpeg/media-info--video--desktop-window.jpg",
+      "source_sha256": "e01381fdee5298265154ae1e632d3f2feee2e0239c728a9c4935124a2dad4026",
+      "encoding_conversion": "取得元JPEG → System.Drawing.Image.Save(Png)。リサイズ・合成なし。",
+      "environment_overrides": {
+        "surface": "application-window-with-titlebar",
+        "window_focus": null,
+        "window_focus_note": "アプリ操作直後の画面。実測フォーカス要素は画像ごとに保存していないためnull。"
+      }
+    },
+    {
+      "screen": "player",
+      "state": "audio-playing",
+      "variant": "desktop-window",
+      "image": "images/player--audio-playing--desktop-window.png",
+      "title": "音声・再生中",
+      "width_px": 1026,
+      "height_px": 610,
+      "sha256": "1e0d56ea148f43c219320ec549d88f4bc5e6103a62e90a0435e32bbd7e413bf3",
+      "captured_at": "2026-11-03T10:18:25.213Z",
+      "preconditions": [
+        "Sample ED.wavは90秒、48kHz、mono、16-bit PCMの無音。ジャケットなし。"
+      ],
+      "steps": [
+        "動画情報を閉じる → 次のファイル → 再生。"
+      ],
+      "observations": [
+        "音符と曲名、下部の一時停止ボタン。末尾の曲のため次のボタンは無効。"
+      ],
+      "source_image": "source-jpeg/player--audio-playing--desktop-window.jpg",
+      "source_sha256": "497505d8e9a11f39c9915160b6b0db13e043763fc3def2d27751f987fd3da24c",
+      "encoding_conversion": "取得元JPEG → System.Drawing.Image.Save(Png)。リサイズ・合成なし。",
+      "environment_overrides": {
+        "surface": "application-window-with-titlebar",
+        "window_focus": null,
+        "window_focus_note": "アプリ操作直後の画面。実測フォーカス要素は画像ごとに保存していないためnull。"
+      }
+    },
+    {
+      "screen": "media-info",
+      "state": "audio",
+      "variant": "desktop-window",
+      "image": "images/media-info--audio--desktop-window.png",
+      "title": "メディア情報・音声",
+      "width_px": 1026,
+      "height_px": 610,
+      "sha256": "55ef8008b4da285b6f0d647fd4f07fc3601133179eace05f4ff57701f6d27b9d",
+      "captured_at": "2026-11-03T10:18:30.542Z",
+      "preconditions": [
+        "Sample ED.wavを再生中。情報表示で一時停止。"
+      ],
+      "steps": [
+        "タイトルバーのメディア情報を選択。"
+      ],
+      "observations": [
+        "映像なし、PCM、48,000Hz、1ch、16-bit、Windows MediaPlayerと標準共有モードを表示。"
+      ],
+      "source_image": "source-jpeg/media-info--audio--desktop-window.jpg",
+      "source_sha256": "ede9ccbc826433c938bc7776742a1f874da1833ece5be620205782c023b9da8c",
+      "encoding_conversion": "取得元JPEG → System.Drawing.Image.Save(Png)。リサイズ・合成なし。",
+      "environment_overrides": {
+        "surface": "application-window-with-titlebar",
+        "window_focus": null,
+        "window_focus_note": "アプリ操作直後の画面。実測フォーカス要素は画像ごとに保存していないためnull。"
+      }
+    },
+    {
+      "screen": "file-browser",
+      "state": "populated",
+      "variant": "desktop-playback-overlay",
+      "image": "images/file-browser--populated--desktop-playback-overlay.png",
+      "title": "再生元ファイル一覧",
+      "width_px": 1026,
+      "height_px": 610,
+      "sha256": "c4ba6888ac46408867652d36bad27a7ea25649206d30ba9e447925423d195d96",
+      "captured_at": "2026-11-03T10:18:40.360Z",
+      "preconditions": [
+        "Sample ED.wavの情報を閉じて再生を復元。"
+      ],
+      "steps": [
+        "タイトルバーのファイル一覧を選択。"
+      ],
+      "observations": [
+        "再生画面上の一覧。Sample EDの行が選択されている。"
+      ],
+      "source_image": "source-jpeg/file-browser--populated--desktop-playback-overlay.jpg",
+      "source_sha256": "3527ceed142b00cbbd7a3f34083fc6f4bd50ba339c39f0385473889e51350f92",
+      "encoding_conversion": "取得元JPEG → System.Drawing.Image.Save(Png)。リサイズ・合成なし。",
+      "environment_overrides": {
+        "surface": "application-window-with-titlebar",
+        "window_focus": null,
+        "window_focus_note": "アプリ操作直後の画面。実測フォーカス要素は画像ごとに保存していないためnull。"
+      }
+    },
+    {
+      "screen": "playback-error",
+      "state": "decode",
+      "variant": "desktop-window",
+      "image": "images/playback-error--decode--desktop-window.png",
+      "title": "再生エラー・破損MP4",
+      "width_px": 1026,
+      "height_px": 610,
+      "sha256": "606b36bb65515cbd2856093c01a28280d268bfde201498040fed70ecab0cd505",
+      "captured_at": "2026-11-03T10:18:46.220Z",
+      "preconditions": [
+        "意図的に無効な内容のCorrupt.mp4。実際の読み込み失敗で表示。"
+      ],
+      "steps": [
+        "再生元一覧でCorruptを選択。"
+      ],
+      "observations": [
+        "原因案内、SourceNotSupported、0xC00D36C4、再試行・次のファイル・ファイル一覧・閉じる。"
+      ],
+      "source_image": "source-jpeg/playback-error--decode--desktop-window.jpg",
+      "source_sha256": "9e2af5455bd57ca1948e5ec21f9eecb699f89f985f200472ade2b383d82ca3f3",
+      "encoding_conversion": "取得元JPEG → System.Drawing.Image.Save(Png)。リサイズ・合成なし。",
+      "environment_overrides": {
+        "surface": "application-window-with-titlebar",
+        "window_focus": null,
+        "window_focus_note": "アプリ操作直後の画面。実測フォーカス要素は画像ごとに保存していないためnull。"
+      }
+    },
+    {
+      "screen": "saved-folders",
+      "state": "remove-confirmation",
+      "variant": "desktop-window",
+      "image": "images/saved-folders--remove-confirmation--desktop-window.png",
+      "title": "フォルダーの登録解除確認",
+      "width_px": 1026,
+      "height_px": 610,
+      "sha256": "a59a27d3c3b2c8db5f38ee3dc2f3e2dbc6ef0ec99416a2237f43dca86931eecb",
+      "captured_at": "2026-11-03T10:19:07.799Z",
+      "preconditions": [
+        "エラー画面のファイル一覧から保存済みへ戻る。登録解除は実行しない。"
+      ],
+      "steps": [
+        "保存済み一覧でEnd Sampleを右クリック。"
+      ],
+      "observations": [
+        "End Sampleの登録解除確認。実ファイルは削除しない旨と、登録解除・閉じる。"
+      ],
+      "source_image": "source-jpeg/saved-folders--remove-confirmation--desktop-window.jpg",
+      "source_sha256": "c89090e5dfed68e8aba36367a34012d7804a91dc6941ef84281729b26d6f3549",
+      "encoding_conversion": "取得元JPEG → System.Drawing.Image.Save(Png)。リサイズ・合成なし。",
+      "environment_overrides": {
+        "surface": "application-window-with-titlebar",
+        "window_focus": null,
+        "window_focus_note": "アプリ操作直後の画面。実測フォーカス要素は画像ごとに保存していないためnull。"
+      }
+    },
+    {
+      "screen": "player",
+      "state": "ended",
+      "variant": "desktop-window",
+      "image": "images/player--ended--desktop-window.png",
+      "title": "再生終了",
+      "width_px": 1026,
+      "height_px": 610,
+      "sha256": "38c4fa1866b8e67d064c804631be75913916d83a49d706a0930e9b85db174541",
+      "captured_at": "2026-11-03T10:19:27.689Z",
+      "preconditions": [
+        "End Sampleには2秒の無音WAVが1件だけ。"
+      ],
+      "steps": [
+        "解除確認を閉じる → End Sample → Endを選択して末尾まで待つ。"
+      ],
+      "observations": [
+        "タイトルバーに最後まで再生しました。再生ボタンと無効な前・次ボタン。"
+      ],
+      "source_image": "source-jpeg/player--ended--desktop-window.jpg",
+      "source_sha256": "2b350be100c19dc77f8ee450086b5008806f4bf900571aa82eb74c1eb8735202",
+      "encoding_conversion": "取得元JPEG → System.Drawing.Image.Save(Png)。リサイズ・合成なし。",
+      "environment_overrides": {
+        "surface": "application-window-with-titlebar",
+        "window_focus": null,
+        "window_focus_note": "アプリ操作直後の画面。実測フォーカス要素は画像ごとに保存していないためnull。"
+      }
+    },
+    {
+      "screen": "windows-audio-settings",
+      "state": "default",
+      "variant": "desktop-window",
+      "image": "images/windows-audio-settings--default--desktop-window.png",
+      "title": "音声出力設定・標準",
+      "width_px": 1026,
+      "height_px": 610,
+      "sha256": "62ce064551aeb976b574bbb68da6911656f158ba067b6631441e5076b3296d4d",
+      "captured_at": "2026-11-03T10:19:36.838Z",
+      "preconditions": [
+        "撮影専用IDの初期設定。機器一覧の展開や設定保存は行わない。"
+      ],
+      "steps": [
+        "再生終了画面 → タイトルバーの音声出力設定。"
+      ],
+      "observations": [
+        "標準と曲に合わせる（排他）、出力先、機器一覧を更新、注意説明、保存・キャンセル。"
+      ],
+      "source_image": "source-jpeg/windows-audio-settings--default--desktop-window.jpg",
+      "source_sha256": "9892d860e22b4354ae4c4279bf1c80384ccea927e42c4899734b4540e023b95f",
+      "encoding_conversion": "取得元JPEG → System.Drawing.Image.Save(Png)。リサイズ・合成なし。",
+      "environment_overrides": {
+        "surface": "application-window-with-titlebar",
+        "window_focus": null,
+        "window_focus_note": "アプリ操作直後の画面。実測フォーカス要素は画像ごとに保存していないためnull。"
+      }
+    }
+  ],
+  "coverage": [
+    {
+      "scope": "file-browser/loading,failure",
+      "status": "pending",
+      "reason": "通常一覧と空フォルダーのみ。遅延取得・アクセス失敗は未収録。"
+    },
+    {
+      "scope": "dlna-servers/*",
+      "status": "pending",
+      "reason": "個人のNASやネットワーク情報を収録しないため探索・接続は未実施。次回はループバックのサンプルサーバーを用意する。"
+    },
+    {
+      "scope": "system-picker/default,permission/default",
+      "status": "pending",
+      "reason": "登録の初期状態は撮影専用の保存ファイルで準備。OSフォルダー選択・権限案内は未収録。"
+    },
+    {
+      "scope": "windows/fullscreen,light,high-contrast,large-font,touch",
+      "status": "pending",
+      "reason": "今回の対象は初期サイズの暗色ウィンドウとポインター入力のみ。"
+    },
+    {
+      "scope": "player/artwork,exclusive-output,usb-dac,interruptions",
+      "status": "pending",
+      "reason": "標準共有モード、ジャケットなしの音声のみ。外部機器・割り込み・排他再生は未収録。"
+    }
+  ]
+}
